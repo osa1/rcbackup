@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/sinan/Desktop/c/datastructs'
+let g:netrw_dirhist_2='/home/sinan/Desktop/c/datastructs/src'
+let g:netrw_dirhist_3='/home/sinan/glib/glib/glib'
+let g:netrw_dirhist_4='/home/sinan/osa1'
+let g:netrw_dirhist_5='/home/sinan/packages_pardus'
