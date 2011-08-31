@@ -169,11 +169,9 @@ if has("gui_running")
    set guioptions-=L
    set guioptions-=l
    set guioptions-=r
-   "set guifont=Droid\ Sans\ Mono\ 10
-   set guifont=Consolas\ 11
-   "set guifont=Monaco\ 9
+   set guifont=Consolas\ 9
 else
-   colorscheme Tomorrow-Night
+   colorscheme wombat256
 endif
 
 if has("gui_running")
@@ -220,6 +218,7 @@ map <A-9> :tabn 9<CR>
 
 nnoremap <silent> <F7> :TagbarToggle<CR>
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
+" select all
 nnoremap <silent> <C-A> ggVG
 
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -228,6 +227,10 @@ set clipboard=unnamed
 
 imap <c-d> <esc>dba
 cmap >fd <c-r>=expand('%:p:h').'/'<cr>
+
+if has("gui_running") 
+    highlight SpellBad term=underline gui=undercurl guisp=Orange 
+endif 
 
 " I changed my keyboard layout so there is no need for them
 "map ğ {
