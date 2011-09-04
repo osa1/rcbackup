@@ -160,8 +160,6 @@ map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 if has("gui_running")
     set background=light
-   "colorscheme eclipse
-   "colorscheme herald
    colorscheme molokai
    " Remove Toolbar
    set guioptions-=T
@@ -169,7 +167,7 @@ if has("gui_running")
    set guioptions-=L
    set guioptions-=l
    set guioptions-=r
-   set guifont=Consolas\ 9
+   set guifont=Monaco\ 9
 else
    colorscheme wombat256
 endif
