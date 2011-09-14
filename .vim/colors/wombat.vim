@@ -50,3 +50,6 @@ hi Number		guifg=#e5786d gui=none
 hi Special		guifg=#e7f6da gui=none
 
 
+" Custom
+hi IncSearch       guifg=#C4BE89 guibg=#000000
+hi Search          guifg=#FFFFFF guibg=#455354
