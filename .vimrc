@@ -202,7 +202,7 @@ if has("gui_running")
         hi CursorLine term=none cterm=none ctermbg=0
     endif
 
-nmap <f5> :!python %<CR><CR>
+nmap <F6> :!python %<CR>
 
 map <A-1> :tabn 1<CR>
 map <A-2> :tabn 2<CR>
