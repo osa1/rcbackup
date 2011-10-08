@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/processing"]
 	path = .vim/bundle/processing
 	url = https://github.com/vim-scripts/Processing.git
+[submodule ".vim/bundle/vimclojure"]
+	path = .vim/bundle/vimclojure
+	url = https://github.com/vim-scripts/VimClojure.git
