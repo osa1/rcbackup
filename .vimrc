@@ -55,12 +55,11 @@ let classpath = join(
 
 let g:vimclojure#DynamicHighlighting = 0
 let vimclojureRoot = vimfiles."/bundle/vimclojure"
-let vimclojure#NailgunClient = vimclojureRoot . "/bundle/vimclojure"
 let vimclojure#HighlightBuiltins = 1
 let vimclojure#HighlightContrib = 1
 let vimclojure#ParenRainbow  = 0
 let vimclojure#WantNailgun   = 0
-let vimclojure#NailgunClient = vimclojureRoot."/lib/nailgun/ng"
+let vimclojure#NailgunClient = vimclojureRoot."/client/ng"
 
 
 " slimv
@@ -159,15 +158,15 @@ set smartcase
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 if has("gui_running")
-    set background=light
-   colorscheme molokai
+   set background=light
+   colorscheme wombat
    " Remove Toolbar
    set guioptions-=T
    set guioptions-=m
    set guioptions-=L
    set guioptions-=l
    set guioptions-=r
-   set guifont=Monaco\ 9
+   set guifont=Monaco\ 10
 else
    colorscheme wombat256
 endif
@@ -182,9 +181,11 @@ nnoremap k gk
 
 " Next Tab
 nnoremap <silent> <M-Right> :tabnext<CR>
+nnoremap <silent> <C-n> :tabnext<CR>
 
 " Previous Tab
 nnoremap <silent> <M-Left> :tabprevious<CR>
+nnoremap <silent> <C-p> :tabprevious<CR>
 
 " New Tab
 nnoremap <silent> <C-t> :tabnew<CR>
