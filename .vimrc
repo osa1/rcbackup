@@ -248,7 +248,7 @@ map <F1> <Nop>
 imap <F1> <Nop>
 
 " indent with spacebar
-noremap <space> >>
+noremap <space> >><esc>
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
