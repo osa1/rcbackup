@@ -57,9 +57,9 @@ let g:vimclojure#DynamicHighlighting = 0
 let vimclojureRoot = vimfiles."/bundle/vimclojure"
 let vimclojure#HighlightBuiltins = 1
 let vimclojure#HighlightContrib = 1
-let vimclojure#ParenRainbow  = 0
-let vimclojure#WantNailgun   = 0
-let vimclojure#NailgunClient = vimclojureRoot."/client/ng"
+let vimclojure#ParenRainbow  = 1
+let vimclojure#WantNailgun   = 1
+let vimclojure#NailgunClient = vimfiles."/vimclojure-nailgun-client/ng"
 
 
 " slimv
@@ -158,17 +158,17 @@ set smartcase
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 if has("gui_running")
-   set background=light
-   colorscheme wombat
+   set background=dark
+   colorscheme solarized
    " Remove Toolbar
    set guioptions-=T
    set guioptions-=m
    set guioptions-=L
    set guioptions-=l
    set guioptions-=r
-   set guifont=Monaco\ 10
+   set guifont=Droid\ Sans\ Mono\ 10
 else
-   colorscheme wombat256
+   colorscheme jellybeans
 endif
 
 if has("gui_running")
@@ -197,11 +197,6 @@ nnoremap <silent> <C-f> :noh<CR>
 
 set cul
 
-if has("gui_running")
-        hi CursorLine term=none cterm=none ctermbg=3
-    else
-        hi CursorLine term=none cterm=none ctermbg=0
-    endif
 
 nmap <F6> :!python %<CR>
 
@@ -248,7 +243,10 @@ map <F1> <Nop>
 imap <F1> <Nop>
 
 " indent with spacebar
-noremap <space> >><esc>
+noremap <space> >>
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
+autocmd BufNewFile,BufRead *.json set ft=javascript
+
+let g:haddock_browser = "/usr/bin/chromium"
