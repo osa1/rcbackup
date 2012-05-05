@@ -54,6 +54,7 @@ alias 'cljsc=/home/sinan/opt/clojurescript/bin/cljsc'
 
 alias 'resetcabal=rm -rf /home/sinan/.cabal && rm -rf /home/sinan/.ghc && cp -r /home/sinan/.cabal_yedek /home/sinan/.cabal && cp -r /home/sinan/.ghc_yedek /home/sinan/.ghc'
 
+alias 'create_timelapse=ffmpeg -r 10 -f image2 -i %09d.jpg -vcodec mpeg4 -b:v 8000k timelapse.avi'
 
 export TERM=xterm-256color
 export PATH=/home/sinan/opt/apache-maven-3.0.4/bin:$PATH
