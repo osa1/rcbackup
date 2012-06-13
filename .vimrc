@@ -1,3 +1,4 @@
+
 set t_Co=256
 
 let vimfiles = $HOME . "/.vim"
@@ -113,7 +114,7 @@ set title " change the terminal's title
 set nocompatible
 
 " line numbers
-set number
+"set number
 
 syntax enable
 set grepprg=grep\ -nH\ $*
@@ -160,16 +161,17 @@ map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 if has("gui_running")
    set background=dark
-   colorscheme solarized
+   colorscheme mustang
    " Remove Toolbar
    set guioptions-=T
    set guioptions-=m
    set guioptions-=L
    set guioptions-=l
    set guioptions-=r
-   set guifont=Droid\ Sans\ Mono\ 10
+   "set guifont=Droid\ Sans\ Mono\ 10
+   set guifont=Inconsolata\ 11
 else
-   colorscheme jellybeans
+   colorscheme smyck
 endif
 
 if has("gui_running")
@@ -251,3 +253,10 @@ au VimResized * exe "normal! \<c-w>="
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
 let g:haddock_browser = "/usr/bin/chromium"
+let g:Powerline_symbols = 'fancy'
+
+" undo every word
+inoremap <space> <space><C-g>u
+
+
+
