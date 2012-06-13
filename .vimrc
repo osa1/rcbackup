@@ -1,4 +1,3 @@
-
 set t_Co=256
 
 let vimfiles = $HOME . "/.vim"
@@ -41,40 +40,6 @@ function MyConqueStartup(term)
     let syntax_associations = {'ipython': 'python'}
 endfunction
 call conque_term#register_function('after_startup', 'MyConqueStartup')
-
-
-" clojure
-let classpath = join(
-   \[".",
-   \ "src", "src/main/clojure", "src/main/resources",
-   \ "test", "src/test/clojure", "src/test/resources",
-   \ "classes", "target/classes",
-   \ "lib/*", "lib/dev/*",
-   \ "bin",
-   \ vimfiles."/lib/*"
-   \],
-   \ sep)
-
-let g:vimclojure#DynamicHighlighting = 0
-let vimclojureRoot = vimfiles."/bundle/vimclojure"
-let vimclojure#HighlightBuiltins = 1
-let vimclojure#HighlightContrib = 1
-let vimclojure#ParenRainbow  = 1
-let vimclojure#WantNailgun   = 1
-let vimclojure#NailgunClient = vimfiles."/vimclojure-nailgun-client/ng"
-
-
-" slimv
-let g:slimv_swank_clojure = '! xterm -e lein swank &'
-let g:lisp_rainbow = 0
-let g:slimv_repl_syntax = 1
-
-" end clojure
-
-
-" quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 set ai
 set ruler
