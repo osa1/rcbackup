@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/ctrlp"]
     path = .vim/bundle/ctrlp
     url = https://github.com/kien/ctrlp.vim.git
+[submodule ".vim/bundle/solarized"]
+	path = .vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
