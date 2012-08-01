@@ -117,11 +117,11 @@ if has("gui_running")
    set guioptions-=L
    set guioptions-=l
    set guioptions-=r
-   "set guifont=Droid\ Sans\ Mono\ 10
+   set guifont=Droid\ Sans\ Mono\ 8
    "set guifont=Inconsolata\ 11
-   set guifont=Monaco\ 10
+   "set guifont=Monaco\ 10
 else
-   colorscheme smyck
+   colorscheme molokai
 endif
 
 if has("gui_running")
@@ -139,6 +139,7 @@ nnoremap <silent> <C-n> :tabnext<CR>
 " Previous Tab
 nnoremap <silent> <M-Left> :tabprevious<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
+nnoremap <silent> <C-m> :tabnext<CR>
 
 " New Tab
 nnoremap <silent> <C-t> :tabnew<CR>
@@ -193,5 +194,7 @@ let g:Powerline_symbols = 'fancy'
 " undo every word
 "inoremap <space> <space><C-g>u
 
-
+nnoremap { {zz
+nnoremap } }zz
+set noswapfile
 
