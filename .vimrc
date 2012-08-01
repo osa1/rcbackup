@@ -22,24 +22,11 @@ map <leader>g :GundoToggle<CR>
 
 filetype plugin indent on
 
-let g:pep8_map='<leader>8'
-
 "au FileType python set omnifunc=pythoncomplete#Complete
 "let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
-
 :cd ~/
-
-" conque
-"let g:ConqueTerm_Color = 0
-let g:ConqueTerm_FastMode = 1
-function MyConqueStartup(term)
-    let syntax_associations = {'ipython': 'python'}
-endfunction
-call conque_term#register_function('after_startup', 'MyConqueStartup')
 
 set ai
 set ruler
@@ -102,9 +89,6 @@ nnoremap Y y$
 " set formatoptions=qrn1
 " set colorcolumn=85
 
-" NERDTree
-let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index', 'xapian_index', '.*.pid', '*\.o$', '.*-fixtures-.*.json']
-
 " Status line
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 
@@ -134,7 +118,8 @@ if has("gui_running")
    set guioptions-=l
    set guioptions-=r
    "set guifont=Droid\ Sans\ Mono\ 10
-   set guifont=Inconsolata\ 11
+   "set guifont=Inconsolata\ 11
+   set guifont=Monaco\ 10
 else
    colorscheme smyck
 endif
@@ -178,8 +163,6 @@ map <A-7> :tabn 7<CR>
 map <A-8> :tabn 8<CR>
 map <A-9> :tabn 9<CR>
 
-nnoremap <silent> <F7> :TagbarToggle<CR>
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
 " select all
 nnoremap <silent> <C-A> ggVG
 
@@ -194,18 +177,6 @@ if has("gui_running")
     highlight SpellBad term=underline gui=undercurl guisp=Orange 
 endif 
 
-" I changed my keyboard layout so there is no need for them
-"map ğ {
-"map ü }
-"map ğ [
-"map ü ]
-"map Ğ {
-"map Ü }
-"imap ğ [
-"imap ü ]
-"imap Ğ {
-"imap Ü }
-
 " nnoremap <F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 map <F1> <Nop>
 imap <F1> <Nop>
@@ -217,11 +188,10 @@ noremap <space> >>
 au VimResized * exe "normal! \<c-w>="
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
-let g:haddock_browser = "/usr/bin/chromium"
 let g:Powerline_symbols = 'fancy'
 
 " undo every word
-inoremap <space> <space><C-g>u
+"inoremap <space> <space><C-g>u
 
 
 
