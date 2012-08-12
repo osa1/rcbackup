@@ -1,10 +1,8 @@
-set t_Co=256
-
 let vimfiles = $HOME . "/.vim"
 let sep = ":"
 set guicursor+=a:blinkon0
 
-filetype off
+"filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 call pathogen#infect()
@@ -121,7 +119,7 @@ if has("gui_running")
    "set guifont=Inconsolata\ 11
    "set guifont=Monaco\ 10
 else
-   colorscheme molokai
+    colorscheme molokai
 endif
 
 if has("gui_running")
@@ -197,4 +195,8 @@ let g:Powerline_symbols = 'fancy'
 nnoremap { {zz
 nnoremap } }zz
 set noswapfile
+
+set laststatus=2
+
+
 
