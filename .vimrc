@@ -89,10 +89,6 @@ else
    colorscheme molokai
 endif
 
-if has("gui_running")
-   highlight SpellBad term=underline gui=undercurl guisp=Orange
-endif
-
 nnoremap j gj
 nnoremap k gk
 
@@ -112,11 +108,6 @@ set clipboard=unnamed
 
 cmap >fd <c-r>=expand('%:p:h').'/'<cr>
 
-if has("gui_running") 
-  ""highlight SpellBad term=underline gui=undercurl guisp=Orange 
-endif 
-
-" nnoremap <F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 map <F1> <Nop>
 imap <F1> <Nop>
 
