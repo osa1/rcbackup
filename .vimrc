@@ -1,10 +1,10 @@
+set nocompatible
+
 let vimfiles = $HOME . "/.vim"
 let sep = ":"
 set guicursor+=a:blinkon0
 
 "filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 call pathogen#infect()
 
 set foldmethod=indent
@@ -16,16 +16,14 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 map <leader>td <Plug>TaskList
+
 map <leader>g :GundoToggle<CR>
 
 filetype plugin indent on
 
 set completeopt=menuone,longest,preview
 
-:cd ~/
-
 set ai
-set ruler
 set lbr " satirlari harflerle degil kelimelerle boler
 set encoding=utf-8
 set wildmenu
@@ -36,18 +34,17 @@ syntax on
 
 " searching
 set incsearch                 " incremental search
-"set ignorecase                " search ignoring case
+set ignorecase                " search ignoring case
+set smartcase
 set hlsearch                  " highlight the search
 set showmatch                 " show matching bracket
 set diffopt=filler,iwhite     " ignore all whitespace and sync
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o
 
-set tabstop=4
 set shiftwidth=4
 set scrolloff=5               " keep at least 5 lines above/below
 
-" Necesary  for lots of cool vim things
-set nocompatible
+set cul
 
 syntax enable
 set grepprg=grep\ -nH\ $*
@@ -69,35 +66,31 @@ set backup                        " enable backups
 " Enable mouse support in console
 set mouse=a
 
-set ignorecase
-set smartcase
-
 " Clean whitespace
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 if has("gui_running")
-  set background=dark
-  colorscheme mustang
-  " Remove Toolbar
-  set guioptions-=T
-  set guioptions-=m
-  set guioptions-=L
-  set guioptions-=l
-  set guioptions-=r
-  set guifont=Droid\ Sans\ Mono\ 8
+    set background=dark
+    colorscheme mustang
+    " Remove Toolbar
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions-=L
+    set guioptions-=l
+    set guioptions-=r
+    set guifont=Droid\ Sans\ Mono\ 8
 else
-   colorscheme molokai
+    colorscheme molokai
 endif
 
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <silent> <C-n> :tabnext<CR>
+nnoremap <silent> <C-n> :tabprevious<CR>
 nnoremap <silent> <C-m> :tabnext<CR>
 
 nnoremap <silent> <C-f> :noh<CR>
 
-set cul
 
 " select all
 nnoremap <silent> <C-A> ggVG
@@ -108,8 +101,8 @@ set clipboard=unnamed
 
 cmap >fd <c-r>=expand('%:p:h').'/'<cr>
 
-map <F1> <Nop>
-imap <F1> <Nop>
+"map <F1> <Nop>
+"imap <F1> <Nop>
 
 " indent with spacebar
 noremap <space> >>
@@ -128,3 +121,4 @@ nnoremap } }zz
 set noswapfile
 
 set laststatus=2
+set timeoutlen=10 " for faster leaving insert mode
