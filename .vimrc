@@ -69,9 +69,11 @@ set mouse=a
 " Clean whitespace
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+let g:molokai_original = 1
+
 if has("gui_running")
     set background=dark
-    colorscheme mustang
+    colorscheme molokai
     " Remove Toolbar
     set guioptions-=T
     set guioptions-=m
@@ -101,8 +103,8 @@ set clipboard=unnamed
 
 cmap >fd <c-r>=expand('%:p:h').'/'<cr>
 
-"map <F1> <Nop>
-"imap <F1> <Nop>
+map <F1> <Nop>
+imap <F1> <Nop>
 
 " indent with spacebar
 noremap <space> >>
@@ -121,4 +123,8 @@ nnoremap } }zz
 set noswapfile
 
 set laststatus=2
-set timeoutlen=10 " for faster leaving insert mode
+"set timeoutlen=0
+set ttimeoutlen=0
+
+hi! link FoldColumn Normal 
+set foldcolumn=3 
