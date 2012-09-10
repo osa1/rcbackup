@@ -39,7 +39,7 @@ set smartcase
 set hlsearch                  " highlight the search
 set showmatch                 " show matching bracket
 set diffopt=filler,iwhite     " ignore all whitespace and sync
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.o
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.hi,*.cmt,*.cmo,*.cmti
 
 set shiftwidth=4
 set scrolloff=5               " keep at least 5 lines above/below
@@ -81,6 +81,8 @@ if has("gui_running")
     set guioptions-=l
     set guioptions-=r
     set guifont=Droid\ Sans\ Mono\ 8
+    set columns=100
+    set lines=50
 else
     colorscheme molokai
 endif
@@ -128,3 +130,7 @@ set ttimeoutlen=0
 
 hi! link FoldColumn Normal 
 set foldcolumn=3 
+set nofoldenable
+
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
