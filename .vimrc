@@ -137,3 +137,5 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 
 set ssop-=options
 set ssop-=folds
+
+nmap <C-t> :NERDTreeToggle<CR>
