@@ -1,0 +1,14 @@
+[
+    { "keys": ["ctrl+u"], "command": "move", "args": {"by": "pages", "forward": false} },
+    { "keys": ["ctrl+d"], "command": "move", "args": {"by": "pages", "forward": true} },
+
+
+    { "keys": ["ctrl+h"], "command": "focus_group", "args": { "group": 0 } },
+    { "keys": ["ctrl+l"], "command": "focus_group", "args": { "group": 1 } },
+
+    { "keys": ["ctrl+w"], "command": "delete_word", "args": { "forward": false } },
+
+    { "keys": ["ctrl+q"], "command": "close" },
+
+    { "keys": ["ctrl+t"], "command": "" }
+]
