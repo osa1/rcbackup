@@ -139,3 +139,8 @@ set ssop-=options
 set ssop-=folds
 
 nmap <C-t> :NERDTreeToggle<CR>
+
+au! BufRead,BufNewFile *.ll     set filetype=llvm
+au! BufRead,BufNewFile *.td     set filetype=tablegen
+
+set showbreak=↪
