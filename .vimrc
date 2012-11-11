@@ -7,7 +7,7 @@ set guicursor+=a:blinkon0
 "filetype off
 call pathogen#infect()
 
-set foldmethod=indent
+set foldmethod=marker
 set foldlevel=99
 
 map <c-j> <c-w>j
@@ -58,10 +58,7 @@ nnoremap Y y$
 " Status line
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 
-" Backups
-set backupdir=~/.vimbackup/backup// " backups
-set directory=~/.vimbackup/swap//   " swap files
-set backup                        " enable backups
+set nobackup
 
 " Enable mouse support in console
 set mouse=a
@@ -80,7 +77,7 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=l
     set guioptions-=r
-    set guifont=Droid\ Sans\ Mono\ 8
+    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 8
     set columns=100
     set lines=50
 else
@@ -132,8 +129,8 @@ hi! link FoldColumn Normal
 set foldcolumn=3 
 set nofoldenable
 
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <F1> :GhcModType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :GhcModTypeClear<CR>
 
 set ssop-=options
 set ssop-=folds
@@ -144,3 +141,14 @@ au! BufRead,BufNewFile *.ll     set filetype=llvm
 au! BufRead,BufNewFile *.td     set filetype=tablegen
 
 set showbreak=↪
+
+let g:haskell_conceal       = 0
+let g:haskell_quasi         = 0
+let g:haskell_interpolation = 0
+let g:haskell_regex         = 0
+let g:haskell_jmacro        = 0
+let g:haskell_shqq          = 0
+let g:haskell_sql           = 0
+let g:haskell_json          = 0
+let g:haskell_xml           = 0
+let g:haskell_hsp           = 0
