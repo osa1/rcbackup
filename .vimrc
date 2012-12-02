@@ -79,7 +79,7 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=l
     set guioptions-=r
-    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 8
+    set guifont=Source\ Code\ Pro\ Semibold\ 8
     set columns=100
     set lines=50
 else
