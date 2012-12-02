@@ -1,5 +1,7 @@
 set nocompatible
 
+set hidden
+
 let vimfiles = $HOME . "/.vim"
 let sep = ":"
 set guicursor+=a:blinkon0
