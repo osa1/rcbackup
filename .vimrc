@@ -128,6 +128,8 @@ set laststatus=2
 set ttimeoutlen=0
 
 hi! link FoldColumn Normal 
+nnoremap <leader>l :hi! link FoldColumn Normal<CR>
+
 set foldcolumn=3 
 set nofoldenable
 
