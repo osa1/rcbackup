@@ -73,6 +73,9 @@ set completeopt=menuone,longest,preview
 nnoremap <leader>ev :split  $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" awesomewm settings
+nnoremap <leader>ea :split /home/omer/.config/awesome/rc.lua<cr>
+
 " wrap selected text in visual mode with double quotes
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
@@ -81,7 +84,7 @@ nnoremap L $
 
 " experimental
 inoremap jk <esc>
-inoremap <esc> <nop>
+"inoremap <esc> <nop>
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -92,6 +95,9 @@ nnoremap Y y$
 
 " Clean whitespace
 noremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" convert tabs to 4 space
+noremap <leader>T :%s/\t/    /g<CR>
 
 nnoremap j gj
 nnoremap k gk
@@ -105,6 +111,7 @@ nnoremap <silent> <C-f> :noh<CR>
 nnoremap <silent> <C-A> ggVG
 
 cmap >fd <c-r>=expand('%:p:h').'/'<cr>
+nmap <C-n> :e >fd
 
 map <F1> <Nop>
 imap <F1> <Nop>
@@ -122,10 +129,9 @@ nnoremap <leader>l :hi! link FoldColumn Normal<CR>
 
 filetype plugin indent on
 
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Eighties
 hi! link FoldColumn Normal
 if has("gui_running")
-    set background=dark
     set guioptions-=T
     set guioptions-=m
     set guioptions-=L
@@ -149,13 +155,11 @@ au BufNewFile,BufRead *.json set ft=javascript
 au! BufRead,BufNewFile *.ll     set filetype=llvm
 au! BufRead,BufNewFile *.td     set filetype=tablegen
 
-let g:haskell_conceal       = 0
-let g:haskell_quasi         = 0
-let g:haskell_interpolation = 0
-let g:haskell_regex         = 0
-let g:haskell_jmacro        = 0
-let g:haskell_shqq          = 0
-let g:haskell_sql           = 0
-let g:haskell_json          = 0
-let g:haskell_xml           = 0
-let g:haskell_hsp           = 0
+let g:UltiSnipsNoPythonWarning = 0
+
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
+let g:clang_use_library = 1
+let g:clang_complete_copen = 1
+let g:clang_hl_errors = 1
+let g:clang_complete_auto = 0
