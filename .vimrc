@@ -66,7 +66,7 @@ set nofoldenable             " open all folds
 set foldcolumn=3             " left margin
 
 " insert mode completion options
-set completeopt=menuone,longest,preview
+set completeopt=menuone,longest
 " }}}
 
 " {{{ mappings
