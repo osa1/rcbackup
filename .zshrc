@@ -31,9 +31,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-alias 'documents=cd /media/pardus/home/sinan/Documents'
-alias 'downloads=cd /home/sinan/Downloads'
-alias 'music=cd /home/sinan/Music'
+alias 'documents=cd /media/pardus/home/omer/Documents'
+alias 'downloads=cd /home/omer/Downloads'
+alias 'music=cd /home/omer/Music'
 
 
 # Django
@@ -49,19 +49,17 @@ alias 'setxrandr=xrandr --newmode "1920x1080" 173.00  1920 2048 2248 2576  1080 
 alias 'addxrandrmod=xrandr --addmode VGA1 "1920x1080"'
 alias 'setupxrandr=xrandr --newmode "1920x1080" 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync && xrandr --addmode VGA1 "1920x1080"'
 
-alias 'clojure=java -cp /home/sinan/cclojure/lib/clojure-1.2.1.jar:/home/sinan/cclojure/lib/clojure-contrib-1.2.0.jar clojure.main '
-alias 'cljsc=/home/sinan/opt/clojurescript/bin/cljsc'
+alias 'resetcabal=rm -rf /home/omer/.cabal && rm -rf /home/omer/.ghc && cp -r /home/omer/.cabal_yedek /home/omer/.cabal && cp -r /home/omer/.ghc_yedek /home/omer/.ghc'
 
-alias 'resetcabal=rm -rf /home/sinan/.cabal && rm -rf /home/sinan/.ghc && cp -r /home/sinan/.cabal_yedek /home/sinan/.cabal && cp -r /home/sinan/.ghc_yedek /home/sinan/.ghc'
+alias 'create_timelapse=ffmpeg -r 10 -f image2 -i %09d.png -vcodec mpeg4 -b:v 8000k timelapse.avi'
 
 alias 'create_timelapse=ffmpeg -r 10 -f image2 -i %09d.jpg -vcodec mpeg4 -b:v 8000k timelapse.avi'
 
 export TERM=xterm-256color
-export PATH=/home/sinan/opt/apache-maven-3.0.4/bin:$PATH
-export JAVA_HOME=/home/sinan/jdk1.7.0_03
-export PATH=/home/sinan/jdk1.7.0_03/bin:$PATH
-export PATH=/home/sinan/Downloads/racket/bin:$PATH
-export PATH=/home/sinan/.cabal/bin:$PATH
-export PATH=/home/sinan/node_modules/.bin:$PATH
-export CLASSPATH=/home/sinan/CLASSPATH
-
+export PATH=/home/omer/Downloads/racket/bin:$PATH
+export PATH=/home/omer/.cabal/bin:$PATH
+export PATH=/home/omer/node_modules/.bin:$PATH
+export PATH=/home/omer/.opam/system/bin:$PATH
+export CLASSPATH=/home/omer/CLASSPATH
+export MANPATH=/home/omer/.opam/system/man:/usr/local/man:/usr/local/share/man:/usr/share/man:$MANPATH
+alias 'setkb=xset r rate 289 50'
