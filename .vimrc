@@ -31,6 +31,7 @@ set showmatch                 " show matching bracket
 set diffopt=filler,iwhite     " ignore all whitespace and sync
 
 set shiftwidth=4
+set tabstop=4
 set scrolloff=5               " keep at least 5 lines above/below
 set cursorline
 
@@ -154,12 +155,17 @@ let g:Powerline_symbols = 'fancy'
 au FileType haskell nnoremap <buffer> <F1> :GhcModType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :GhcModTypeClear<CR>
 
+au FileType cpp set shiftwidth=2
+
 au FileType markdown set spell
 
 au BufNewFile,BufRead *.json set ft=javascript
 
 au! BufRead,BufNewFile *.ll     set filetype=llvm
 au! BufRead,BufNewFile *.td     set filetype=tablegen
+au! BufRead,BufNewFile *.hsc    set filetype=haskell
+au! BufRead,BufNewFile *.dasc   set filetype=c
+au! BufRead,BufNewFile *.hs     set shiftwidth=2
 
 let g:UltiSnipsNoPythonWarning = 0
 
@@ -169,3 +175,17 @@ let g:clang_use_library = 1
 let g:clang_complete_copen = 1
 let g:clang_hl_errors = 1
 let g:clang_complete_auto = 0
+
+
+let g:haskell_conceal       = 0
+let g:haskell_quasi         = 0
+let g:haskell_interpolation = 0
+let g:haskell_regex         = 0
+let g:haskell_jmacro        = 0
+let g:haskell_shqq          = 0
+let g:haskell_sql           = 0
+let g:haskell_json          = 0
+let g:haskell_xml           = 0
+let g:haskell_hsp           = 0
+let g:haskell_tabular       = 0
+let g:hpaste_author         = 'osa1'
