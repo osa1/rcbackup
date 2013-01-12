@@ -113,6 +113,7 @@ nnoremap <silent> <C-A> ggVG
 
 cmap >fd <c-r>=expand('%:p:h').'/'<cr>
 nmap <C-n> :e >fd
+nmap <C-s> :w<cr>
 
 map <F1> <Nop>
 imap <F1> <Nop>
