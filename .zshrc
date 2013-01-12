@@ -53,7 +53,7 @@ alias 'resetcabal=rm -rf /home/omer/.cabal && rm -rf /home/omer/.ghc && cp -r /h
 
 alias 'create_timelapse=ffmpeg -r 10 -f image2 -i %09d.png -vcodec mpeg4 -b:v 8000k timelapse.avi'
 
-alias 'create_timelapse=ffmpeg -r 10 -f image2 -i %09d.jpg -vcodec mpeg4 -b:v 8000k timelapse.avi'
+alias 'ocaml=rlwrap ocaml -I $OCAML_TOPLEVEL_PATH'
 
 export TERM=xterm-256color
 export PATH=/home/omer/Downloads/racket/bin:$PATH
@@ -63,3 +63,9 @@ export PATH=/home/omer/.opam/system/bin:$PATH
 export CLASSPATH=/home/omer/CLASSPATH
 export MANPATH=/home/omer/.opam/system/man:/usr/local/man:/usr/local/share/man:/usr/share/man:$MANPATH
 alias 'setkb=xset r rate 289 50'
+
+
+OCAML_TOPLEVEL_PATH=/home/omer/.opam/system/lib/toplevel
+export OCAML_TOPLEVEL_PATH
+CAML_LD_LIBRARY_PATH=/home/omer/.opam/system/lib/stublibs:/usr/local/lib/ocaml/stublibs
+export CAML_LD_LIBRARY_PATH
