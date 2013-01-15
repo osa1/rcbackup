@@ -127,7 +127,7 @@ map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 nmap <C-t> :NERDTreeToggle<CR>
 
-nnoremap <leader>l :hi! link FoldColumn Normal<CR>
+nnoremap <leader>l :highlight FoldColumn guifg=bg guibg=bg<CR>
 
 nnoremap <C-c> :call g:ClangUpdateQuickFix()<CR>
 " close preview windows
@@ -136,8 +136,8 @@ nnoremap <C-q> <C-w><C-z>
 
 filetype plugin indent on
 
+autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 colorscheme Tomorrow-Night-Eighties
-hi! link FoldColumn Normal
 if has("gui_running")
     set guioptions-=T
     set guioptions-=m
