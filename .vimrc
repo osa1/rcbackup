@@ -166,6 +166,9 @@ au! BufRead,BufNewFile *.td     set filetype=tablegen
 au! BufRead,BufNewFile *.hsc    set filetype=haskell
 au! BufRead,BufNewFile *.dasc   set filetype=c
 au! BufRead,BufNewFile *.hs     set shiftwidth=2
+au! BufRead,BufNewFile *.ml     set shiftwidth=2
+au! BufRead,BufNewFile *.mll    set shiftwidth=2
+au! BufRead,BufNewFile *.mly    set shiftwidth=2
 
 let g:UltiSnipsNoPythonWarning = 0
 
