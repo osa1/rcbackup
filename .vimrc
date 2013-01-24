@@ -133,6 +133,8 @@ nnoremap <leader>l :highlight FoldColumn guifg=bg guibg=bg<CR>
 nnoremap <C-c> :call g:ClangUpdateQuickFix()<CR>
 " close preview windows
 nnoremap <C-q> <C-w><C-z>
+
+nnoremap <F5> mryi":let @/ = @"<CR>`r
 " }}}
 
 filetype plugin indent on
