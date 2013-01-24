@@ -86,6 +86,7 @@ nnoremap L $
 
 " experimental
 inoremap jk <esc>
+inoremap kj <esc>
 "inoremap <esc> <nop>
 
 map <c-j> <c-w>j
