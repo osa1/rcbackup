@@ -135,6 +135,9 @@ nnoremap <C-c> :call g:ClangUpdateQuickFix()<CR>
 nnoremap <C-q> <C-w><C-z>
 
 nnoremap <F5> mryi":let @/ = @"<CR>`r
+
+nnoremap <CR> o<ESC>
+nnoremap <Space> O<ESC>
 " }}}
 
 filetype plugin indent on
