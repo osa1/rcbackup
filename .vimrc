@@ -148,8 +148,9 @@ nnoremap <C-b> :CtrlPBuffer<CR>
 
 filetype plugin indent on
 
+let g:molokai_original = 1
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 if has("gui_running")
     set guioptions-=T
     set guioptions-=m
