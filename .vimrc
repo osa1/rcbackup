@@ -138,6 +138,12 @@ nnoremap <F5> mryi":let @/ = @"<CR>`r
 
 nnoremap <CR> o<ESC>
 nnoremap <Space> O<ESC>
+
+" copy all of the buffer to system clipboard
+nnoremap <C-y> mrggVG"+y`r
+
+" start CtrlP with buffer mode
+nnoremap <C-b> :CtrlPBuffer<CR>
 " }}}
 
 filetype plugin indent on
