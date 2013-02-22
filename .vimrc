@@ -81,8 +81,8 @@ nnoremap <leader>ea :split /home/omer/.config/awesome/rc.lua<cr>
 " wrap selected text in visual mode with double quotes
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
-nnoremap H ^
-nnoremap L $
+noremap H ^
+noremap L $
 
 " experimental
 inoremap jk <esc>
