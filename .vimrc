@@ -31,7 +31,7 @@ set showmatch                 " show matching bracket
 set diffopt=filler,iwhite     " ignore all whitespace and sync
 
 set shiftwidth=4
-set tabstop=4
+set tabstop=8
 set scrolloff=5               " keep at least 5 lines above/below
 "set cursorline
 
