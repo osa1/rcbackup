@@ -128,8 +128,6 @@ map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 nmap <C-t> :NERDTreeToggle<CR>
 
-nnoremap <leader>l :highlight FoldColumn guifg=bg guibg=bg<CR>
-
 nnoremap <C-c> :call g:ClangUpdateQuickFix()<CR>
 " close preview windows
 nnoremap <C-q> <C-w><C-z>
@@ -144,13 +142,16 @@ nnoremap <Space> O<ESC>
 
 " start CtrlP with buffer mode
 nnoremap <C-b> :CtrlPBuffer<CR>
+
+nnoremap <C-g> :ToggleGitGutter<CR>
 " }}}
 
 filetype plugin indent on
 
 let g:molokai_original = 1
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
-colorscheme Tomorrow-Night
+autocmd Colorscheme * highlight clear SignColumn
+colorscheme Tomorrow-Night-Eighties
 if has("gui_running")
     set guioptions-=T
     set guioptions-=m
@@ -205,3 +206,5 @@ let g:haskell_xml           = 0
 let g:haskell_hsp           = 0
 let g:haskell_tabular       = 0
 let g:hpaste_author         = 'osa1'
+
+let g:gitgutter_enabled = 0
