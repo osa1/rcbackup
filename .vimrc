@@ -106,7 +106,7 @@ nnoremap j gj
 nnoremap k gk
 
 
-nnoremap <silent> <C-f> :noh<CR>
+nnoremap <silent> <C-f> :call MarkMultipleClean()<CR>:noh<CR>
 
 " select all
 nnoremap <silent> <C-A> ggVG
