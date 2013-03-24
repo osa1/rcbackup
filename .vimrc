@@ -105,8 +105,6 @@ noremap <leader>T :%s/\t/    /g<CR>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <silent> <C-n> :tabprevious<CR>
-nnoremap <silent> <C-m> :tabnext<CR>
 
 nnoremap <silent> <C-f> :noh<CR>
 
@@ -114,7 +112,7 @@ nnoremap <silent> <C-f> :noh<CR>
 nnoremap <silent> <C-A> ggVG
 
 cmap >fd <c-r>=expand('%:p:h').'/'<cr>
-nmap <C-n> :e >fd
+nmap <C-N> :e >fd
 nmap <C-s> :w<cr>
 
 map <F1> <Nop>
