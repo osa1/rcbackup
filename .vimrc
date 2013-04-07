@@ -1,3 +1,4 @@
+let mapleader=','
 set nocompatible
 
 if !has("gui_running")
