@@ -69,3 +69,6 @@ OCAML_TOPLEVEL_PATH=/home/omer/.opam/system/lib/toplevel
 export OCAML_TOPLEVEL_PATH
 CAML_LD_LIBRARY_PATH=/home/omer/.opam/system/lib/stublibs:/usr/local/lib/ocaml/stublibs
 export CAML_LD_LIBRARY_PATH
+
+
+unset SSH_ASKPASS
