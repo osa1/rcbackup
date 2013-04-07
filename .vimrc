@@ -9,6 +9,7 @@ let vimfiles = $HOME . "/.vim"
 call pathogen#infect()
 
 " {{{ settings
+
 set hidden
 set guicursor+=a:blinkon0     " disable cursur blinking
 set linebreak                 " wraplong lines at a character in `breakat`
@@ -70,9 +71,11 @@ set foldcolumn=3             " left margin
 
 " insert mode completion options
 set completeopt=menuone,longest
+
 " }}}
 
 " {{{ mappings
+
 nnoremap <leader>ev :split  $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -105,7 +108,6 @@ noremap <leader>T :%s/\t/    /g<CR>
 
 nnoremap j gj
 nnoremap k gk
-
 
 nnoremap <silent> <C-f> :call MarkMultipleClean()<CR>:noh<CR>
 
@@ -143,6 +145,7 @@ nnoremap <Space> O<ESC>
 nnoremap <C-b> :CtrlPBuffer<CR>
 
 nnoremap <C-g> :ToggleGitGutter<CR>
+
 " }}}
 
 filetype plugin indent on
@@ -150,21 +153,25 @@ filetype plugin indent on
 let g:molokai_original = 1
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 autocmd Colorscheme * highlight clear SignColumn
-colorscheme Tomorrow-Night-Eighties
 if has("gui_running")
     set guioptions-=T
     set guioptions-=m
     set guioptions-=L
     set guioptions-=l
     set guioptions-=r
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ Semibold\ 8
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ 9
+    set linespace=0
     set columns=100
     set lines=50
+    colorscheme Tomorrow-Night-Eighties
+else
+    colorscheme Tomorrow-Night
 endif
 
 let g:Powerline_symbols = 'fancy'
 
-" Filetype specific settings
+" {{{ Filetype specific settings
+
 au FileType haskell nnoremap <buffer> <F1> :GhcModType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :GhcModTypeClear<CR>
 
@@ -183,6 +190,20 @@ au! BufRead,BufNewFile *.ml     set shiftwidth=2
 au! BufRead,BufNewFile *.mll    set shiftwidth=2
 au! BufRead,BufNewFile *.mly    set shiftwidth=2
 
+au! BufRead,BufNewFile *.coffee    nnoremap <F5> :CoffeeMake!<CR>
+au! BufRead,BufNewFile *.coffee    nnoremap <F6> :CoffeeCompile<CR>
+au! FileType coffee set shiftwidth=2
+au! BufRead,BufNewFile *.lua       nnoremap <F5> :!love ./<CR>
+au! BufRead,BufNewFile *.kl        set ft=lisp
+
+hi link coffeeSpaceError NONE
+
+let go_highlight_trailing_whitespace_error=0
+
+" }}}
+
+" {{{ Plugin specific settings
+
 let g:UltiSnipsNoPythonWarning = 0
 
 let g:clang_snippets = 1
@@ -191,7 +212,6 @@ let g:clang_use_library = 1
 let g:clang_complete_copen = 1
 let g:clang_hl_errors = 1
 let g:clang_complete_auto = 0
-
 
 let g:haskell_conceal       = 0
 let g:haskell_quasi         = 0
@@ -207,3 +227,26 @@ let g:haskell_tabular       = 0
 let g:hpaste_author         = 'osa1'
 
 let g:gitgutter_enabled = 0
+
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_switch_buffer = 0
+
+let g:ctrlp_buftag_types = {
+\ 'go'       : '--language-force=go --golang-types=ftv',
+\ 'coffee'   : '--language-force=coffee --coffee-types=cmfvf',
+\ 'markdown' : '--language-force=markdown --markdown-types=hik',
+\ }
+
+func! MyCtrlPTag()
+    let g:ctrlp_prompt_mappings = {
+        \ 'AcceptSelection("e")': ['<cr>'],
+        \ 'AcceptSelection("t")': ['<c-t>'],
+        \ }
+    CtrlPBufTag
+endfunc
+
+com! MyCtrlPTag call MyCtrlPTag()
+
+nmap <M-p> :MyCtrlPTag<cr>
+
+" }}}
