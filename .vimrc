@@ -252,4 +252,6 @@ com! MyCtrlPTag call MyCtrlPTag()
 
 nmap <M-p> :MyCtrlPTag<cr>
 
+let g:startify_bookmarks = [ '~/.vimrc' ]
+
 " }}}
