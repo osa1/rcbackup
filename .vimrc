@@ -224,6 +224,11 @@ let g:haskell_hsp           = 0
 let g:haskell_tabular       = 0
 let g:hpaste_author         = 'osa1'
 
+au FileType haskell nnoremap <buffer> <F1>          :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <F3>          :HdevtoolsInfo<CR>
+au FileType haskell nnoremap <buffer> <F4>          :HdevtoolsInfoPrompt<CR>
+
 let g:gitgutter_enabled = 0
 
 let g:ctrlp_show_hidden = 1
