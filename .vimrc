@@ -109,7 +109,7 @@ noremap <leader>T :%s/\t/    /g<CR>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <silent> <C-f> :call MarkMultipleClean()<CR>:noh<CR>
+nnoremap <silent> <C-f> :noh<CR>
 
 " select all
 nnoremap <silent> <C-A> ggVG
