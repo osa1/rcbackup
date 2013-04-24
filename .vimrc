@@ -254,4 +254,6 @@ nmap <M-p> :MyCtrlPTag<cr>
 
 let g:startify_bookmarks = [ '~/.vimrc' ]
 
+au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
+
 " }}}
