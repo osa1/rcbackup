@@ -32,7 +32,7 @@ set showmatch                 " show matching bracket
 
 set diffopt=filler,iwhite     " ignore all whitespace and sync
 
-set shiftwidth=4
+set shiftwidth=2
 set tabstop=8
 set scrolloff=5               " keep at least 5 lines above/below
 "set cursorline
@@ -182,15 +182,18 @@ au BufNewFile,BufRead *.json set ft=javascript
 au! BufRead,BufNewFile *.ll     set filetype=llvm
 au! BufRead,BufNewFile *.td     set filetype=tablegen
 au! BufRead,BufNewFile *.hsc    set filetype=haskell
+au! BufRead,BufNewFile *.pl     set filetype=prolog
 au! BufRead,BufNewFile *.dasc   set filetype=c
 au! BufRead,BufNewFile *.hs     set shiftwidth=2
 au! BufRead,BufNewFile *.ml     set shiftwidth=2
 au! BufRead,BufNewFile *.mll    set shiftwidth=2
 au! BufRead,BufNewFile *.mly    set shiftwidth=2
 
-au! BufRead,BufNewFile *.coffee    nnoremap <F5> :CoffeeMake!<CR>
-au! BufRead,BufNewFile *.coffee    nnoremap <F6> :CoffeeCompile<CR>
-au! FileType coffee set shiftwidth=2
+au BufRead,BufNewFile *.coffee   nnoremap <F4> :!cake build:parser<CR> | nnoremap <F5> :!cake build:game<CR> | nnoremap <F6> :CoffeeCompile<CR> | nnoremap <F3> :!cake build:all<CR>
+au FileType coffee set shiftwidth=4
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=4 expandtab
+
+
 au! BufRead,BufNewFile *.lua       nnoremap <F5> :!love ./<CR>
 au! BufRead,BufNewFile *.kl        set ft=lisp
 
@@ -233,26 +236,6 @@ let g:gitgutter_enabled = 0
 
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
-
-let g:ctrlp_buftag_types = {
-\ 'go'       : '--language-force=go --golang-types=ftv',
-\ 'coffee'   : '--language-force=coffee --coffee-types=cmfvf',
-\ 'markdown' : '--language-force=markdown --markdown-types=hik',
-\ }
-
-func! MyCtrlPTag()
-    let g:ctrlp_prompt_mappings = {
-        \ 'AcceptSelection("e")': ['<cr>'],
-        \ 'AcceptSelection("t")': ['<c-t>'],
-        \ }
-    CtrlPBufTag
-endfunc
-
-com! MyCtrlPTag call MyCtrlPTag()
-
-nmap <M-p> :MyCtrlPTag<cr>
-
-let g:startify_bookmarks = [ '~/.vimrc' ]
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
