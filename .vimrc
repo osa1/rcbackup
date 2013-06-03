@@ -231,6 +231,7 @@ au FileType haskell nnoremap <buffer> <F1>          :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <F3>          :HdevtoolsInfo<CR>
 au FileType haskell nnoremap <buffer> <F4>          :HdevtoolsInfoPrompt<CR>
+au FileType haskell nnoremap <leader>sh             :%!stylish-haskell<CR>
 
 let g:gitgutter_enabled = 0
 
