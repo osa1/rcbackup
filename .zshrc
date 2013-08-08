@@ -25,7 +25,7 @@ DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git lein)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,10 +65,13 @@ export MANPATH=/home/omer/.opam/system/man:/usr/local/man:/usr/local/share/man:/
 alias 'setkb=xset r rate 289 50'
 
 
-OCAML_TOPLEVEL_PATH=/home/omer/.opam/system/lib/toplevel
-export OCAML_TOPLEVEL_PATH
-CAML_LD_LIBRARY_PATH=/home/omer/.opam/system/lib/stublibs:/usr/local/lib/ocaml/stublibs
-export CAML_LD_LIBRARY_PATH
-
+export CAML_LD_LIBRARY_PATH=/home/omer/.opam/4.00.1/lib/stublibs:/usr/local/lib/ocaml
+export OCAML_TOPLEVEL_PATH=/home/omer/.opam/4.00.1/lib/toplevel
+export MANPATH=/home/omer/.opam/4.00.1/man:/usr/local/man:$MANPATH
+export PATH=/home/omer/.opam/4.00.1/bin:$PATH
 
 unset SSH_ASKPASS
+export JDK_HOME=/home/omer/jdk1.7.0_21/
+export PATH=/home/omer/jdk1.7.0_21/bin:$PATH
+
+export LD_LIBRARY_PATH=/home/omer/lib
