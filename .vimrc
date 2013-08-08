@@ -126,7 +126,7 @@ imap <F1> <Nop>
 
 " plugins
 map <leader>g :GundoToggle<CR>
-nmap <C-t> :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeToggle<CR>
 
 " close preview windows
 nnoremap <C-q> <C-w><C-z>
@@ -139,6 +139,7 @@ nnoremap <Space> O<ESC>
 
 " start CtrlP with buffer mode
 nnoremap <C-b> :CtrlPBuffer<CR>
+nnoremap <leader>t :CtrlPTag<CR>
 
 nnoremap <C-g> :ToggleGitGutter<CR>
 
