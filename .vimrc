@@ -232,4 +232,6 @@ let g:ctrlp_switch_buffer = 0
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
+let g:CoqIDEDefaultMap = 1
+
 " }}}
