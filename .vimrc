@@ -129,7 +129,6 @@ map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 nmap <C-t> :NERDTreeToggle<CR>
 
-nnoremap <C-c> :call g:ClangUpdateQuickFix()<CR>
 " close preview windows
 nnoremap <C-q> <C-w><C-z>
 
@@ -206,13 +205,6 @@ let go_highlight_trailing_whitespace_error=0
 " {{{ Plugin specific settings
 
 let g:UltiSnipsNoPythonWarning = 0
-
-let g:clang_snippets = 1
-let g:clang_snippets_engine = 'ultisnips'
-let g:clang_use_library = 1
-let g:clang_complete_copen = 1
-let g:clang_hl_errors = 1
-let g:clang_complete_auto = 0
 
 let g:haskell_conceal       = 0
 let g:haskell_quasi         = 0
