@@ -234,4 +234,7 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
 let g:CoqIDEDefaultMap = 1
 
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#checks = []
 " }}}

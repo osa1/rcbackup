@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/vim-hdevtools"]
 	path = .vim/bundle/vim-hdevtools
 	url = git://github.com/bitc/vim-hdevtools.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
