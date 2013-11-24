@@ -1,5 +1,5 @@
-let mapleader=','
 set nocompatible
+let mapleader=','
 
 if !has("gui_running")
     set term=screen-256color
@@ -33,7 +33,7 @@ set showmatch                 " show matching bracket
 set diffopt=filler,iwhite     " ignore all whitespace and sync
 
 set shiftwidth=2
-set tabstop=8
+set tabstop=4
 set scrolloff=5               " keep at least 5 lines above/below
 "set cursorline
 
@@ -156,23 +156,21 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=l
     set guioptions-=r
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ 9
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
     set linespace=0
     set columns=100
     set lines=50
     colorscheme Tomorrow-Night-Eighties
+    "colorscheme luna
 else
     colorscheme Tomorrow-Night
 endif
-
 let g:Powerline_symbols = 'fancy'
 
 " {{{ Filetype specific settings
 
 au FileType haskell nnoremap <buffer> <F1> :GhcModType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :GhcModTypeClear<CR>
-
-au FileType cpp set shiftwidth=2
 
 au FileType markdown set spell
 
@@ -184,6 +182,7 @@ au! BufRead,BufNewFile *.hsc    set filetype=haskell
 au! BufRead,BufNewFile *.pl     set filetype=prolog
 au! BufRead,BufNewFile *.dasc   set filetype=c
 au! BufRead,BufNewFile *.hs     set shiftwidth=2
+au! BufRead,BufNewFile *.hsc    set shiftwidth=2
 au! BufRead,BufNewFile *.ml     set shiftwidth=2
 au! BufRead,BufNewFile *.mll    set shiftwidth=2
 au! BufRead,BufNewFile *.mly    set shiftwidth=2
@@ -224,6 +223,10 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <F3>          :HdevtoolsInfo<CR>
 au FileType haskell nnoremap <buffer> <F4>          :HdevtoolsInfoPrompt<CR>
 au FileType haskell nnoremap <leader>sh             :%!stylish-haskell<CR>
+au! BufRead,BufNewFile *.lhs set ft=haskell
+
+au FileType asm set noexpandtab
+au FileType asm set shiftwidth=4
 
 let g:gitgutter_enabled = 0
 
@@ -232,10 +235,13 @@ let g:ctrlp_switch_buffer = 0
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
-let g:CoqIDEDefaultMap = 1
+au FileType coq CoqLaunch
+au FileType coq call coquille#FNMapping()
 
 au! BufRead,BufNewFile *.k set filetype=kframework
+
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#checks = []
+
 " }}}
