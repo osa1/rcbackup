@@ -230,13 +230,17 @@ au FileType asm set shiftwidth=4
 
 let g:gitgutter_enabled = 0
 
+let g:ctrlp_match_window = 'results:100'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
-au FileType coq CoqLaunch
-au FileType coq call coquille#FNMapping()
+"au FileType coq CoqLaunch
+"au FileType coq call coquille#FNMapping()
+"let g:coquille_auto_move = 'true'
+let g:CoqIDEDefaultMap = 1
+au! BufRead,BufNewFile *.v set filetype=coq
 
 au! BufRead,BufNewFile *.k set filetype=kframework
 
