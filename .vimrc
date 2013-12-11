@@ -85,10 +85,8 @@ vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 noremap H ^
 noremap L $
 
-" experimental
 inoremap jk <esc>
 inoremap kj <esc>
-"inoremap <esc> <nop>
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -156,7 +154,6 @@ if has("gui_running")
     set columns=100
     set lines=50
     colorscheme Tomorrow-Night-Eighties
-    "colorscheme luna
 else
     colorscheme Tomorrow-Night
 endif
@@ -166,6 +163,9 @@ let g:Powerline_symbols = 'fancy'
 
 au FileType haskell nnoremap <buffer> <F1> :GhcModType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :GhcModTypeClear<CR>
+au FileType haskell nnoremap <buffer> <F5> :GhcModCheckAsync<CR>
+au FileType haskell nnoremap <buffer> <F6> :GhcModLintAsync<CR>
+
 
 au FileType markdown set spell
 
