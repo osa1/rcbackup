@@ -79,9 +79,6 @@ set completeopt=menuone,longest
 nnoremap <leader>ev :split  $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" awesomewm settings
-nnoremap <leader>ea :split /home/omer/.config/awesome/rc.lua<cr>
-
 " wrap selected text in visual mode with double quotes
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
@@ -141,8 +138,6 @@ nnoremap <Space> O<ESC>
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <leader>t :CtrlPTag<CR>
 
-nnoremap <C-g> :ToggleGitGutter<CR>
-
 " }}}
 
 filetype plugin indent on
@@ -197,8 +192,6 @@ au! BufRead,BufNewFile *.kl        set ft=lisp
 
 hi link coffeeSpaceError NONE
 
-let go_highlight_trailing_whitespace_error=0
-
 " }}}
 
 " {{{ Plugin specific settings
@@ -218,17 +211,11 @@ let g:haskell_hsp           = 0
 let g:haskell_tabular       = 0
 let g:hpaste_author         = 'osa1'
 
-au FileType haskell nnoremap <buffer> <F1>          :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <F3>          :HdevtoolsInfo<CR>
-au FileType haskell nnoremap <buffer> <F4>          :HdevtoolsInfoPrompt<CR>
 au FileType haskell nnoremap <leader>sh             :%!stylish-haskell<CR>
 au! BufRead,BufNewFile *.lhs set ft=haskell
 
 au FileType asm set noexpandtab
 au FileType asm set shiftwidth=4
-
-let g:gitgutter_enabled = 0
 
 let g:ctrlp_match_window = 'results:100'
 let g:ctrlp_show_hidden = 1
