@@ -25,12 +25,6 @@
 [submodule ".vim/bundle/vim2hs"]
 	path = .vim/bundle/vim2hs
 	url = git://github.com/dag/vim2hs.git
-[submodule ".vim/bundle/vim-gitgutter"]
-	path = .vim/bundle/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
-[submodule ".vim/bundle/vim-hdevtools"]
-	path = .vim/bundle/vim-hdevtools
-	url = git://github.com/bitc/vim-hdevtools.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
