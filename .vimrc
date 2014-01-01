@@ -161,12 +161,6 @@ let g:Powerline_symbols = 'fancy'
 
 " {{{ Filetype specific settings
 
-au FileType haskell nnoremap <buffer> <F1> :GhcModType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :GhcModTypeClear<CR>
-au FileType haskell nnoremap <buffer> <F5> :GhcModCheckAsync<CR>
-au FileType haskell nnoremap <buffer> <F6> :GhcModLintAsync<CR>
-
-
 au FileType markdown set spell
 
 au BufNewFile,BufRead *.json set ft=javascript
