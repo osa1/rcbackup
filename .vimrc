@@ -137,7 +137,8 @@ nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <leader>t :CtrlPTag<CR>
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|cabal-sandbox)$'
 
-
+nnoremap <PageUp> :bp<CR>
+nnoremap <PageDown> :bn<CR>
 
 " }}}
 
