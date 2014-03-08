@@ -9,7 +9,6 @@ let s:background = "2d2d2d"
 let s:selection = "515151"
 let s:line = "393939"
 let s:comment = "999999"
-let s:specialcomment = "7E8E91"
 let s:red = "f2777a"
 let s:orange = "f99157"
 let s:yellow = "ffcc66"
@@ -264,7 +263,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Standard Highlighting
 	call <SID>X("Comment", s:comment, "", "")
-	call <SID>X("SpecialComment", s:specialcomment, "", "bold")
+	call <SID>X("SpecialComment", s:comment, "", "")
 	call <SID>X("Todo", s:comment, s:background, "")
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:red, "", "none")
