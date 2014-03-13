@@ -140,6 +140,10 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|cabal-sandbox)$'
 nnoremap <PageUp> :bp<CR>
 nnoremap <PageDown> :bn<CR>
 
+" search currently highlighted work using ack plugin
+nnoremap <leader>h :exec 'Ack --'.&filetype expand('<cword>')<CR>
+
+
 " }}}
 
 filetype plugin indent on
