@@ -141,7 +141,7 @@ nnoremap <PageUp> :bp<CR>
 nnoremap <PageDown> :bn<CR>
 
 " search currently highlighted work using ack plugin
-nnoremap <leader>h :exec 'Ack --'.&filetype expand('<cword>')<CR>
+nnoremap <leader>h :exec 'Ack --'.&filetype shellescape(expand('<cword>'))<CR>
 
 
 " }}}
