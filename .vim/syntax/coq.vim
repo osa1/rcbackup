@@ -354,7 +354,7 @@ if version >= 508 || !exists("did_coq_syntax_inits")
    HiLink coqTodo                      Todo
 
    " Errors
-   HiLink coqError                     Error
+   "HiLink coqError                     Error
 
    " Strings
    HiLink coqString                    String
