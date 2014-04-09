@@ -188,6 +188,8 @@ au BufRead,BufNewFile *.coffee   nnoremap <F4> :!cake build:parser<CR> | nnorema
 au FileType coffee set shiftwidth=4
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=4 expandtab
 
+au FileType rust set shiftwidth=4
+au FileType tex set textwidth=80
 
 au! BufRead,BufNewFile *.lua       nnoremap <F5> :!love ./<CR>
 au! BufRead,BufNewFile *.kl        set ft=lisp
