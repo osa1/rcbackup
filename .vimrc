@@ -239,4 +239,7 @@ au! BufRead,BufNewFile *.k set filetype=kframework
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#checks = []
 
+" Use Ack.vim with ag instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 " }}}
