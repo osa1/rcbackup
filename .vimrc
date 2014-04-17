@@ -141,7 +141,7 @@ nnoremap <PageUp> :bp<CR>
 nnoremap <PageDown> :bn<CR>
 
 " search word under the cursor ack plugin
-nnoremap <leader>h :exec 'Ack --'.&filetype shellescape(expand('<cword>'))<CR>
+nnoremap <leader>h :exec 'Ack -w --'.&filetype shellescape(expand('<cword>'))<CR>
 
 
 " }}}
