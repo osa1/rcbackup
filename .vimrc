@@ -143,8 +143,13 @@ nnoremap <PageDown> :bn<CR>
 " search word under the cursor ack plugin
 nnoremap <leader>h :exec 'Ack -w --'.&filetype shellescape(expand('<cword>'))<CR>
 " shortcut for ack
-nnoremap <leader>a :exec 'Ack -w --'.&filetype . ' ' .input("Search term: ")<CR>
+function! SearchAck()
+    let search = input("Search term: ")
+    execute 'Ack -w --' . &filetype . ' ' . search
+    let @/ = search
+endfunction
 
+nnoremap <leader>a :call SearchAck()<CR>
 
 " disable shift+k
 nnoremap <S-k> <Nop>
