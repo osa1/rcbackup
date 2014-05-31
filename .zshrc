@@ -81,6 +81,12 @@ export LUA_CPATH="/home/omer/lua_cpath/?.so"
 export EDITOR=vim
 
 sync() {
-    print syncing /home/omer/ghcjs/"$1" to root@"$2":"$1"
+    print rsync /home/omer/ghcjs/"$1"/ root@"$2":"$1" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
     rsync /home/omer/ghcjs/"$1"/ root@"$2":"$1" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
+}
+
+sync-shims() {
+    local shimspath=".ghcjs/i386-linux-0.1.0-7.8.2/shims"
+    print rsync /home/omer/ghcjs/shims/ root@"$1":"$shimspath" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
+    rsync /home/omer/ghcjs/shims/ root@"$1":"$shimspath" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
 }
