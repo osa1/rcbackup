@@ -71,7 +71,16 @@ export MANPATH=/home/omer/.opam/4.00.1/man:/usr/local/man:$MANPATH
 export PATH=/home/omer/.opam/4.00.1/bin:$PATH
 
 unset SSH_ASKPASS
-export JDK_HOME=/home/omer/jdk1.7.0_21/
-export PATH=/home/omer/jdk1.7.0_21/bin:$PATH
+export JDK_HOME=/home/omer/jdk1.8.0/
+export JAVA_HOME=/home/omer/jdk1.8.0/
+export PATH=/home/omer/jdk1.8.0/bin:$PATH
 
 export LD_LIBRARY_PATH=/home/omer/lib
+export LUA_CPATH="/home/omer/lua_cpath/?.so"
+
+export EDITOR=vim
+
+sync() {
+    print syncing /home/omer/ghcjs/"$1" to root@"$2":"$1"
+    rsync /home/omer/ghcjs/"$1"/ root@"$2":"$1" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
+}
