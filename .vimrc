@@ -154,6 +154,9 @@ nnoremap <leader>a :call SearchAck()<CR>
 " disable shift+k
 nnoremap <S-k> <Nop>
 
+" remove an annoying binding
+nnoremap `S <Nop>
+
 " }}}
 
 filetype plugin indent on
