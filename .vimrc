@@ -156,6 +156,7 @@ nnoremap <S-k> <Nop>
 
 " remove an annoying binding
 nnoremap `S <Nop>
+vnoremap <S-k> k
 
 " }}}
 
