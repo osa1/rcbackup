@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/sinan/glib'
-let g:netrw_dirhist_2='/home/sinan/glib/glib'
-let g:netrw_dirhist_3='/home/sinan/pyweek/sprite'
-let g:netrw_dirhist_4='/home/sinan/opt/way-of-the-stick'
-let g:netrw_dirhist_5='/home/sinan/opt/libyaml-stable/config'
-let g:netrw_dirhist_6='/home/sinan/opt/sapid-lisp-read-only/trunk'
-let g:netrw_dirhist_7='/home/sinan/tetris-clojure/src/src/tetris'
