@@ -158,6 +158,9 @@ nnoremap <S-k> <Nop>
 nnoremap `S <Nop>
 vnoremap <S-k> k
 
+" disable worst feature ever
+map Q <Nop>
+
 " }}}
 
 filetype plugin indent on
