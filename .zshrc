@@ -89,3 +89,5 @@ unset SSH_ASKPASS
 export TERM=xterm-256color
 
 export LD_LIBRARY_PATH=$HOME/LD_LIBRARY_PATH:/usr/local/lib64:$LD_LIBRARY_PATH
+
+alias sync-exinu="rsync --exclude=\".git\" -zarv /home/omer/osdev/exinu/ oagacan@silo.soic.indiana.edu:exinu/"
