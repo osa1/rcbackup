@@ -88,4 +88,4 @@ unset SSH_ASKPASS
 
 export TERM=xterm-256color
 
-export LD_LIBRARY_PATH=/home/omer/LD_LIBRARY_PATH:/usr/local/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/LD_LIBRARY_PATH:/usr/local/lib64:$LD_LIBRARY_PATH
