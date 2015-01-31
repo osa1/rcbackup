@@ -1,92 +1,91 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-    # Optionally, if you set this to "random", it'll load a random theme each
+# Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
-#ZSH_THEME="alanpeabody"
 
-# Set to this to use case-sensitive completion
+# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Comment this out to disable weekly auto-update checks
+# Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
+# Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want disable red dots displayed while waiting for completion
-# DISABLE_COMPLETION_WAITING_DOTS="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git, git-extras, colorize)
+
+alias ccat=colorize
+alias open=xdg-open
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# User configuration
 
-alias 'documents=cd /media/pardus/home/omer/Documents'
-alias 'downloads=cd /home/omer/Downloads'
-alias 'music=cd /home/omer/Music'
+export PATH=$HOME/bin:$HOME/jdk1.8.0_25/bin:$HOME/.cabal/bin:$HOME/arc/arcanist/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
 
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# Django
-alias 'runserver=python manage.py runserver'
-alias 'syncdb=python manage.py syncdb'
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-alias 'recorddesktop=recordmydesktop --fps 25 --v_bitrate 2000000 --no-sound'
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-alias 'lsd=ls -l | grep "^d"'
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias 'setxrandr=xrandr --newmode "1920x1080" 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync'
-alias 'addxrandrmod=xrandr --addmode VGA1 "1920x1080"'
-alias 'setupxrandr=xrandr --newmode "1920x1080" 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync && xrandr --addmode VGA1 "1920x1080"'
-
-alias 'resetcabal=rm -rf /home/omer/.cabal && rm -rf /home/omer/.ghc && cp -r /home/omer/.cabal_yedek /home/omer/.cabal && cp -r /home/omer/.ghc_yedek /home/omer/.ghc'
-
-alias 'create_timelapse=ffmpeg -r 10 -f image2 -i %09d.png -vcodec mpeg4 -b:v 8000k timelapse.avi'
-
-alias 'ocaml=rlwrap ocaml -I $OCAML_TOPLEVEL_PATH'
-
-export TERM=xterm-256color
-export PATH=/home/omer/Downloads/racket/bin:$PATH
-export PATH=/home/omer/.cabal/bin:$PATH
-export PATH=/home/omer/node_modules/.bin:$PATH
-export PATH=/home/omer/.opam/system/bin:$PATH
-export CLASSPATH=/home/omer/CLASSPATH
-export MANPATH=/home/omer/.opam/system/man:/usr/local/man:/usr/local/share/man:/usr/share/man:$MANPATH
-alias 'setkb=xset r rate 289 50'
-
-
-export CAML_LD_LIBRARY_PATH=/home/omer/.opam/4.00.1/lib/stublibs:/usr/local/lib/ocaml
-export OCAML_TOPLEVEL_PATH=/home/omer/.opam/4.00.1/lib/toplevel
-export MANPATH=/home/omer/.opam/4.00.1/man:/usr/local/man:$MANPATH
-export PATH=/home/omer/.opam/4.00.1/bin:$PATH
+export JAVA_HOME=$HOME/jdk1.8.0_25/
 
 unset SSH_ASKPASS
-export JDK_HOME=/home/omer/jdk1.8.0/
-export JAVA_HOME=/home/omer/jdk1.8.0/
-export PATH=/home/omer/jdk1.8.0/bin:$PATH
 
-export LD_LIBRARY_PATH=/home/omer/lib
-export LUA_CPATH="/home/omer/lua_cpath/?.so"
+export TERM=xterm-256color
 
-export EDITOR=vim
-
-sync() {
-    print rsync /home/omer/ghcjs/"$1"/ root@"$2":"$1" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
-    rsync /home/omer/ghcjs/"$1"/ root@"$2":"$1" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
-}
-
-sync-shims() {
-    local shimspath=".ghcjs/i386-linux-0.1.0-7.8.2/shims"
-    print rsync /home/omer/ghcjs/shims/ root@"$1":"$shimspath" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
-    rsync /home/omer/ghcjs/shims/ root@"$1":"$shimspath" -a --exclude=".git" --exclude=".cabal" --exclude="dist" --exclude=".cabal-sandbox"
-}
+export LD_LIBRARY_PATH=/home/omer/LD_LIBRARY_PATH:/usr/local/lib64:$LD_LIBRARY_PATH
