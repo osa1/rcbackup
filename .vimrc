@@ -123,6 +123,12 @@ imap <F1> <Nop>
 map <leader>g :GundoToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 
+" resizing splits
+nnoremap <C-Up> <C-w>+
+nnoremap <C-Down> <C-w>-
+nnoremap <C-Left> <C-w>-
+nnoremap <C-Left> <C-w><
+nnoremap <C-Right> <C-w>>
 
 nnoremap <CR> o<ESC>
 nnoremap <Space> O<ESC>
