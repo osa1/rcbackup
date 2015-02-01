@@ -123,8 +123,6 @@ imap <F1> <Nop>
 map <leader>g :GundoToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 
-" close preview windows
-nnoremap <C-q> <C-w><C-z>
 
 nnoremap <CR> o<ESC>
 nnoremap <Space> O<ESC>
