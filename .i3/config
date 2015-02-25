@@ -140,3 +140,7 @@ for_window [class="Clementine"] floating enable
 for_window [class="Gitg"] floating enable
 for_window [class="Qvim"] floating enable
 for_window [class="Transmission"] floating enable
+for_window [class="recordMyDesktop"] floating enable
+for_window [class="jack"] floating enable
+for_window [class="y2controlcenter"] floating enable
+for_window [class="Systemsettings"] floating enable
