@@ -145,15 +145,15 @@ nnoremap <PageUp> :bp<CR>
 nnoremap <PageDown> :bn<CR>
 
 " search word under the cursor ack plugin
-nnoremap <leader>h :exec 'Ack -w --'.&filetype shellescape(expand('<cword>'))<CR>
-" shortcut for ack
-function! SearchAck()
-    let search = input("Search term: ")
-    execute 'Ack -w --' . &filetype . ' ' . search
-    let @/ = search
+function! Fixc(lang)
+  echo a:lang
+  if a:lang == "cpp" || a:lang == "c"
+    return "cc"
+  else
+    return a:lang
+  endif
 endfunction
-
-nnoremap <leader>a :call SearchAck()<CR>
+nnoremap <leader>h :exec 'Ack -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
 
 " disable shift+k
 nnoremap <S-k> <Nop>
