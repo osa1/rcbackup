@@ -165,6 +165,9 @@ vnoremap <S-k> k
 " disable worst feature ever
 map Q <Nop>
 
+" toggle spell
+nnoremap <leader>s :setlocal spell!<cr>
+
 " }}}
 
 filetype plugin indent on
