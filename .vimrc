@@ -194,6 +194,7 @@ let g:Powerline_symbols = 'fancy'
 " {{{ Filetype specific settings
 
 au FileType markdown set spell
+let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'javascript', 'rust']
 
 au BufNewFile,BufRead *.json set ft=javascript
 
