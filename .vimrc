@@ -248,6 +248,15 @@ au FileType asm set shiftwidth=4
 let g:ctrlp_match_window = 'results:100'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .o
+      \ --ignore .hi
+      \ --ignore .cabal
+      \ -g ""'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
