@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/ackvim"]
 	path = .vim/bundle/ackvim
 	url = git://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundle/vim2hs"]
-	path = .vim/bundle/vim2hs
-	url = git://github.com/dag/vim2hs.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
@@ -34,3 +31,6 @@
 [submodule ".vim/bundle/ctrlp-py-matcher"]
 	path = .vim/bundle/ctrlp-py-matcher
 	url = https://github.com/FelikZ/ctrlp-py-matcher.git
+[submodule ".vim/bundle/haskell-vim"]
+	path = .vim/bundle/haskell-vim
+	url = https://github.com/raichoo/haskell-vim.git
