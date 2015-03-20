@@ -11,7 +11,10 @@ call pathogen#infect()
 " {{{ settings
 
 set hidden
-set guicursor+=a:blinkon0     " disable cursur blinking
+set guicursor+=a:blinkon0     " disable cursor blinking
+set guicursor+=i:block-Cursor " use block cursor in insert mode(for GUIs)
+set guicursor+=i:blinkon0     " don't blink in insert mode too
+
 set linebreak                 " wraplong lines at a character in `breakat`
 set encoding=utf-8
 
