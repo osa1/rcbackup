@@ -72,6 +72,8 @@ set foldcolumn=3             " left margin
 " insert mode completion options
 set completeopt=menuone,longest
 
+set formatoptions+=croqjl
+
 " }}}
 
 " {{{ mappings
