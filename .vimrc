@@ -1,10 +1,6 @@
 set nocompatible
 let mapleader=','
 
-if !has("gui_running")
-    set term=screen-256color
-endif
-
 let vimfiles = $HOME . "/.vim"
 call pathogen#infect()
 
@@ -151,7 +147,6 @@ nnoremap <PageDown> :bn<CR>
 
 " search word under the cursor ack plugin
 function! Fixc(lang)
-  echo a:lang
   if a:lang == "cpp" || a:lang == "c"
     return "cc"
   else
@@ -194,7 +189,6 @@ if has("gui_running")
 else
     colorscheme Tomorrow-Night
 endif
-let g:Powerline_symbols = 'fancy'
 
 " {{{ Filetype specific settings
 
@@ -214,36 +208,14 @@ au! BufRead,BufNewFile *.ml     set shiftwidth=2
 au! BufRead,BufNewFile *.mll    set shiftwidth=2
 au! BufRead,BufNewFile *.mly    set shiftwidth=2
 
-au BufRead,BufNewFile *.coffee   nnoremap <F4> :!cake build:parser<CR> | nnoremap <F5> :!cake build:game<CR> | nnoremap <F6> :CoffeeCompile<CR> | nnoremap <F3> :!cake build:all<CR>
-au FileType coffee set shiftwidth=4
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=4 expandtab
-
-au FileType rust set shiftwidth=4
+au FileType c set shiftwidth=4
 au FileType tex set textwidth=80
 
 au! BufRead,BufNewFile *.lua       nnoremap <F5> :!love ./<CR>
-au! BufRead,BufNewFile *.kl        set ft=lisp
-
-hi link coffeeSpaceError NONE
 
 " }}}
 
 " {{{ Plugin specific settings
-
-let g:UltiSnipsNoPythonWarning = 0
-
-let g:haskell_conceal       = 0
-let g:haskell_quasi         = 0
-let g:haskell_interpolation = 0
-let g:haskell_regex         = 0
-let g:haskell_jmacro        = 0
-let g:haskell_shqq          = 0
-let g:haskell_sql           = 0
-let g:haskell_json          = 0
-let g:haskell_xml           = 0
-let g:haskell_hsp           = 0
-let g:haskell_tabular       = 0
-let g:hpaste_author         = 'osa1'
 
 au FileType haskell nnoremap <leader>sh             :%!stylish-haskell<CR>
 au! BufRead,BufNewFile *.lhs set ft=haskell
@@ -274,11 +246,15 @@ au! BufRead,BufNewFile *.v set filetype=coq
 
 au! BufRead,BufNewFile *.k set filetype=kframework
 
+au! BufRead,BufNewFile *.hsc set filetype=haskell
+
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#checks = []
 
 " Use Ack.vim with ag instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column'
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 
 " }}}
