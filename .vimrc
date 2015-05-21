@@ -193,7 +193,7 @@ endif
 " {{{ Filetype specific settings
 
 au FileType markdown set spell
-let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'javascript', 'rust']
+let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'ocaml']
 
 au BufNewFile,BufRead *.json set ft=javascript
 
@@ -217,8 +217,12 @@ au! BufRead,BufNewFile *.lua       nnoremap <F5> :!love ./<CR>
 
 " {{{ Plugin specific settings
 
-au FileType haskell nnoremap <leader>sh             :%!stylish-haskell<CR>
+au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
+au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
+au FileType haskell set textwidth=80
 au! BufRead,BufNewFile *.lhs set ft=haskell
+
+au! BufRead,BufNewFile *.md set ft=markdown
 
 au FileType asm set noexpandtab
 au FileType asm set shiftwidth=4
