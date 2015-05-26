@@ -88,6 +88,12 @@ unset SSH_ASKPASS
 
 export TERM=xterm-256color
 
-export LD_LIBRARY_PATH=$HOME/LD_LIBRARY_PATH:/usr/local/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/lib:/usr/local/lib64:$LD_LIBRARY_PATH
 
 alias sync-exinu="rsync --exclude=\".git\" -zarv /home/omer/osdev/exinu/ oagacan@silo.soic.indiana.edu:exinu/"
+alias gd="git diff --color"
+alias gc="git commit -m"
+alias gb="git checkout"
+alias gcb="git checkout -b"
+alias gpom="git push origin master"
+alias gp="git push"
