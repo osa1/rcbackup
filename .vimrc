@@ -298,4 +298,8 @@ if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
+let g:haskell_enable_quantification = 1
+let g:haskell_enable_typeroles = 1
+let g:haskell_indent_if = 2
+
 " }}}
