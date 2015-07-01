@@ -140,7 +140,11 @@ nnoremap <Space> O<ESC>
 " start CtrlP with buffer mode
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <leader>t :CtrlPTag<CR>
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|cabal-sandbox)$'
+" NB: I shouldn't be using this for two reasons:
+"     - CtrlP is using wildignore already.
+"     - If g:ctrlp_user_command is defined, then this is not used at all.
+" So I'm making relevant changes in g:ctrp_user_command instead.
+"let g:ctrlp_custom_ignore = '[\/]\.(git|hg|svn|cabal-sandbox)$'
 
 nnoremap <PageUp> :bp<CR>
 nnoremap <PageDown> :bn<CR>
@@ -237,6 +241,8 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .o
       \ --ignore .hi
       \ --ignore .cabal
+      \ --ignore dist
+      \ --ignore .cabal-sandbox
       \ -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
