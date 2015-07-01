@@ -16,8 +16,37 @@ set encoding=utf-8
 
 set wildmenu
 set wildmode=list:longest,full
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.hi,*.cmt,*.cmo,*.cmti,*.cmi,*.cmo,*.dvi,*.cmi
-let NERDTreeIgnore = ['\.swp$','\.bak$','\.pyc$','\.class$','\.o$','\.hi$','\.cmt$','\.cmo$','\.cmti$','\.cmi$','\.cmo$', '\.dvi$', '\.cmi$']
+set wildignore=
+    \*.swp,
+    \*.bak,
+    \*.pyc,
+    \*.class,
+    \*.o,
+    \*.hi,
+    \*.cmt,
+    \*.cmo,
+    \*.cmti,
+    \*.cmi,
+    \*.cmo,
+    \*.dvi,
+    \*.cmi,
+    \dist/,
+    \.cabal-sandbox
+let NERDTreeIgnore =
+    \[ '\.swp$',
+    \'\.bak$',
+    \'\.pyc$',
+    \'\.class$',
+    \'\.o$',
+    \'\.hi$',
+    \'\.cmt$',
+    \'\.cmo$',
+    \'\.cmti$',
+    \'\.cmi$',
+    \'\.cmo$',
+    \'\.dvi$',
+    \'\.cmi$'
+    \]
 
 set backspace=indent,eol,start
 
