@@ -102,6 +102,8 @@ set completeopt=menuone,longest
 
 set formatoptions+=croqjl
 
+au BufEnter * syntax sync minlines=1000000
+
 " }}}
 
 " {{{ mappings
