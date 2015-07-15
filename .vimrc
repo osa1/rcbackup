@@ -203,6 +203,9 @@ map Q <Nop>
 " toggle spell
 nnoremap <leader>s :setlocal spell!<cr>
 
+" because vim is a pre-historic software with stupid features
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+
 " }}}
 
 filetype plugin indent on
