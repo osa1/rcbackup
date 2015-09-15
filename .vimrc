@@ -188,7 +188,8 @@ function! Fixc(lang)
     return a:lang
   endif
 endfunction
-nnoremap <leader>h :exec 'Ack -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
+nnoremap <leader>h :exec 'Ack! -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
+nnoremap <leader>w :Ack! -w --<c-r>=Fixc(&filetype)<cr> 
 
 " disable shift+k
 nnoremap <S-k> <Nop>
@@ -300,6 +301,8 @@ let g:airline#extensions#whitespace#checks = []
 if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
+
+let g:ackhighlight = 1
 
 let g:haskell_enable_quantification = 1
 let g:haskell_enable_typeroles = 1
