@@ -97,3 +97,15 @@ alias gb="git checkout"
 alias gcb="git checkout -b"
 alias gpom="git push origin master"
 alias gp="git push"
+
+load_ghc_dev() {
+    export PATH=/home/omer/haskell/ghc/inplace/bin:$PATH
+}
+
+ns() {
+    $* && notify-send "Done: $*"
+}
+
+:r() {
+    fg cabal-repl || fg ghci
+}
