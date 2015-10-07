@@ -111,5 +111,5 @@ ns() {
 }
 
 :r() {
-    fg cabal-repl || fg ghci
+    fg cabal repl || fg ghci
 }
