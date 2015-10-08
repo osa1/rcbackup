@@ -113,3 +113,7 @@ ns() {
 :r() {
     fg cabal repl || fg ghci
 }
+
+mc() {
+    mkdir $1 && cd $1
+}
