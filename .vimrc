@@ -213,6 +213,8 @@ noremap <F12> <Esc>:syntax sync fromstart<CR>
 
 nnoremap <leader>gg :!gitg &<CR><CR>
 
+vnoremap <leader>/ <Esc>/\%V
+
 " }}}
 
 filetype plugin indent on
