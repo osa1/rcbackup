@@ -215,6 +215,8 @@ nnoremap <leader>gg :!gitg &<CR><CR>
 
 vnoremap <leader>/ <Esc>/\%V
 
+vnoremap <C-c> "+y
+
 " }}}
 
 filetype plugin indent on
