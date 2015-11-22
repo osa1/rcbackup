@@ -111,7 +111,7 @@ ns() {
 }
 
 :r() {
-    fg cabal repl || fg ghci
+    fg cabal repl || fg ghci || fg stack repl
 }
 
 mc() {
