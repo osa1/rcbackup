@@ -117,3 +117,11 @@ ns() {
 mc() {
     mkdir $1 && cd $1
 }
+
+x86() {
+    lynx $HOME/Documents/x86/html/index.html -nolog -nomore -nopause -show_cursor -vikeys
+}
+
+tags() {
+    time (rm -f tags && fast-tags --no-module-tags driver ghc compiler libraries/template-haskell -R +RTS -N4 && sed -i.bak '/vectorise/d' ./tags)
+}
