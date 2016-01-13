@@ -102,6 +102,9 @@ alias gcb="git checkout -b"
 alias gpom="git push origin master"
 alias gp="git push"
 
+# edit-command-line
+bindkey "^X^E" edit-command-line
+
 load_ghc_dev() {
     export PATH=/home/omer/haskell/ghc/inplace/bin:$PATH
 }
