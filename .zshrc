@@ -54,7 +54,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:$HOME/jdk1.8.0_25/bin:$HOME/.cabal/bin:$HOME/arc/arcanist/bin:$PATH
+export ORIG_PATH=$HOME/bin:$HOME/jdk1.8.0_25/bin:$HOME/.cabal/bin:$HOME/arc/arcanist/bin:$HOME/racket/bin:$PATH
+export PATH=$ORIG_PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -110,6 +111,14 @@ bindkey -s "^K^K" 'konsole\n'
 
 load_ghc_dev() {
     export PATH=/home/omer/haskell/ghc/inplace/bin:$PATH
+}
+
+add_path() {
+    export PATH=$1:$PATH
+}
+
+reset_path() {
+    export PATH=$ORIG_PATH
 }
 
 ns() {
