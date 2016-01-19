@@ -117,6 +117,10 @@ add_path() {
     export PATH=$1:$PATH
 }
 
+add_ghc() {
+    export PATH=$HOME/haskell/$1/inplace/bin:$PATH
+}
+
 reset_path() {
     export PATH=$ORIG_PATH
 }
