@@ -107,7 +107,7 @@ alias gp="git push"
 bindkey "^X^E" edit-command-line
 
 # start a new terminal at the same directory
-bindkey -s "^K^K" 'konsole\n'
+bindkey -s "^N^N" 'konsole\n'
 
 load_ghc_dev() {
     export PATH=/home/omer/haskell/ghc/inplace/bin:$PATH
