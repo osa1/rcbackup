@@ -217,6 +217,9 @@ vnoremap <leader>/ <Esc>/\%V
 
 vnoremap <C-c> "+y
 
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>dc :Git! diff --cached<CR>
+
 " }}}
 
 filetype plugin indent on
