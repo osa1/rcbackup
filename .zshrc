@@ -142,5 +142,5 @@ x86() {
 }
 
 tags() {
-    time (rm -f tags && fast-tags --no-module-tags driver ghc compiler libraries/template-haskell -R +RTS -N4 && sed -i.bak '/vectorise/d' ./tags)
+    time (rm -f tags && fast-tags --no-module-tags driver ghc compiler -R +RTS -N4 && sed -i.bak '/vectorise/d' ./tags)
 }
