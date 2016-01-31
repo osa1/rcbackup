@@ -145,6 +145,11 @@ tags() {
     time (rm -f tags && fast-tags --no-module-tags driver ghc compiler -R +RTS -N4 && sed -i.bak '/vectorise/d' ./tags)
 }
 
+rtstags() {
+    tags
+    time (ctags --append -R rts/**/*.c rts/**/*.h)
+}
+
 st() {
     git stash show -p stash@{$1}
 }
