@@ -147,7 +147,7 @@ tags() {
 
 rtstags() {
     tags
-    time (ctags --append -R rts/**/*.c rts/**/*.h)
+    time (ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
 }
 
 st() {
