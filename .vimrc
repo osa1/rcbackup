@@ -75,7 +75,7 @@ set autoindent
 set expandtab                 " insert spaces instead of tabs
 set smarttab
 
-set foldmethod=marker
+set foldmethod=manual
 set foldlevel=99
 
 " Status line
