@@ -307,8 +307,11 @@ au! BufRead,BufNewFile *.k set filetype=kframework
 au! BufRead,BufNewFile *.hsc set filetype=haskell
 
 " airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#whitespace#checks = []
+if has("gui_running")
+    let g:airline_powerline_fonts = 1
+endif
+
+let g:airline_extensions = ['ctrlp', 'branch']
 
 " Use Ack.vim with ag instead of ack
 if executable('ag')
