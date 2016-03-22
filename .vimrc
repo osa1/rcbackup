@@ -247,7 +247,7 @@ endif
 
 " {{{ Filetype specific settings
 
-au FileType markdown set spell
+au FileType markdown setlocal spell
 let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'ocaml']
 
 au BufNewFile,BufRead *.json set ft=javascript
