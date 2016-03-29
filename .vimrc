@@ -196,7 +196,7 @@ function! Fixc(lang)
   endif
 endfunction
 nnoremap <leader>h :exec 'Ack! -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
-nnoremap <leader>w :Ack! -w --<c-r>=Fixc(&filetype)<cr>
+nnoremap <leader>w :Ack! -w --<c-r>=Fixc(&filetype) . ' '<cr>
 
 " disable shift+k
 nnoremap <S-k> <Nop>
