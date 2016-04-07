@@ -209,7 +209,12 @@ vnoremap <S-k> k
 map Q <Nop>
 
 " toggle spell
-nnoremap <leader>s :setlocal spell!<cr>
+nnoremap <leader>sp :setlocal spell!<cr>
+
+" sort a paragraph, case insensitive. leaves the cursor at the original
+" position.
+" (using register m because I couldn't find a better way)
+nnoremap <leader>ss mmvip:sort i<cr>`m
 
 " because vim is a pre-historic software with stupid features
 noremap <F12> <Esc>:syntax sync fromstart<CR>
