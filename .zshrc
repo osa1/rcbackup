@@ -103,6 +103,8 @@ alias gcb="git checkout -b"
 alias gpom="git push origin master"
 alias gp="git push"
 
+alias gdb="gdb -q"
+
 # edit-command-line
 bindkey "^X^E" edit-command-line
 
