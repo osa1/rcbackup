@@ -243,6 +243,7 @@ if has("gui_running")
     set guioptions-=l
     set guioptions-=r
     set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+    set guioptions+=c
     set linespace=0
     set columns=100
     set lines=50
