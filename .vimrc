@@ -116,9 +116,6 @@ set lazyredraw
 
 " {{{ mappings
 
-nnoremap <leader>ev :split  $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
 " wrap selected text in visual mode with double quotes
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
