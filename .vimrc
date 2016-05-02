@@ -226,6 +226,10 @@ vnoremap <C-c> "+y
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>dc :Git! diff --cached<CR>
 
+" Experimental - I realized I never use ?, but I use "word search" all the
+" time.
+nnoremap ? /\<\><Left><Left>
+
 " }}}
 
 filetype plugin indent on
