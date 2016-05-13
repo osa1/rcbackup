@@ -112,6 +112,7 @@ set formatoptions+=croqjl
 au BufEnter * syntax sync minlines=1000000
 
 set lazyredraw
+set nojoinspaces
 " }}}
 
 " {{{ mappings
