@@ -54,8 +54,18 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export ORIG_PATH=$HOME/bin:$HOME/jdk1.8.0_25/bin:$HOME/.cabal/bin:$HOME/arc/arcanist/bin:$HOME/racket/bin:$PATH
+export GHC_BIN=$HOME/ghc_bins/ghc-8.0.1/bin
+
+export ORIG_PATH=\
+$HOME/bin:\
+$HOME/.local/bin:\
+$HOME/jdk1.8.0_25/bin:\
+$HOME/arc/arcanist/bin:\
+$HOME/.cargo/bin:\
+$GHC_BIN:\
+$PATH
 export PATH=$ORIG_PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -84,6 +94,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export JAVA_HOME=$HOME/jdk1.8.0_25/
+export JAVA_ROOT=$HOME/jdk1.8.0_25/
 
 unset SSH_ASKPASS
 
@@ -95,7 +106,6 @@ export CPLUS_INCLUDE_PATH=$HOME/include:$CPLUS_INCLUDE_PATH
 export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
 export PKG_CONFIG_PATH=$HOME/lib/pkgconfig:$HOME/lib64/pkgconfig:$PKG_CONFIG_PATH
 
-alias sync-exinu="rsync --exclude=\".git\" -zarv /home/omer/osdev/exinu/ oagacan@silo.soic.indiana.edu:exinu/"
 alias gd="git diff --color"
 alias gc="git commit -m"
 alias gb="git checkout"
@@ -117,6 +127,10 @@ load_ghc_dev() {
 
 add_path() {
     export PATH=$1:$PATH
+}
+
+ubx_sum() {
+    add_path $HOME/ghc_bins/ghc-ubx-sums-1.6/bin
 }
 
 add_ghc() {
@@ -143,6 +157,10 @@ x86() {
     lynx $HOME/Documents/x86/html/index.html -nolog -nomore -nopause -show_cursor -vikeys
 }
 
+cref() {
+    lynx $HOME/Documents/cppref/reference/en/index.html -nolog -nomore -nopause -show_cursor -vikeys
+}
+
 tags() {
     time (rm -f tags && fast-tags --no-module-tags driver ghc compiler -R +RTS -N4 && sed -i.bak '/vectorise/d' ./tags)
 }
@@ -155,3 +173,5 @@ rtstags() {
 st() {
     git stash show -p stash@{$1}
 }
+
+# TODO: Write unload_ghc_dev()
