@@ -61,6 +61,7 @@ $HOME/bin:\
 $HOME/.local/bin:\
 $HOME/jdk1.8.0_25/bin:\
 $HOME/arc/arcanist/bin:\
+$HOME/.cabal/bin:\
 $HOME/.cargo/bin:\
 $GHC_BIN:\
 $PATH
