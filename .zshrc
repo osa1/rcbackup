@@ -175,4 +175,8 @@ st() {
     git stash show -p stash@{$1}
 }
 
+layout() {
+    sh $HOME/.screenlayout/$1.sh
+}
+
 # TODO: Write unload_ghc_dev()
