@@ -230,6 +230,7 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>dc :Git! diff --cached<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gc :Gcommit<CR>
 
 " Experimental - I realized I never use ?, but I use "word search" all the
 " time.
