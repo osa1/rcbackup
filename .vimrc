@@ -119,9 +119,6 @@ set nojoinspaces
 
 " {{{ mappings
 
-" wrap selected text in visual mode with double quotes
-vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
-
 noremap H ^
 noremap L $
 
@@ -222,6 +219,7 @@ noremap <F12> <Esc>:syntax sync fromstart<CR>
 
 nnoremap <leader>gg :!gitg &<CR><CR>
 
+" search in selection
 vnoremap <leader>/ <Esc>/\%V
 
 vnoremap <C-c> "+y
