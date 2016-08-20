@@ -52,9 +52,6 @@ let NERDTreeIgnore =
     \'\.cmi$'
     \]
 
-set list
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-
 set backspace=indent,eol,start
 
 " searching
