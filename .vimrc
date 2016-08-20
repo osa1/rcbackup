@@ -66,7 +66,7 @@ set showmatch                 " show matching bracket
 " Disabling iwhite, causing problems when commiting stuff using :Gdiff
 set diffopt=filler
 
-set shiftwidth=2
+set shiftwidth=4
 set tabstop=4
 set scrolloff=5               " keep at least 5 lines above/below
 "set cursorline
@@ -257,7 +257,7 @@ endif
 " {{{ Filetype specific settings
 
 au FileType markdown setlocal spell
-let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'ocaml']
+let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'ocaml', 'rust']
 
 au BufNewFile,BufRead *.json set ft=javascript
 
@@ -266,20 +266,18 @@ au! BufRead,BufNewFile *.td     set filetype=tablegen
 au! BufRead,BufNewFile *.hsc    set filetype=haskell
 au! BufRead,BufNewFile *.pl     set filetype=prolog
 au! BufRead,BufNewFile *.dasc   set filetype=c
-au! BufRead,BufNewFile *.hs     set shiftwidth=2
-au! BufRead,BufNewFile *.hsc    set shiftwidth=2
-au! BufRead,BufNewFile *.ml     set shiftwidth=2
-au! BufRead,BufNewFile *.mll    set shiftwidth=2
-au! BufRead,BufNewFile *.mly    set shiftwidth=2
 
-au FileType c set shiftwidth=4
-au FileType tex set textwidth=80
+au! BufRead,BufNewFile *.fun    set filetype=sml
+au! BufRead,BufNewFile *.sig    set filetype=sml
+au! BufRead,BufNewFile *.sml    set filetype=sml
 
 au! BufRead,BufNewFile *.lua       nnoremap <F5> :!love ./<CR>
 
 " }}}
 
 " {{{ Plugin specific settings
+
+au FileType cpp set formatoptions+=c
 
 au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
@@ -288,8 +286,6 @@ au! BufRead,BufNewFile *.lhs set ft=haskell
 
 au! BufRead,BufNewFile *.md set ft=markdown
 
-au FileType asm set noexpandtab
-au FileType asm set shiftwidth=4
 
 let g:ctrlp_match_window = 'results:100'
 let g:ctrlp_show_hidden = 1
@@ -313,10 +309,8 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 "let g:coquille_auto_move = 'true'
 let g:CoqIDEDefaultMap = 1
 au! BufRead,BufNewFile *.v set filetype=coq
-
-au! BufRead,BufNewFile *.k set filetype=kframework
-
 au! BufRead,BufNewFile *.hsc set filetype=haskell
+au! BufRead,BufNewFile *.md set filetype=markdown
 
 " airline
 if has("gui_running")
