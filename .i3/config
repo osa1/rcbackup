@@ -156,9 +156,6 @@ bar {
 focus_follows_mouse no
 
 # some program specific settings
-for_window [class="Qvim"] floating enable
-for_window [class="Transmission"] floating enable
-for_window [class="recordMyDesktop"] floating enable
-for_window [class="Systemsettings"] floating enable
 for_window [title="Application Finder"] floating enable; resize set 100 100
 for_window [title="Screen Layout Editor"] floating enable
+for_window [title="QEMU"] floating enable
