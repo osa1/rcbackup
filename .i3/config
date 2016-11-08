@@ -12,13 +12,13 @@
 set $mod Mod4
 
 #exec /usr/bin/setxkbmap -option 'ctrl:nocaps'
-exec --no-startup-id feh --bg-scale /home/omer/Pictures/haskell.png
+exec --no-startup-id feh --bg-scale /home/omer/Pictures/haskell1.png
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:xos4 Terminus 11
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -33,6 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec konsole
 
 # app finder
+bindsym $mod+F1 exec xfce4-appfinder
 bindsym $mod+F2 exec xfce4-appfinder --collapsed
 bindsym $mod+x exec xfce4-session-logout
 
