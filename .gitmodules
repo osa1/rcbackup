@@ -24,7 +24,7 @@
 	url = https://github.com/FelikZ/ctrlp-py-matcher.git
 [submodule ".vim/bundle/haskell-vim"]
 	path = .vim/bundle/haskell-vim
-	url = https://github.com/raichoo/haskell-vim.git
+	url = https://github.com/osa1/haskell-vim.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
