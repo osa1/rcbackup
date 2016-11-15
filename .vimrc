@@ -281,6 +281,7 @@ au FileType cpp set formatoptions+=c
 
 au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
+au FileType haskell set shiftwidth=2
 au FileType haskell set textwidth=80
 au! BufRead,BufNewFile *.lhs set ft=haskell
 
