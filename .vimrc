@@ -231,6 +231,9 @@ nnoremap <leader>gc :Gcommit<CR>
 " time.
 nnoremap ? /\<\><Left><Left>
 
+" Turkish deasciifier
+nnoremap <leader>da :%!turkish-deasciifier<CR>
+
 " }}}
 
 filetype plugin indent on
