@@ -233,6 +233,7 @@ nnoremap ? /\<\><Left><Left>
 
 " Turkish deasciifier
 nnoremap <leader>da :%!turkish-deasciifier<CR>
+vnoremap <leader>da <esc>:'<,'>:!turkish-deasciifier<CR>
 
 " }}}
 
