@@ -160,3 +160,4 @@ focus_follows_mouse no
 for_window [title="Application Finder"] floating enable; resize set 100 100
 for_window [title="Screen Layout Editor"] floating enable
 for_window [title="QEMU"] floating enable
+for_window [title="recordMyDesktop"] floating enable
