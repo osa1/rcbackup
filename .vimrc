@@ -248,12 +248,15 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=l
     set guioptions-=r
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+    set guifont=xos4\ Terminess\ Powerline\ 10
     set guioptions+=c
     set linespace=0
     set columns=100
     set lines=50
-    colorscheme Tomorrow-Night-Eighties
+    colorscheme molokai
+elseif has("nvim")
+    set termguicolors
+    colorscheme molokai
 else
     colorscheme Tomorrow-Night
 endif
@@ -318,10 +321,8 @@ au! BufRead,BufNewFile *.hsc set filetype=haskell
 au! BufRead,BufNewFile *.md set filetype=markdown
 
 " airline
-if has("gui_running")
-    let g:airline_powerline_fonts = 1
-endif
-
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_extensions = ['ctrlp', 'branch']
 
 " Use Ack.vim with ag instead of ack
