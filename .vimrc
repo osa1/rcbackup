@@ -186,6 +186,8 @@ nnoremap <PageDown> :bn<CR>
 function! Fixc(lang)
   if a:lang == "c"
     return "cc"
+  elseif a:lang == "javascript"
+    return "js"
   else
     return a:lang
   endif
