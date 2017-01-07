@@ -113,6 +113,7 @@ alias gb="git checkout"
 alias gcb="git checkout -b"
 alias gpom="git push origin master"
 alias gp="git push"
+alias gs="git status"
 
 alias gdb="gdb -q"
 
