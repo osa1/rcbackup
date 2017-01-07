@@ -268,34 +268,32 @@ endif
 au FileType markdown setlocal spell
 let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'ocaml', 'rust']
 
-au BufNewFile,BufRead *.json set ft=javascript
-
-au! BufRead,BufNewFile *.ll     set filetype=llvm
-au! BufRead,BufNewFile *.td     set filetype=tablegen
-au! BufRead,BufNewFile *.hsc    set filetype=haskell
-au! BufRead,BufNewFile *.pl     set filetype=prolog
-au! BufRead,BufNewFile *.dasc   set filetype=c
-
-au! BufRead,BufNewFile *.fun    set filetype=sml
-au! BufRead,BufNewFile *.sig    set filetype=sml
-au! BufRead,BufNewFile *.sml    set filetype=sml
-
-au! BufRead,BufNewFile *.lua       nnoremap <F5> :!love ./<CR>
-
-" }}}
-
-" {{{ Plugin specific settings
-
-au FileType cpp set formatoptions+=c
-
+au FileType cpp     set formatoptions+=c
 au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell set shiftwidth=2
 au FileType haskell set textwidth=80
-au! BufRead,BufNewFile *.lhs set ft=haskell
 
-au! BufRead,BufNewFile *.md set ft=markdown
+au! BufRead,BufNewFile *.dasc   set ft=c
+au! BufRead,BufNewFile *.fun    set ft=sml
+au! BufRead,BufNewFile *.hsc    set ft=haskell
+au! BufRead,BufNewFile *.json   set ft=javascript
+au! BufRead,BufNewFile *.lhs    set ft=haskell
+au! BufRead,BufNewFile *.ll     set ft=llvm
+au! BufRead,BufNewFile *.md     set ft=markdown
+au! BufRead,BufNewFile *.pl     set ft=prolog
+au! BufRead,BufNewFile *.sig    set ft=sml
+au! BufRead,BufNewFile *.sml    set ft=sml
+au! BufRead,BufNewFile *.td     set ft=tablegen
+au! BufRead,BufNewFile *.v      set ft=coq
+au! BufRead,BufNewFile *.x      set ft=text " alex
+au! BufRead,BufNewFile *.y      set ft=text " happy
 
+au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
+
+" }}}
+
+" {{{ Plugin specific settings
 
 let g:ctrlp_match_window = 'results:100'
 let g:ctrlp_show_hidden = 1
@@ -312,15 +310,10 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
-au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
-
 "au FileType coq CoqLaunch
 "au FileType coq call coquille#FNMapping()
 "let g:coquille_auto_move = 'true'
 let g:CoqIDEDefaultMap = 1
-au! BufRead,BufNewFile *.v set filetype=coq
-au! BufRead,BufNewFile *.hsc set filetype=haskell
-au! BufRead,BufNewFile *.md set filetype=markdown
 
 " airline
 let g:airline_left_sep=''
