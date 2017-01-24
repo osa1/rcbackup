@@ -1,0 +1,11 @@
+#!/bin/bash
+
+tags_root=$(git rev-parse --show-toplevel)
+
+if [[ -z $tags_root ]]; then
+    exit 1
+fi
+
+hs_files=$(find . -not -path '*/\.*' -not -path 'dist' -iname *.hs | tr "\n" " ")
+
+fast-tags $hs_files --no-module-tags --nomerge
