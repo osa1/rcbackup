@@ -6,6 +6,6 @@ if [[ -z $tags_root ]]; then
     exit 1
 fi
 
-hs_files=$(find . -not -path '*/\.*' -not -path 'dist' -iname *.hs | tr "\n" " ")
+hs_files=$(find $tags_root -not -path '*/\.*' -not -path 'dist' -iname '*.hs' | tr "\n" " ")
 
-fast-tags $hs_files --no-module-tags --nomerge
+fast-tags -o ${tags_root}/tags --no-module-tags --nomerge $hs_files
