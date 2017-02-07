@@ -258,6 +258,7 @@ if has("gui_running")
     colorscheme molokai
 elseif has("nvim")
     set termguicolors
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
     colorscheme molokai
 else
     colorscheme Tomorrow-Night
