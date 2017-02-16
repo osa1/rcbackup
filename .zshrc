@@ -108,6 +108,7 @@ export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
 export PKG_CONFIG_PATH=$HOME/lib/pkgconfig:$HOME/lib64/pkgconfig:$PKG_CONFIG_PATH
 
 alias gd="git diff --color"
+alias gdc="git diff --color --cached"
 alias gc="git commit -m"
 alias gb="git checkout"
 alias gcb="git checkout -b"
