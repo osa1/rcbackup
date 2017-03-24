@@ -333,3 +333,28 @@ let g:haskell_enable_typeroles = 1
 let g:haskell_indent_if = 2
 
 " }}}
+
+function! AdjustFontSize(amount)
+  let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
+  let s:minfontsize = 6
+  let s:maxfontsize = 16
+  if has("gui_running")
+    let fontname = substitute(&guifont, s:pattern, '\1', '')
+    let cursize = substitute(&guifont, s:pattern, '\2', '')
+    let newsize = cursize + a:amount
+    if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+      let newfont = fontname . newsize
+      let &guifont = newfont
+    endif
+  endif
+endfunction
+
+function! LargerFont()
+  call AdjustFontSize(1)
+endfunction
+command! LargerFont call LargerFont()
+
+function! SmallerFont()
+  call AdjustFontSize(-1)
+endfunction
+command! SmallerFont call SmallerFont()
