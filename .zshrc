@@ -49,6 +49,7 @@ plugins=(git, git-extras, per-directory-history)
 
 alias ccat=colorize
 alias open=xdg-open
+alias xclip="xclip -selection c"
 
 source $ZSH/oh-my-zsh.sh
 
