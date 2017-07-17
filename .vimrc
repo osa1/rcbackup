@@ -154,7 +154,7 @@ imap <F1> <Nop>
 "inoremap <space> <space><C-g>u
 
 " plugins
-map <leader>gu :GundoToggle<CR>
+map <leader>gu :MundoToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 
 " resizing splits
