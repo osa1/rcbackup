@@ -184,7 +184,7 @@ nnoremap <PageDown> :bn<CR>
 
 " search word under the cursor ack plugin
 function! Fixc(lang)
-  if a:lang == "c"
+  if a:lang == "c" || a:lang == "cpp"
     return "cc"
   elseif a:lang == "javascript"
     return "js"
