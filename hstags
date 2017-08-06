@@ -3,7 +3,8 @@
 tags_root=$(git rev-parse --show-toplevel)
 
 if [[ -z $tags_root ]]; then
-    exit 1
+    tags_root=$(pwd)
+    echo "Can't find git root, using ${tags_root} as tag root"
 fi
 
 hs_files=$(find $tags_root -not -path '*/\.*' -not -path 'dist' -iname '*.hs' | tr "\n" " ")
