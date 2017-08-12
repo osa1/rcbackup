@@ -119,9 +119,6 @@ alias gs="git status"
 
 alias gdb="gdb -q"
 
-alias trk="setxkbmap -layout tr"
-alias eng="setxkbmap -layout us"
-
 # edit-command-line
 bindkey "^X^E" edit-command-line
 
