@@ -358,3 +358,6 @@ function! SmallerFont()
   call AdjustFontSize(-1)
 endfunction
 command! SmallerFont call SmallerFont()
+
+nnoremap <C-=> :LargerFont<CR>
+nnoremap <C--> :SmallerFont<CR>
