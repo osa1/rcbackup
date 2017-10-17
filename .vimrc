@@ -34,6 +34,7 @@ set wildignore=
     \*.cmi,
     \dist/,
     \.cabal-sandbox
+    \.stack-work
 let NERDTreeIgnore =
     \[ '\.swp$',
     \'\.bak$',
@@ -308,6 +309,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .cabal
       \ --ignore dist
       \ --ignore .cabal-sandbox
+      \ --ignore .stack-work
       \ -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
