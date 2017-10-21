@@ -108,6 +108,9 @@ export CPLUS_INCLUDE_PATH=$HOME/include:$CPLUS_INCLUDE_PATH
 export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
 export PKG_CONFIG_PATH=$HOME/lib/pkgconfig:$HOME/lib64/pkgconfig:$PKG_CONFIG_PATH
 
+# This seems to make zsh stop adding empty lines to .zsh_history
+export HISTORY_IGNORE=""
+
 alias gd="git diff --color"
 alias gdc="git diff --color --cached"
 alias gc="git commit -m"
