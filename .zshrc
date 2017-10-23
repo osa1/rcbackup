@@ -186,3 +186,9 @@ layout() {
 }
 
 # TODO: Write unload_ghc_dev()
+
+if [ -f ~/.fzf.zsh ]; then
+    export FZF_DEFAULT_COMMAND='ag -g ""'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    source ~/.fzf.zsh  
+fi
