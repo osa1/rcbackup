@@ -177,7 +177,7 @@ rtstags() {
     time (ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
 }
 
-st() {
+gst() {
     git stash show -p stash@{$1}
 }
 
