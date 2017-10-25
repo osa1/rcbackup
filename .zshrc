@@ -185,6 +185,10 @@ layout() {
     sh $HOME/.screenlayout/$1.sh
 }
 
+tops() {
+    htop --pid "$(pgrep -x $1 | tr '\n' ',')"
+}
+
 # TODO: Write unload_ghc_dev()
 
 if [ -f ~/.fzf.zsh ]; then
