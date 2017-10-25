@@ -55,12 +55,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+stty -ixon
+
 export GHC_BIN=$HOME/ghc_bins/ghc-8.0.1/bin
 
 export ORIG_PATH=\
 $HOME/bin:\
 $HOME/.local/bin:\
-$HOME/jdk1.8.0_25/bin:\
 $HOME/arc/arcanist/bin:\
 $HOME/.cabal/bin:\
 $HOME/.cargo/bin:\
@@ -68,35 +69,7 @@ $GHC_BIN:\
 $PATH
 export PATH=$ORIG_PATH
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export JAVA_HOME=$HOME/jdk1.8.0_25/
-export JAVA_ROOT=$HOME/jdk1.8.0_25/
+export EDITOR='nvim'
 
 unset SSH_ASKPASS
 
@@ -126,7 +99,7 @@ alias gdb="gdb -q"
 bindkey "^X^E" edit-command-line
 
 # start a new terminal at the same directory
-bindkey -s "^N^N" 'konsole\n'
+bindkey -s "^N^N" 'st &!\n'
 
 load_ghc_dev() {
     export PATH=/home/omer/haskell/ghc/inplace/bin:$PATH
@@ -194,5 +167,5 @@ tops() {
 if [ -f ~/.fzf.zsh ]; then
     export FZF_DEFAULT_COMMAND='ag -g ""'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    source ~/.fzf.zsh  
+    source ~/.fzf.zsh
 fi
