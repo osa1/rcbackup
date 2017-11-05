@@ -7,9 +7,10 @@ call pathogen#infect()
 " {{{ settings
 
 set hidden
-set guicursor+=a:blinkon0     " disable cursor blinking
-set guicursor+=i:block-Cursor " use block cursor in insert mode(for GUIs)
-set guicursor+=i:blinkon0     " don't blink in insert mode too
+set guicursor=
+"set guicursor+=a:blinkon0     " disable cursor blinking
+"set guicursor+=i:block-Cursor " use block cursor in insert mode(for GUIs)
+"set guicursor+=i:blinkon0     " don't blink in insert mode too
 
 set linebreak                 " wraplong lines at a character in `breakat`
 set encoding=utf-8
@@ -133,9 +134,6 @@ nnoremap Y y$
 " Clean whitespace
 noremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" convert tabs to 4 space
-noremap <leader>T :%s/\t/    /g<CR>
-
 nnoremap j gj
 nnoremap k gk
 
@@ -168,24 +166,13 @@ nnoremap <C-Right> <C-w>>
 nnoremap <CR> o<ESC>
 nnoremap <Space> O<ESC>
 
-" copy all of the buffer to system clipboard
-"nnoremap <C-y> mrggVG"+y`r
-
-" start CtrlP with buffer mode
-nnoremap <C-b> :CtrlPBuffer<CR>
-nnoremap <leader>t :CtrlPTag<CR>
-" NB: I shouldn't be using this for two reasons:
-"     - CtrlP is using wildignore already.
-"     - If g:ctrlp_user_command is defined, then this is not used at all.
-" So I'm making relevant changes in g:ctrp_user_command instead.
-"let g:ctrlp_custom_ignore = '[\/]\.(git|hg|svn|cabal-sandbox)$'
-
-nnoremap <PageUp> :bp<CR>
-nnoremap <PageDown> :bn<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <leader>t :Tags<CR>
 
 " search word under the cursor ack plugin
 function! Fixc(lang)
-  if a:lang == "c" || a:lang == "cpp"
+  if a:lang == "c"
     return "cc"
   elseif a:lang == "javascript"
     return "js"
@@ -193,8 +180,8 @@ function! Fixc(lang)
     return a:lang
   endif
 endfunction
-nnoremap <leader>h :exec 'Ack! -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
-nnoremap <leader>w :Ack! -w --<c-r>=Fixc(&filetype) . ' '<cr>
+nnoremap <leader>h :exec 'Ag -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
+nnoremap <leader>w :Ag -w --<c-r>=Fixc(&filetype) . ' '<cr>
 
 " disable shift+k
 nnoremap <S-k> <Nop>
@@ -209,15 +196,8 @@ map Q <Nop>
 " toggle spell
 nnoremap <leader>sp :setlocal spell!<cr>
 
-" sort a paragraph, case insensitive. leaves the cursor at the original
-" position.
-" (using register m because I couldn't find a better way)
-nnoremap <leader>ss mmvip:sort i<cr>`m
-
 " because vim is a pre-historic software with stupid features
 noremap <F12> <Esc>:syntax sync fromstart<CR>
-
-nnoremap <leader>gg :!gitg &<CR><CR>
 
 " search in selection
 vnoremap <leader>/ <Esc>/\%V
@@ -238,6 +218,9 @@ nnoremap ? /\<\><Left><Left>
 nnoremap <leader>da :%!turkish-deasciifier<CR>
 vnoremap <leader>da <esc>:'<,'>:!turkish-deasciifier<CR>
 
+" Reload buffers when files change between FocusLost/FocusGained
+au FocusGained * checktime
+
 " }}}
 
 filetype plugin indent on
@@ -245,25 +228,9 @@ filetype plugin indent on
 let g:molokai_original = 1
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 autocmd Colorscheme * highlight clear SignColumn
-if has("gui_running")
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=L
-    set guioptions-=l
-    set guioptions-=r
-    set guifont=xos4\ Terminess\ Powerline\ 10
-    set guioptions+=c
-    set linespace=0
-    set columns=100
-    set lines=50
-    colorscheme molokai
-elseif has("nvim")
-    set termguicolors
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
-    colorscheme molokai
-else
-    colorscheme Tomorrow-Night
-endif
+set termguicolors
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+colorscheme molokai
 
 " {{{ Filetype specific settings
 
@@ -297,69 +264,30 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
 " {{{ Plugin specific settings
 
-let g:ctrlp_match_window = 'results:100'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .o
-      \ --ignore .hi
-      \ --ignore .cabal
-      \ --ignore dist
-      \ --ignore .cabal-sandbox
-      \ --ignore .stack-work
-      \ -g ""'
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-
-"au FileType coq CoqLaunch
-"au FileType coq call coquille#FNMapping()
-"let g:coquille_auto_move = 'true'
-let g:CoqIDEDefaultMap = 1
-
 " airline
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_extensions = ['ctrlp', 'branch']
-
-" Use Ack.vim with ag instead of ack
-if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
-
-let g:ackhighlight = 1
+let g:airline_extensions = ['branch']
 
 let g:haskell_enable_quantification = 1
 let g:haskell_enable_typeroles = 1
 let g:haskell_indent_if = 2
 
+
+"""""""
+" FZF "
+"""""""
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+command! -nargs=+ Ag call fzf#vim#ag_raw(<q-args>)
+
 " }}}
-
-function! AdjustFontSize(amount)
-  let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
-  let s:minfontsize = 6
-  let s:maxfontsize = 16
-  if has("gui_running")
-    let fontname = substitute(&guifont, s:pattern, '\1', '')
-    let cursize = substitute(&guifont, s:pattern, '\2', '')
-    let newsize = cursize + a:amount
-    if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
-      let newfont = fontname . newsize
-      let &guifont = newfont
-    endif
-  endif
-endfunction
-
-function! LargerFont()
-  call AdjustFontSize(1)
-endfunction
-command! LargerFont call LargerFont()
-
-function! SmallerFont()
-  call AdjustFontSize(-1)
-endfunction
-command! SmallerFont call SmallerFont()
-
-nnoremap <C-=> :LargerFont<CR>
-nnoremap <C--> :SmallerFont<CR>
