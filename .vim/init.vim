@@ -168,6 +168,7 @@ nnoremap <Space> O<ESC>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
+nnoremap <C-l> :Lines<CR>
 nnoremap <leader>t :Tags<CR>
 
 " search word under the cursor ack plugin
