@@ -7,6 +7,6 @@ if [[ -z $tags_root ]]; then
     echo "Can't find git root, using ${tags_root} as tag root"
 fi
 
-hs_files=$(find $tags_root -not -path '*/\.*' -not -path 'dist' -iname '*.hs' | tr "\n" " ")
+hs_files=$(find $tags_root -not -path '*/\.*' -not -path 'dist' -iname '*.hs' -o -iname '*.hsc' | tr "\n" " ")
 
 fast-tags -o ${tags_root}/tags --no-module-tags --nomerge $hs_files
