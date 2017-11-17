@@ -24,3 +24,5 @@
 	insteadOf = git@github.com:/ghc/packages/
 [url "ssh://git@git.haskell.org/"]
 	pushInsteadOf = git://git.haskell.org/
+[merge]
+	conflictstyle = diff3
