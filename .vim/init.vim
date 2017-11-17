@@ -1,9 +1,6 @@
 set nocompatible
 let mapleader=','
 
-let vimfiles = $HOME . "/.vim"
-call pathogen#infect()
-
 " {{{ settings
 
 set hidden

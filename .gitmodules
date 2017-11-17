@@ -1,33 +1,33 @@
 [submodule ".vim/bundle/gundo"]
-	path = .vim/bundle/gundo
+	path = .vim/pack/plugins/start/gundo
 	url = https://github.com/simnalamburt/vim-mundo.git
 [submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
+	path = .vim/pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
+	path = .vim/pack/plugins/start/vim-airline
 	url = https://github.com/bling/vim-airline.git
 [submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
+	path = .vim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/haskell-vim"]
-	path = .vim/bundle/haskell-vim
+	path = .vim/pack/plugins/start/haskell-vim
 	url = https://github.com/osa1/haskell-vim.git
 [submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
+	path = .vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/fzf.vim"]
-	path = .vim/bundle/fzf.vim
+	path = .vim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/bundle/fzf"]
-	path = .vim/bundle/fzf
+	path = .vim/pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.git
 [submodule ".vim/bundle/vim-rhubarb"]
-	path = .vim/bundle/vim-rhubarb
+	path = .vim/pack/plugins/start/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
 [submodule ".vim/bundle/rust.vim"]
-	path = .vim/bundle/rust.vim
+	path = .vim/pack/plugins/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
 [submodule ".vim/bundle/bufexplorer"]
-	path = .vim/bundle/bufexplorer
+	path = .vim/pack/plugins/start/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
