@@ -58,7 +58,6 @@ set backspace=indent,eol,start
 
 " searching
 set incsearch                 " incremental search
-set inccommand=split
 set ignorecase                " search ignoring case
 " override `ignorecase` if pattern contains uppercase
 set smartcase
