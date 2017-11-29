@@ -3,6 +3,11 @@ let mapleader=','
 
 " {{{ settings
 
+set t_Co=256
+
+set noruler
+set noshowcmd
+
 set hidden
 set guicursor=
 "set guicursor+=a:blinkon0     " disable cursor blinking
