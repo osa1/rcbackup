@@ -84,9 +84,6 @@ set smarttab
 set foldmethod=manual
 set foldlevel=99
 
-" Status line
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
-
 set nobackup
 set noswapfile
 
@@ -231,7 +228,6 @@ let g:molokai_original = 1
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 autocmd Colorscheme * highlight clear SignColumn
 set termguicolors
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 colorscheme molokai
 
 " {{{ Filetype specific settings
@@ -281,7 +277,6 @@ let g:haskell_indent_if = 2
 """""""
 
 function! s:fzf_statusline()
-  " Override statusline as you like
   highlight fzf1 ctermfg=161 ctermbg=251
   highlight fzf2 ctermfg=23 ctermbg=251
   highlight fzf3 ctermfg=237 ctermbg=251
