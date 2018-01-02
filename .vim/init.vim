@@ -201,7 +201,7 @@ noremap <F12> <Esc>:syntax sync fromstart<CR>
 vnoremap <leader>/ <Esc>/\%V
 
 vnoremap <C-c> "+y
-inoremap <C-v> <C-r>*
+inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
 
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>dc :Git! diff --cached<CR>
