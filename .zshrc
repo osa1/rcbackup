@@ -57,7 +57,7 @@ source $ZSH/oh-my-zsh.sh
 
 stty -ixon
 
-export GHC_BIN=$HOME/ghc_bins/ghc-8.0.1/bin
+export GHC_BIN=$HOME/ghc_bins/ghc-8.2.2-bin/bin
 
 export ORIG_PATH=\
 $HOME/bin:\
