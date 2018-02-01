@@ -241,20 +241,13 @@ au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell set shiftwidth=2
 au FileType haskell set textwidth=80
 
-au! BufRead,BufNewFile *.dasc   set ft=c
-au! BufRead,BufNewFile *.fun    set ft=sml
 au! BufRead,BufNewFile *.hsc    set ft=haskell
 au! BufRead,BufNewFile *.json   set ft=javascript
-au! BufRead,BufNewFile *.lhs    set ft=haskell
-au! BufRead,BufNewFile *.ll     set ft=llvm
 au! BufRead,BufNewFile *.md     set ft=markdown
-au! BufRead,BufNewFile *.pl     set ft=prolog
-au! BufRead,BufNewFile *.sig    set ft=sml
-au! BufRead,BufNewFile *.sml    set ft=sml
-au! BufRead,BufNewFile *.td     set ft=tablegen
-au! BufRead,BufNewFile *.v      set ft=coq
-au! BufRead,BufNewFile *.x      set ft=text " alex
-au! BufRead,BufNewFile *.y      set ft=text " happy
+au! BufRead,BufNewFile *.x      set ft=text   " alex
+au! BufRead,BufNewFile *.y      set ft=text   " happy
+au! BufRead,BufNewFile *.t      set ft=python " GHC's test files
+au! BufRead,BufNewFile *.h      set ft=c
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
