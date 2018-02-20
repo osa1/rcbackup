@@ -248,6 +248,7 @@ au! BufRead,BufNewFile *.x      set ft=text   " alex
 au! BufRead,BufNewFile *.y      set ft=text   " happy
 au! BufRead,BufNewFile *.t      set ft=python " GHC's test files
 au! BufRead,BufNewFile *.h      set ft=c
+au! BufRead,BufNewFile .envrc   set ft=sh
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 

@@ -59,16 +59,6 @@ stty -ixon
 
 export GHC_BIN=$HOME/ghc_bins/ghc-8.2.2-bin/bin
 
-export ORIG_PATH=\
-$HOME/bin:\
-$HOME/.local/bin:\
-$HOME/arc/arcanist/bin:\
-$HOME/.cabal/bin:\
-$HOME/.cargo/bin:\
-$GHC_BIN:\
-$PATH
-export PATH=$ORIG_PATH
-
 export EDITOR='nvim'
 
 unset SSH_ASKPASS
@@ -169,3 +159,15 @@ if [ -f ~/.fzf.zsh ]; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     source ~/.fzf.zsh
 fi
+
+export ORIG_PATH=\
+$HOME/bin:\
+$HOME/.local/bin:\
+$HOME/arc/arcanist/bin:\
+$HOME/.cabal/bin:\
+$HOME/.cargo/bin:\
+$GHC_BIN:\
+$PATH
+export PATH=$ORIG_PATH
+
+eval "$(direnv hook zsh)"
