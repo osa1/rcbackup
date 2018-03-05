@@ -11,4 +11,4 @@ git clone --recursive git://git.haskell.org/ghc.git $DIR
 cd $DIR
 ./boot
 ./configure
-time make
+time ./validate --slow 1>validate.out 2>&1
