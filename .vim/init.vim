@@ -240,7 +240,7 @@ au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell set shiftwidth=2
 au FileType haskell set textwidth=80
-au FileType qf      silent! unmap <CR>
+au FileType qf      silent! nnoremap <buffer> <CR> <CR>
 
 au! BufRead,BufNewFile *.hsc    set ft=haskell
 au! BufRead,BufNewFile *.json   set ft=javascript
