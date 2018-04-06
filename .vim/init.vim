@@ -240,7 +240,25 @@ au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell set shiftwidth=2
 au FileType haskell set textwidth=80
-au FileType qf      silent! nnoremap <buffer> <CR> <CR>
+
+
+""""""""""""""""""
+" Quickfix stuff "
+""""""""""""""""""
+
+" Restore <CR> behavior
+au FileType qf silent! nnoremap <buffer> <CR> <CR>
+" When using `dd` in the quickfix list, remove the item from the quickfix list.
+function! RemoveQFItem()
+  let curqfidx = line('.')
+  let qfall = getqflist()
+  call remove(qfall, curqfidx-1)
+  call setqflist(qfall, 'r')
+  execute "normal " . curqfidx . "gg"
+endfunction
+au FileType qf map <buffer> dd :call RemoveQFItem()<cr>
+
+""""""""""""""""""
 
 au! BufRead,BufNewFile *.hsc    set ft=haskell
 au! BufRead,BufNewFile *.json   set ft=javascript
