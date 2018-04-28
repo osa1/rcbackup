@@ -1,69 +1,96 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+####################
+# History settings #
+####################
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+HISTFILE=~/.history-zsh
+HISTSIZE=10000
+SAVEHIST=10000
+# allow multiple sessions to append to one history
+setopt append_history
+# treat ! special during command expansion
+setopt bang_hist
+# Write history in :start:elasped;command format
+setopt extended_history
+# expire duplicates first when trimming history
+setopt hist_expire_dups_first
+# When searching history, don't repeat
+setopt hist_find_no_dups
+# ignore duplicate entries of previous events
+setopt hist_ignore_dups
+# prefix command with a space to skip it's recording
+setopt hist_ignore_space
+# Remove extra blanks from each command added to history
+setopt hist_reduce_blanks
+# Don't execute immediately upon history expansion
+setopt hist_verify
+# Write to history file immediately, not when shell quits
+setopt inc_append_history
+# Share history among all sessions
+setopt share_history
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# TODO: per-directory-history
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+##########
+# Prompt #
+##########
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# Adapted from https://github.com/fatih/dotfiles/blob/master/zshrc
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+autoload -U colors && colors
+setopt promptsubst
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[green]%}$)"
+PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)${ret_status}%{$reset_color%} '
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+# Outputs current branch info in prompt format
+function git_prompt_info() {
+    local ref
+    if [[ "$(command git config --get customzsh.hide-status 2>/dev/null)" != "1" ]]; then
+        ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+        ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+        echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    fi
+}
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# Checks if working tree is dirty
+function parse_git_dirty() {
+    local STATUS=''
+    local FLAGS
+    FLAGS=('--porcelain')
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+    if [[ "$(command git config --get customzsh.hide-dirty)" != "1" ]]; then
+        FLAGS+='--ignore-submodules=dirty'
+        STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
+    fi
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+    if [[ -n $STATUS ]]; then
+        echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+    else
+        echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+    fi
+}
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git, git-extras, per-directory-history)
+##########
 
-alias ccat=colorize
-alias open=xdg-open
-alias xclip="xclip -selection c"
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
+# Don't remember what this is
 stty -ixon
 
-export GHC_BIN=$HOME/ghc_bins/ghc-8.2.2-bin/bin
+# Change dirs without cd
+setopt auto_cd
+
+unsetopt correct_all
+
+export GHC_BIN=$HOME/ghc_bins/ghc-8.4.2-bin/bin
 
 export EDITOR='nvim'
+export TERM=xterm-256color
 
 unset SSH_ASKPASS
-
-export TERM=xterm-256color
 
 export LD_LIBRARY_PATH=$HOME/lib:$HOME/lib64:/usr/local/lib64:$LD_LIBRARY_PATH
 export LIBRARY_PATH=$HOME/lib:$HOME/lib64:$LIBRARY_PATH
@@ -71,8 +98,8 @@ export CPLUS_INCLUDE_PATH=$HOME/include:$CPLUS_INCLUDE_PATH
 export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
 export PKG_CONFIG_PATH=$HOME/lib/pkgconfig:$HOME/lib64/pkgconfig:$PKG_CONFIG_PATH
 
-# This seems to make zsh stop adding empty lines to .zsh_history
-export HISTORY_IGNORE=""
+alias open=xdg-open
+alias xclip="xclip -selection c"
 
 alias gd="git diff --color"
 alias gdc="git diff --color --cached"
@@ -84,31 +111,26 @@ alias gp="git push"
 alias gs="git status"
 
 alias gdb="gdb -q"
+alias ls="ls --color"
 
-# edit-command-line
+# edit-command-line, requires zsh-contrib
+autoload edit-command-line
+zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 # start a new terminal at the same directory
-bindkey -s "^N^N" 'st &!\n'
-
-load_ghc_dev() {
-    export PATH=/home/omer/haskell/ghc/inplace/bin:$PATH
-}
+bindkey -s "^N^N" '/home/omer/bin/st &!\n'
 
 add_path() {
     export PATH=$1:$PATH
 }
 
-ubx_sum() {
-    add_path $HOME/ghc_bins/ghc-ubx-sums-1.6/bin
+reset_path() {
+    export PATH=$ORIG_PATH
 }
 
 add_ghc() {
     export PATH=$HOME/haskell/$1/inplace/bin:$PATH
-}
-
-reset_path() {
-    export PATH=$ORIG_PATH
 }
 
 ns() {
