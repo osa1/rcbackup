@@ -97,6 +97,7 @@ export LIBRARY_PATH=$HOME/lib:$HOME/lib64:$LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=$HOME/include:$CPLUS_INCLUDE_PATH
 export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
 export PKG_CONFIG_PATH=$HOME/lib/pkgconfig:$HOME/lib64/pkgconfig:$PKG_CONFIG_PATH
+export PYTHONPATH=$HOME/pythonpath
 
 alias open=xdg-open
 alias xclip="xclip -selection c"
