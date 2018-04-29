@@ -122,6 +122,10 @@ bindkey "^X^E" edit-command-line
 # start a new terminal at the same directory
 bindkey -s "^N^N" '/home/omer/bin/st &!\n'
 
+# Fix ctrl-left/ctrl-right
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 add_path() {
     export PATH=$1:$PATH
 }
