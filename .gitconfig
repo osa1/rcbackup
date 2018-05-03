@@ -1,28 +1,28 @@
 [user]
-	email = omeragacan@gmail.com
-	name = Ömer Sinan Ağacan
+    email = omeragacan@gmail.com
+    name = Ömer Sinan Ağacan
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [alias]
-        df = diff --color
+    df = diff --color
 [push]
-	default = simple
+    default = simple
 [format]
-	signoff = false
+    signoff = false
 [core]
-	excludesfile = /home/omer/.gitignore_global
+    excludesfile = /home/omer/.gitignore_global
+	pager = less -+F
 [url "git://github.com/ghc/packages-"]
-	insteadOf = git://github.com/ghc/packages/
+    insteadOf = git://github.com/ghc/packages/
 [url "http://github.com/ghc/packages-"]
-	insteadOf = http://github.com/ghc/packages/
+    insteadOf = http://github.com/ghc/packages/
 [url "https://github.com/ghc/packages-"]
-	insteadOf = https://github.com/ghc/packages/
+    insteadOf = https://github.com/ghc/packages/
 [url "ssh://git@github.com/ghc/packages-"]
-	insteadOf = ssh://git@github.com/ghc/packages/
+    insteadOf = ssh://git@github.com/ghc/packages/
 [url "git@github.com:/ghc/packages-"]
-	insteadOf = git@github.com:/ghc/packages/
+    insteadOf = git@github.com:/ghc/packages/
 [url "ssh://git@git.haskell.org/"]
-	pushInsteadOf = git://git.haskell.org/
+    pushInsteadOf = git://git.haskell.org/
 [merge]
-	conflictstyle = diff3
+    conflictstyle = diff3
