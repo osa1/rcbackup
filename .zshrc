@@ -198,3 +198,5 @@ $PATH
 export PATH=$ORIG_PATH
 
 eval "$(direnv hook zsh)"
+
+source $HOME/rcbackup/per-directory-history.zsh
