@@ -28,7 +28,8 @@ setopt inc_append_history
 # Share history among all sessions
 setopt share_history
 
-# TODO: per-directory-history
+# Per-directory history
+source $HOME/rcbackup/per-directory-history.zsh
 
 ##########
 # Prompt #
@@ -76,6 +77,9 @@ function parse_git_dirty() {
 }
 
 ##########
+
+# C-w deletes these characters
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # Don't remember what this is
 stty -ixon
@@ -198,5 +202,3 @@ $PATH
 export PATH=$ORIG_PATH
 
 eval "$(direnv hook zsh)"
-
-source $HOME/rcbackup/per-directory-history.zsh
