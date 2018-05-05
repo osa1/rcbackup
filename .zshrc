@@ -130,6 +130,9 @@ bindkey -s "^N^N" '/home/omer/bin/st &!\n'
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Emacs style C-a, C-e, C-k etc.
+bindkey -e
+
 add_path() {
     export PATH=$1:$PATH
 }
