@@ -31,6 +31,35 @@ setopt share_history
 # Per-directory history
 source $HOME/rcbackup/per-directory-history.zsh
 
+####################
+# Completion stuff #
+####################
+
+# Copied from https://github.com/fatih/dotfiles/blob/master/zshrc
+
+autoload -Uz compinit
+compinit
+
+zmodload -i zsh/complist
+
+unsetopt menu_complete   # do not autoselect the first completion entry
+unsetopt flowcontrol
+setopt auto_menu         # show completion menu on successive tab press
+setopt complete_in_word
+setopt always_to_end
+
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle '*' single-ignored show
+
+# Automatically update PATH entries
+zstyle ':completion:*' rehash true
+
+# Keep directories and files separated
+zstyle ':completion:*' list-dirs-first true
+
 ##########
 # Prompt #
 ##########
