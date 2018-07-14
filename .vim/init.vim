@@ -279,12 +279,25 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 " airline
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_extensions = ['branch']
+let g:airline_extensions = ['branch', 'tagbar']
 
 let g:haskell_enable_quantification = 1
 let g:haskell_enable_typeroles = 1
 let g:haskell_indent_if = 2
 
+ let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
 
 """""""
 " FZF "

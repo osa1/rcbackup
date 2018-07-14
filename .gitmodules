@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/bufexplorer"]
 	path = .vim/pack/plugins/start/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule ".vim/pack/plugins/start/tagbar"]
+	path = .vim/pack/plugins/start/tagbar
+	url = https://github.com/majutsushi/tagbar
