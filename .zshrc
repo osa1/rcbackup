@@ -195,22 +195,26 @@ cref() {
 }
 
 tags() {
-    time (rm -f tags && fast-tags --no-module-tags driver ghc compiler -R +RTS -N)
+    time (cd `git rev-parse --show-toplevel` && \
+        rm -f tags && fast-tags --no-module-tags driver ghc compiler -R +RTS -N)
 }
 
 rtstags() {
     tags
-    time (ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
+    time (cd `git rev-parse --show-toplevel` && \
+        ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
 }
 
 # like tags but tags libs too
 alltags() {
-    time (rm -f tags && fast-tags --no-module-tags driver ghc compiler libraries -R +RTS -N)
+    time (cd `git rev-parse --show-toplevel` && \
+        rm -f tags && fast-tags --no-module-tags driver ghc compiler libraries -R +RTS -N)
 }
 
 allrtstags() {
     alltags
-    time (ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
+    time (cd `git rev-parse --show-toplevel` && \
+        ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
 }
 
 gst() {
