@@ -15,7 +15,8 @@ let s:yellow = "ffcc66"
 let s:green = "99cc99"
 let s:aqua = "009999"
 let s:blue = "99cccc"
-let s:purple = "cc99cc"
+" let s:purple = "cc99cc"
+let s:purple = "cc6666" " s:red from Tomorrow-Night
 let s:window = "4d5057"
 
 set background=dark
