@@ -276,7 +276,10 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
 " {{{ Plugin specific settings
 
-" airline
+"""""""""""
+" airline "
+"""""""""""
+
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_extensions = ['branch', 'tagbar']
@@ -313,5 +316,16 @@ endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 command! -nargs=+ Ag call fzf#vim#ag_raw(<q-args>)
+
+"""""""""""""
+" gitgutter "
+"""""""""""""
+
+" Disable by default
+let g:gitgutter_enabled = 0
+" Disable realtime updates
+autocmd BufWritePost * GitGutter
+" Toggle binding
+map <leader>gg :GitGutterToggle<CR>
 
 " }}}
