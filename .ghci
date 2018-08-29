@@ -17,3 +17,5 @@
 :seti -XTupleSections
 :seti -XTypeFamilies
 :seti -XTypeOperators
+:seti -XFlexibleContexts
+:seti -XFlexibleInstances
