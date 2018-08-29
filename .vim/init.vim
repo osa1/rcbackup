@@ -235,11 +235,14 @@ au FocusGained * checktime
 
 filetype plugin indent on
 
-let g:molokai_original = 1
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 autocmd Colorscheme * highlight clear SignColumn
 set termguicolors
-colorscheme molokai
+" let g:molokai_original = 1
+" colorscheme molokai
+colorscheme dracula
+hi! link Type DraculaCyan
+hi! link Delimiter DraculaComment
 
 " {{{ Filetype specific settings
 
