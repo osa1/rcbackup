@@ -200,7 +200,15 @@ nnoremap <leader>sp :setlocal spell!<cr>
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 
 " search in selection
-vnoremap <leader>/ <Esc>/\%V
+" vnoremap <leader>/ <Esc>/\%V
+" I use this feature more than I use the actual behavior of / in select visual
+" mode, so:
+vnoremap / <Esc>/\%V
+" Substutite in selection. C-s in normal mode saves. TODO: Maybe save
+" automatically and do substitution in normal mode too, would be more
+" consistent, less stuff to remember.
+" (remember that '<,'> part is inserted automaticall on : in visual mode)
+vmap <C-s> :s/
 
 vnoremap <C-c> "+y
 inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
