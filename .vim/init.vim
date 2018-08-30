@@ -243,6 +243,7 @@ set termguicolors
 colorscheme dracula
 hi! link Type DraculaCyan
 hi! link Delimiter DraculaComment
+hi! link VertSplit DraculaComment
 
 " {{{ Filetype specific settings
 
