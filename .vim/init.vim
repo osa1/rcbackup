@@ -297,6 +297,8 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_extensions = ['branch', 'tagbar']
+let g:airline_theme='dracula'
+let g:airline_highlighting_cache = 1
 
 let g:haskell_enable_quantification = 1
 let g:haskell_enable_typeroles = 1
