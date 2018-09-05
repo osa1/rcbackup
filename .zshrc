@@ -69,7 +69,7 @@ zstyle ':completion:*' list-dirs-first true
 autoload -U colors && colors
 setopt promptsubst
 
-local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[green]%}$)"
+local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[red]%}$)"
 PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)${ret_status}%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
