@@ -244,6 +244,7 @@ colorscheme dracula
 hi! link Type DraculaCyan
 hi! link Delimiter DraculaComment
 hi! link VertSplit DraculaComment
+hi! link Function DraculaFg
 
 " {{{ Filetype specific settings
 
