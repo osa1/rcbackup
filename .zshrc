@@ -194,26 +194,30 @@ cref() {
     lynx $HOME/Documents/cppref/reference/en/index.html -nolog -nomore -nopause -show_cursor -vikeys
 }
 
+tag_root() {
+    git rev-parse --show-toplevel || echo "."
+}
+
 tags() {
-    time (cd `git rev-parse --show-toplevel` && \
+    time (cd `tag_root` && \
         rm -f tags && fast-tags --no-module-tags driver ghc compiler -R +RTS -N)
 }
 
 rtstags() {
     tags
-    time (cd `git rev-parse --show-toplevel` && \
+    time (cd `tag_root` && \
         ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
 }
 
 # like tags but tags libs too
 alltags() {
-    time (cd `git rev-parse --show-toplevel` && \
+    time (cd `tag_root` && \
         rm -f tags && fast-tags --no-module-tags driver ghc compiler libraries -R +RTS -N)
 }
 
 allrtstags() {
     alltags
-    time (cd `git rev-parse --show-toplevel` && \
+    time (cd `tag_root` && \
         ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
 }
 
