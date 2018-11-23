@@ -93,9 +93,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# rename current workspace
-bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace: '
-
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
