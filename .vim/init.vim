@@ -125,6 +125,8 @@ noremap L $
 
 inoremap jk <esc>
 inoremap kj <esc>
+inoremap <c-a> <c-o>0
+inoremap <c-e> <c-o>$
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
