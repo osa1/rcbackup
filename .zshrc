@@ -159,6 +159,9 @@ bindkey -s "^N^N" '/home/omer/bin/st &!\n'
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Fix delete (use C-v + key to get the sequence)
+bindkey "^[[P" delete-char
+
 # Emacs style C-a, C-e, C-k etc.
 bindkey -e
 
