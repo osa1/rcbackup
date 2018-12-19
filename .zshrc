@@ -236,6 +236,17 @@ tops() {
     htop --pid "$(pgrep -x $1 | tr '\n' ',')"
 }
 
+dt() {
+    find . -type f \
+        -name "*.hi" -o \
+        -name "*.o" -o \
+        -name "*.dyn-hi" -o \
+        -name "*.dyn-o" -o \
+        -name "*.hi-boot" -o \
+        -name "*.o-boot" -o \
+        -name "*.dump-*" | xargs rm
+}
+
 # TODO: Write unload_ghc_dev()
 
 if [ -f ~/.fzf.zsh ]; then
