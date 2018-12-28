@@ -230,6 +230,11 @@ nnoremap ? /\<\><Left><Left>
 nnoremap <leader>da :%!turkish-deasciifier<CR>
 vnoremap <leader>da <esc>:'<,'>:!turkish-deasciifier<CR>
 
+" Show highlighting group used for the thing under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " Reload buffers when files change between FocusLost/FocusGained
 au FocusGained * checktime
 
@@ -247,6 +252,7 @@ hi! link Type DraculaCyan
 hi! link Delimiter DraculaComment
 hi! link VertSplit DraculaComment
 hi! link Function DraculaFg
+hi! link rustModPath DraculaFg
 
 " {{{ Filetype specific settings
 
