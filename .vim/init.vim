@@ -122,11 +122,16 @@ set nojoinspaces
 
 noremap H ^
 noremap L $
+" Make it work in insert mode too
+inoremap <c-h> <c-o>0
+inoremap <c-l> <c-o>$
 
 inoremap jk <esc>
 inoremap kj <esc>
-inoremap <c-a> <c-o>0
-inoremap <c-e> <c-o>$
+
+" c-e/c-y should work the same in insert and normal modes
+inoremap <c-e> <c-o><c-e>
+inoremap <c-y> <c-o><c-y>
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
