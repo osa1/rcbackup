@@ -1603,6 +1603,8 @@ set python print-stack full
 
 python Dashboard.start()
 
+dashboard -layout assembly source stack threads
+
 # ------------------------------------------------------------------------------
 # Copyright (c) 2015-2017 Andrea Cardaci <cyrus.and@gmail.com>
 #
