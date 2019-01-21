@@ -76,6 +76,7 @@ set diffopt=filler
 set shiftwidth=4
 set tabstop=4
 set scrolloff=5               " keep at least 5 lines above/below
+set textwidth=80
 "set cursorline
 
 syntax enable
@@ -122,9 +123,10 @@ set nojoinspaces
 
 noremap H ^
 noremap L $
-" Make it work in insert mode too
-inoremap <c-h> <c-o>0
-inoremap <c-l> <c-o>$
+" Make it work in insert mode too. NOTE TO SELF: Disabled. It turns out I hit
+" these keys accidentally a lot.
+" inoremap <c-h> <c-o>0
+" inoremap <c-l> <c-o>$
 
 inoremap jk <esc>
 inoremap kj <esc>
@@ -147,6 +149,7 @@ nnoremap j gj
 nnoremap k gk
 
 nnoremap <silent> <C-f> :noh<CR>
+nnoremap <leader>sb :bufdo! set noscrollbind<CR>
 
 " select all
 nnoremap <silent> <C-A> ggVG
@@ -189,7 +192,9 @@ function! Fixc(lang)
   endif
 endfunction
 nnoremap <leader>h :exec 'Ag -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
+nnoremap <leader>j :exec 'Ag ' . shellescape(expand('<cword>'))<CR>
 nnoremap <leader>w :Ag -w --<c-r>=Fixc(&filetype) . ' '<cr>
+nnoremap <leader>e :Ag
 
 " disable shift+k
 nnoremap <S-k> <Nop>
