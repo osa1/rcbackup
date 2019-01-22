@@ -37,6 +37,7 @@ set wildignore=
     \*.dvi,
     \*.cmi,
     \dist/,
+    \dist-newstyle/,
     \.cabal-sandbox
     \.stack-work
 let NERDTreeIgnore =
@@ -55,6 +56,9 @@ let NERDTreeIgnore =
     \'\.cmo$',
     \'\.dvi$',
     \'\.cmi$'
+    \'dist',
+    \'dist-newstyle',
+    \'target',
     \]
 
 set backspace=indent,eol,start
