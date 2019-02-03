@@ -89,7 +89,7 @@ set autoindent
 set expandtab                 " insert spaces instead of tabs
 set smarttab
 
-set foldmethod=manual
+set foldmethod=indent
 set foldlevel=99
 
 set nobackup
