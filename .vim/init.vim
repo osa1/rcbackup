@@ -277,11 +277,11 @@ hi! link rustModPath DraculaFg
 au FileType markdown setlocal spell
 let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'ocaml', 'rust']
 
-au FileType cpp     set formatoptions+=c
+au FileType cpp     setlocal formatoptions+=c
 au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
-au FileType haskell set shiftwidth=2
-au FileType haskell set textwidth=80
+au FileType haskell setlocal shiftwidth=2
+au FileType haskell setlocal textwidth=80
 
 
 """"""""""""""""""
