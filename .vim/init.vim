@@ -252,6 +252,10 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " Reload buffers when files change between FocusLost/FocusGained
 au FocusGained * checktime
 
+" Fold the whole file. Reminder: zR opens all folds.
+nmap Zc <C-a>zc
+nmap ZC <C-a>zC
+
 " }}}
 
 filetype plugin indent on
