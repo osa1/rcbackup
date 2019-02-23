@@ -248,11 +248,13 @@ dt() {
 }
 
 zshrc() {
-    nvim $HOME/.zshrc
+    # Move to rcbackup first otherwise git/fugitive commands don't work
+    cd $HOME/rcbackup && nvim .zshrc
 }
 
 vimrc() {
-    nvim $HOME/rcbackup/.vim/init.vim
+    # Move to rcbackup first otherwise git/fugitive commands don't work
+    cd $HOME/rcbackup && nvim .vim/init.vim
 }
 
 # TODO: Write unload_ghc_dev()
