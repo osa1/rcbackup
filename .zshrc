@@ -247,6 +247,14 @@ dt() {
         -name "*.dump-*" | xargs rm
 }
 
+zshrc() {
+    nvim $HOME/.zshrc
+}
+
+vimrc() {
+    nvim $HOME/rcbackup/.vim/init.vim
+}
+
 # TODO: Write unload_ghc_dev()
 
 if [ -f ~/.fzf.zsh ]; then
