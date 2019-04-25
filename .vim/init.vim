@@ -75,7 +75,7 @@ set showmatch                 " show matching bracket
 
 "set diffopt=filler,iwhite     " ignore all whitespace and sync
 " Disabling iwhite, causing problems when commiting stuff using :Gdiff
-set diffopt=filler
+set diffopt=filler,hiddenoff
 
 set shiftwidth=4
 set tabstop=4
