@@ -28,6 +28,8 @@ setopt inc_append_history
 # Share history among all sessions
 setopt share_history
 
+setopt extended_glob
+
 # Per-directory history
 source $HOME/rcbackup/per-directory-history.zsh
 
