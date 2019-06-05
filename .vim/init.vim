@@ -7,6 +7,7 @@ set t_Co=256
 
 set noruler
 set noshowcmd
+set nomodeline
 
 set hidden
 set guicursor=
