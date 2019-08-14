@@ -139,7 +139,7 @@ alias xclip="xclip -selection c"
 
 alias gd="git diff --color"
 alias gdc="git diff --color --cached"
-alias gc="git commit -m"
+alias gc="git clean -xfd && git submodule foreach --recursive git clean -xfd"
 alias gb="git checkout"
 alias gcb="git checkout -b"
 alias gpom="git push origin master"
