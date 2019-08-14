@@ -120,7 +120,7 @@ setopt auto_cd
 
 unsetopt correct_all
 
-export GHC_BIN=$HOME/ghc_bins/ghc-8.4.4-bin/bin
+export GHC_BIN=$HOME/ghc_bins/ghc-8.6.5-bin/bin
 
 export EDITOR='nvim'
 export TERM=xterm-256color
