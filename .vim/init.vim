@@ -332,7 +332,8 @@ let g:haskell_enable_quantification = 1
 let g:haskell_enable_typeroles = 1
 let g:haskell_indent_if = 2
 
-let g:rustfmt_autosave = 1
+" Disabled: formatting file causes losing the jump buffer, recent changes etc.
+let g:rustfmt_autosave = 0
 
 """""""
 " FZF "
