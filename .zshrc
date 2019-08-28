@@ -242,8 +242,8 @@ dt() {
     find . -type f \
         -name "*.hi" -o \
         -name "*.o" -o \
-        -name "*.dyn-hi" -o \
-        -name "*.dyn-o" -o \
+        -name "*.dyn_hi" -o \
+        -name "*.dyn_o" -o \
         -name "*.hi-boot" -o \
         -name "*.o-boot" -o \
         -name "*.dump-*" | xargs rm
