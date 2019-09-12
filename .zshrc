@@ -270,7 +270,6 @@ fi
 export ORIG_PATH=\
 $HOME/bin:\
 $HOME/.local/bin:\
-$HOME/arc/arcanist/bin:\
 $HOME/.cabal/bin:\
 $HOME/.cargo/bin:\
 $GHC_BIN:\
