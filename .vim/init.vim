@@ -259,6 +259,11 @@ au FocusGained * checktime
 nmap Zc <C-a>zc
 nmap ZC <C-a>zC
 
+" Jump to previous change
+nmap <A-Up> g;
+" Jump to next change
+nmap <A-Down> g,
+
 " }}}
 
 filetype plugin indent on
