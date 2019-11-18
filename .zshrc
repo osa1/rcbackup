@@ -145,6 +145,8 @@ alias gcb="git checkout -b"
 alias gpom="git push origin master"
 alias gp="git push"
 alias gs="git status"
+alias ga="git commit --amend --no-edit"
+alias gam="git commit --amend"
 
 alias gdb="gdb -q"
 alias ls="ls --color"
