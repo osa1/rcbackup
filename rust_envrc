@@ -1,0 +1,7 @@
+export FZF_DEFAULT_COMMAND='ag \
+    --ignore src/test \
+    --ignore src/libstd \
+    --ignore src/llvm-project \
+    --ignore src/libcore \
+    --ignore src/doc \
+    -g ""'
