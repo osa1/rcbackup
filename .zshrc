@@ -5,13 +5,13 @@
 HISTFILE=~/.history-zsh
 HISTSIZE=10000
 SAVEHIST=10000
-# allow multiple sessions to append to one history
+# Allow multiple sessions to append to one history
 setopt append_history
-# treat ! special during command expansion
+# Treat ! special during command expansion
 setopt bang_hist
 # Write history in :start:elasped;command format
 setopt extended_history
-# expire duplicates first when trimming history
+# Expire duplicates first when trimming history
 setopt hist_expire_dups_first
 # When searching history, don't repeat
 setopt hist_find_no_dups
@@ -27,6 +27,11 @@ setopt hist_verify
 setopt inc_append_history
 # Share history among all sessions
 setopt share_history
+
+# More duplication stuff .. while I don't know what exactly these do, it seems
+# like they're necessary to be able to get no dups whatsoever in C-r.
+setopt hist_find_no_dups
+setopt hist_ignore_all_dups
 
 setopt extended_glob
 
