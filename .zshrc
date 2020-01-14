@@ -15,9 +15,9 @@ setopt extended_history
 setopt hist_expire_dups_first
 # When searching history, don't repeat
 setopt hist_find_no_dups
-# ignore duplicate entries of previous events
+# Ignore duplicate entries of previous events
 setopt hist_ignore_dups
-# prefix command with a space to skip it's recording
+# Prefix command with a space to skip it's recording
 setopt hist_ignore_space
 # Remove extra blanks from each command added to history
 setopt hist_reduce_blanks
@@ -32,6 +32,7 @@ setopt share_history
 # like they're necessary to be able to get no dups whatsoever in C-r.
 setopt hist_find_no_dups
 setopt hist_ignore_all_dups
+HISTCONTROL=erasedups
 
 setopt extended_glob
 
