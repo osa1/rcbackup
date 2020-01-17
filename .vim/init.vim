@@ -61,6 +61,7 @@ let NERDTreeIgnore =
     \'dist-newstyle',
     \'target',
     \]
+let NERDTreeShowHidden=1
 
 set backspace=indent,eol,start
 
