@@ -370,3 +370,21 @@ autocmd BufWritePost * GitGutter
 map <leader>gg :GitGutterToggle<CR>
 
 " }}}
+
+function! MakeDetails()
+    let l:startline = line("'<")
+    let l:endline = line("'>")
+
+    call inputsave()
+    let l:summary = input('Summary: ')
+    call inputrestore()
+
+    call append(l:endline, "")
+    call append(l:endline+1, "</details>")
+    call append(l:startline - 1, "<details>")
+    call append(l:startline, "")
+    call append(l:startline + 1, "<summary>" . l:summary . "</summary>")
+    call append(l:startline + 2, "")
+endfunction foo
+
+vnoremap <leader>md :<C-u>call MakeDetails()<CR>
