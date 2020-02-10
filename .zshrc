@@ -267,6 +267,10 @@ vimrc() {
     cd $HOME/rcbackup && nvim .vim/init.vim
 }
 
+add_ghc_remote() {
+    git remote add $1 https://gitlab.haskell.org/$1/ghc.git
+}
+
 # TODO: Write unload_ghc_dev()
 
 if [ -f ~/.fzf.zsh ]; then
