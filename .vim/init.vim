@@ -94,8 +94,10 @@ set smarttab
 set foldmethod=indent
 set foldlevel=99
 
-set nobackup
-set noswapfile
+" set nobackup
+" set noswapfile
+set backupdir=~/vimtmp//,.
+set directory=~/vimtmp//,.
 
 " Enable mouse support in console
 set mouse=a
