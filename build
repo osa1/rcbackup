@@ -1,0 +1,13 @@
+#!/bin/bash
+
+git_root=$(git rev-parse --show-toplevel)
+
+cat > $git_root/mk/build.mk <<- EOM
+BuildFlavour = $1
+
+ifneq "\$(BuildFlavour)" ""
+include mk/flavours/\$(BuildFlavour).mk
+endif
+
+STRIP_CMD = :
+EOM
