@@ -247,19 +247,19 @@ tops() {
 }
 
 dt() {
-    find . -type f \
+    (find . -type f \
         -name "*.hi" -o \
         -name "*.o" -o \
         -name "*.dyn_hi" -o \
         -name "*.dyn_o" -o \
         -name "*.hi-boot" -o \
         -name "*.o-boot" -o \
-        -name "*.dump-*" | xargs rm
+        -name "*.dump-*" | xargs rm 2>/dev/null) || true
 }
 
 zshrc() {
     # Move to rcbackup first otherwise git/fugitive commands don't work
-    cd $HOME/rcbackup && nvim .zshrc
+    cd $HOME/rcbackup && nvim $HOME/rcbackup/.zshrc
 }
 
 vimrc() {
