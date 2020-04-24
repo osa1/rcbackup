@@ -290,7 +290,7 @@ hi! link rustModPath DraculaFg
 " {{{ Filetype specific settings
 
 au FileType markdown setlocal spell
-let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'ocaml', 'rust']
+" let g:markdown_fenced_languages = ['c', 'lua', 'haskell', 'ocaml', 'rust']
 
 au FileType cpp     setlocal formatoptions+=c
 au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
