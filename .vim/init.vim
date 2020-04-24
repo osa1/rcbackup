@@ -297,7 +297,7 @@ au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell setlocal shiftwidth=2
 au FileType haskell setlocal textwidth=80
-
+autocmd FileType rust nnoremap <leader>f :RustFmt<CR>
 
 """"""""""""""""""
 " Quickfix stuff "
