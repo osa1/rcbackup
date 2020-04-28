@@ -13,4 +13,5 @@ before = float(remove_commas(sys.argv[1]))
 after = float(remove_commas(sys.argv[2]))
 diff = after - before
 
+print(diff)
 print((diff / before) * 100.0)
