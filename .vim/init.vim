@@ -235,7 +235,7 @@ vmap <C-s> :s/
 vnoremap <C-c> "+y
 inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
 
-nnoremap <leader>gd :Gdiff<CR>
+" nnoremap <leader>gd :Gdiff<CR> " Used by coc now
 nnoremap <leader>dc :Git! diff --cached<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :Gwrite<CR>
@@ -281,6 +281,7 @@ hi! link Delimiter DraculaComment
 hi! link VertSplit DraculaComment
 hi! link Function DraculaFg
 hi! link rustModPath DraculaFg
+hi! link rustCommentLineDoc DraculaCommentBold
 
 " {{{ Filetype specific settings
 
@@ -389,3 +390,21 @@ function! MakeDetails()
 endfunction foo
 
 vnoremap <leader>md :<C-u>call MakeDetails()<CR>
+
+"""""""
+" coc "
+"""""""
+nmap <leader>fr     <Plug>(coc-references)
+nmap <leader>r      <Plug>(coc-rename)
+nmap <leader>ge     :<C-u>CocList diagnostics<CR>
+nmap <leader>gp     <Plug>(coc-diagnostic-prev)
+nmap <leader>gn     <Plug>(coc-diagnostic-next)
+nmap <leader>gd     <Plug>(coc-definition)
+nmap <C-a>          <Plug>(coc-codeaction)
+" List workspace symbols
+nmap <leader>s      :<C-u>CocList -I symbols<CR>
+nmap <leader>o      :<C-u>CocList outline<CR>
+nmap K              :call CocAction('doHover')<CR>
+" Trigger auto-completion with C-space.
+imap <expr>         <c-space> coc#refresh()
+imap <C-p>          <C-o>:call CocActionAsync('showSignatureHelp')<CR>

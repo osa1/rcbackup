@@ -1,0 +1,32 @@
+{
+    "diagnostic.enable": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.joinMessageLines": false,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.messageTarget": "float",
+    "diagnostic.level": "information",
+    "suggest.autoTrigger": "none",
+    "signature.enable": true,
+    "coc.preferences.snippets.enable": false,
+    "coc.preferences.hoverTarget": "float",
+    "coc.preferences.colorSupport": true,
+    "coc.preferences.bracketEnterImprove": true,
+    "diagnostic.warningSign": "⚠︎",
+    "diagnostic.errorSign": "✗",
+    "diagnostic.infoSign": "ℹ︎",
+    "diagnostic.hintSign": "ℹ︎",
+    "suggest.noselect": false,
+    "diagnostic.locationlist": false,
+    "rust-analyzer.diagnostics.enable": true,
+    "rust-analyzer.inlayHints.chainingHints": true,
+    "rust-analyzer.inlayHints.typeHints": true,
+    "rust-analyzer.inlayHints.parameterHints": true,
+    "rust-analyzer.serverPath": "/home/omer/.cargo/bin/rust-analyzer",
+    "languageserver": {
+        "ocaml-lsp": {
+            "command": "opam",
+            "args": ["config", "exec", "--", "ocamllsp"],
+            "filetypes": ["ocaml", "reason"]
+        }
+    }
+}
