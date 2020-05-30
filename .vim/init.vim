@@ -394,6 +394,9 @@ vnoremap <leader>md :<C-u>call MakeDetails()<CR>
 """""""
 " coc "
 """""""
+
+" Reminder: run `:CocInstall coc-rust-analyzer`
+
 nmap <leader>fr     <Plug>(coc-references)
 nmap <leader>r      <Plug>(coc-rename)
 nmap <leader>ge     :<C-u>CocList diagnostics<CR>
