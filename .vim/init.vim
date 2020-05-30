@@ -403,7 +403,9 @@ nmap <leader>ge     :<C-u>CocList diagnostics<CR>
 nmap <leader>gp     <Plug>(coc-diagnostic-prev)
 nmap <leader>gn     <Plug>(coc-diagnostic-next)
 nmap <leader>gd     <Plug>(coc-definition)
-nmap <C-a>          <Plug>(coc-codeaction)
+nmap <C-a>          <Plug>(coc-codeaction-line)
+" https://github.com/neoclide/coc.nvim/issues/1981
+nmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
 " List workspace symbols
 nmap <leader>s      :<C-u>CocList -I symbols<CR>
 nmap <leader>o      :<C-u>CocList outline<CR>
