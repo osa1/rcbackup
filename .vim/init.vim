@@ -235,7 +235,7 @@ vmap <C-s> :s/
 vnoremap <C-c> "+y
 inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
 
-" nnoremap <leader>gd :Gdiff<CR> " Used by coc now
+nnoremap <leader>d  :Gdiff<CR>
 nnoremap <leader>dc :Git! diff --cached<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :Gwrite<CR>
@@ -334,7 +334,7 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_extensions = ['branch']
+let g:airline_extensions = ['branch', 'coc']
 let g:airline_theme='dracula'
 let g:airline_highlighting_cache = 1
 
@@ -403,11 +403,11 @@ nmap <leader>ge     :<C-u>CocList diagnostics<CR>
 nmap <leader>gp     <Plug>(coc-diagnostic-prev)
 nmap <leader>gn     <Plug>(coc-diagnostic-next)
 nmap <leader>gd     <Plug>(coc-definition)
-nmap <C-a>          <Plug>(coc-codeaction-line)
+" nmap <C-a>          <Plug>(coc-codeaction-line)
 " https://github.com/neoclide/coc.nvim/issues/1981
 nmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
 " List workspace symbols
-nmap <leader>s      :<C-u>CocList -I symbols<CR>
+nmap <leader>ss     :<C-u>CocList -I symbols<CR>
 nmap <leader>o      :<C-u>CocList outline<CR>
 nmap K              :call CocAction('doHover')<CR>
 " Trigger auto-completion with C-space.
