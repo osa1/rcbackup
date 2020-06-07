@@ -196,6 +196,8 @@ function! Fixc(lang)
     return "js"
   elseif a:lang == "cfg"
     return "toml"
+  elseif a:lang == "d"
+    return "dlang"
   else
     return a:lang
   endif
