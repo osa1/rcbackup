@@ -11,7 +11,8 @@
     signoff = false
 [core]
     excludesfile = /home/omer/.gitignore_global
-	pager = less -+F
+    pager = less -+F
+    # pager = delta --dark --plus-color="#012800" --minus-color="#340001"
 [url "git://github.com/ghc/packages-"]
     insteadOf = git://github.com/ghc/packages/
 [url "http://github.com/ghc/packages-"]
@@ -26,3 +27,11 @@
     pushInsteadOf = git://git.haskell.org/
 [merge]
     conflictstyle = diff3
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[pull]
+    rebase = true
