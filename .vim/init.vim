@@ -65,8 +65,7 @@ set incsearch                 " incremental search
 set ignorecase                " search ignoring case
 set gdefault
 set inccommand=nosplit
-" override `ignorecase` if pattern contains uppercase
-set smartcase
+set smartcase                 " override `ignorecase` if pattern contains uppercase
 set hlsearch                  " highlight the search
 set showmatch                 " show matching bracket
 
@@ -75,7 +74,7 @@ set showmatch                 " show matching bracket
 set diffopt=filler,hiddenoff
 
 set shiftwidth=4
-set tabstop=4
+set tabstop=8                 " same as the default
 set scrolloff=5               " keep at least 5 lines above/below
 set textwidth=80
 "set cursorline
