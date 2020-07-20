@@ -276,6 +276,7 @@ autocmd Colorscheme * highlight clear SignColumn
 set termguicolors
 " let g:molokai_original = 1
 " colorscheme molokai
+packadd! dracula-vim
 colorscheme dracula
 hi! link Type DraculaCyan
 hi! link Delimiter DraculaComment
