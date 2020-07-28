@@ -35,3 +35,5 @@
     cmd = meld "$LOCAL" "$REMOTE"
 [pull]
     rebase = true
+[init]
+    defaultBranch = main
