@@ -80,8 +80,8 @@ setopt promptsubst
 local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[red]%}$)"
 PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)$(prompt_nix_shell)${ret_status}%{$reset_color%} '
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%})%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}\uE0A0 %{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%}%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
 ZSH_THEME_NIX_PROMPT_FG="%{$fg[yellow]%}"
