@@ -285,6 +285,21 @@ hi! link Function DraculaFg
 hi! link rustModPath DraculaFg
 hi! link rustCommentLineDoc DraculaCommentBold
 
+let s:theme = 0
+function! ToggleTheme()
+    if s:theme == 0
+        set background=light
+        colorscheme NeoSolarized
+        let s:theme = 1
+    else
+        set background=dark
+        colorscheme dracula
+        let s:theme = 0
+    endif
+endfunction
+
+map <F11> :call ToggleTheme()<CR>
+
 " {{{ Filetype specific settings
 
 au FileType markdown setlocal spell
