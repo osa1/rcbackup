@@ -310,7 +310,8 @@ au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell setlocal shiftwidth=2
 au FileType haskell setlocal textwidth=80
-autocmd FileType rust nnoremap <leader>f :RustFmt<CR>
+au FileType rust    nnoremap <leader>f :RustFmt<CR>
+au FileType rust    set foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*'.&commentstring[0] | execute "normal zM"
 
 """"""""""""""""""
 " Quickfix stuff "
