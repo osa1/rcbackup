@@ -1,0 +1,13 @@
+[package]
+name = "wat"
+version = "0.1.0"
+authors = ["Ömer Sinan Ağacan <omeragacan@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+rayon = "1"
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
