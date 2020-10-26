@@ -54,7 +54,8 @@ let NERDTreeIgnore =
     \'\.cmi$',
     \'\.cmo$',
     \'\.dvi$',
-    \'\.cmi$'
+    \'\.cmi$',
+    \'\.o$'
     \]
 let NERDTreeShowHidden=1
 
