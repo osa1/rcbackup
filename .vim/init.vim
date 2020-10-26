@@ -44,7 +44,6 @@ let NERDTreeIgnore =
     \'\.bak$',
     \'\.pyc$',
     \'\.class$',
-    \'\.o$',
     \'\.hi$',
     \'\.dyn_o$',
     \'\.dyn_hi$',
@@ -55,6 +54,7 @@ let NERDTreeIgnore =
     \'\.cmo$',
     \'\.dvi$',
     \'\.cmi$',
+    \'\.cmx$',
     \'\.o$'
     \]
 let NERDTreeShowHidden=1
