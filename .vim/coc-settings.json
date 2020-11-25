@@ -1,6 +1,6 @@
 {
     "diagnostic.enable": true,
-    "diagnostic.virtualText": true,
+    "diagnostic.virtualText": false,
     "diagnostic.joinMessageLines": false,
     "diagnostic.checkCurrentLine": true,
     "diagnostic.messageTarget": "float",
@@ -22,6 +22,8 @@
     "rust-analyzer.inlayHints.typeHints": true,
     "rust-analyzer.inlayHints.parameterHints": true,
     "rust-analyzer.serverPath": "/home/omer/.cargo/bin/rust-analyzer",
+    "rust-analyzer.checkOnSave.enable": true,
+    "rust-analyzer.assist.importMergeBehaviour": "last",
     "languageserver": {
         "ocaml-lsp": {
             "command": "opam",
