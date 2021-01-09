@@ -436,8 +436,12 @@ nmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
 " I don't understand what does the next one do, but it doesn't seem to work with
 " rust-analyzer. Also, need to find another binding for it as it causes lag in
 " <leader>a bindings above.
-" nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ac  <Plug>(coc-codeaction)
 
+" List workspace symbols
+nmap <leader>ss     :<C-u>CocList -I symbols<CR>
+nmap <leader>o      :<C-u>CocList outline<CR>
+nmap K              :call CocAction('doHover')<CR>
 " Trigger auto-completion with C-space.
 imap <expr>         <c-space> coc#refresh()
 imap <C-p>          <C-o>:call CocActionAsync('showSignatureHelp')<CR>
