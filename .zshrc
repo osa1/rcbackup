@@ -179,6 +179,8 @@ bindkey "^[[P" delete-char
 
 # Emacs style C-a, C-e, C-k etc.
 bindkey -e
+# Emacs style C-u
+bindkey \^U backward-kill-line
 
 add_path() {
     export PATH=$1:$PATH
