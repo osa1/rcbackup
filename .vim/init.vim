@@ -399,6 +399,9 @@ autocmd BufWritePost * GitGutter
 " Toggle binding
 map <leader>gg :GitGutterToggle<CR>
 
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
 " }}}
 
 function! MakeDetails()
