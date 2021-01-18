@@ -69,6 +69,7 @@ set inccommand=nosplit
 set smartcase                 " override `ignorecase` if pattern contains uppercase
 set hlsearch                  " highlight the search
 set showmatch                 " show matching bracket
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 
 "set diffopt=filler,iwhite     " ignore all whitespace and sync
 " Disabling iwhite, causing problems when commiting stuff using :Gdiff
@@ -77,7 +78,7 @@ set diffopt=filler,hiddenoff
 set shiftwidth=4
 set tabstop=8                 " same as the default
 set scrolloff=5               " keep at least 5 lines above/below
-set textwidth=80
+set textwidth=0               " set for each filetype
 "set cursorline
 
 syntax enable
@@ -340,6 +341,8 @@ au! BufRead,BufNewFile *.y      set ft=text   " happy
 au! BufRead,BufNewFile *.t      set ft=python " GHC's test files
 au! BufRead,BufNewFile *.h      set ft=c
 au! BufRead,BufNewFile .envrc   set ft=sh
+au! BufRead,BufNewFile *.mo     set ft=motoko
+au! BufRead,BufNewFile *.gp     set ft=gnuplot
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 

@@ -281,7 +281,9 @@ add_ghc_remote() {
 # TODO: Write unload_ghc_dev()
 
 if [ -f ~/.fzf.zsh ]; then
-    export FZF_DEFAULT_COMMAND='ag -g ""'
+    # export FZF_DEFAULT_COMMAND='ag -g ""'
+    # export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+    export FZF_DEFAULT_COMMAND="fd --type f"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     source ~/.fzf.zsh
 fi
