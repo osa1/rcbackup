@@ -190,16 +190,8 @@ reset_path() {
     export PATH=$ORIG_PATH
 }
 
-add_ghc() {
-    export PATH=$HOME/haskell/$1/inplace/bin:$PATH
-}
-
 ns() {
     $* && notify-send "Done: $*"
-}
-
-:r() {
-    fg cabal repl || fg ghci || fg stack repl
 }
 
 mc() {
@@ -214,54 +206,12 @@ cref() {
     lynx $HOME/Documents/cppref/reference/en/index.html -nolog -nomore -nopause -show_cursor -vikeys
 }
 
-tag_root() {
-    git rev-parse --show-toplevel || echo "."
-}
-
-tags() {
-    time (cd `tag_root` && \
-        rm -f tags && fast-tags --no-module-tags driver ghc compiler -R +RTS -N)
-}
-
-rtstags() {
-    tags
-    time (cd `tag_root` && \
-        ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
-}
-
-# like tags but tags libs too
-alltags() {
-    time (cd `tag_root` && \
-        rm -f tags && fast-tags --no-module-tags driver ghc compiler libraries -R +RTS -N)
-}
-
-allrtstags() {
-    alltags
-    time (cd `tag_root` && \
-        ctags --append -R rts/**/*.c rts/**/*.h includes/**/*.h)
-}
-
 gst() {
     git stash show -p stash@{$1}
 }
 
-layout() {
-    sh $HOME/.screenlayout/$1.sh
-}
-
 tops() {
     htop --pid "$(pgrep -x $1 | tr '\n' ',')"
-}
-
-dt() {
-    (find . -type f \
-        -name "*.hi" -o \
-        -name "*.o" -o \
-        -name "*.dyn_hi" -o \
-        -name "*.dyn_o" -o \
-        -name "*.hi-boot" -o \
-        -name "*.o-boot" -o \
-        -name "*.dump-*" | xargs rm 2>/dev/null) || true
 }
 
 zshrc() {
@@ -269,16 +219,14 @@ zshrc() {
     cd $HOME/rcbackup && nvim $HOME/rcbackup/.zshrc
 }
 
+tinyrc() {
+    nvim $HOME/.config/tiny/config.yml
+}
+
 vimrc() {
     # Move to rcbackup first otherwise git/fugitive commands don't work
     cd $HOME/rcbackup && nvim .vim/init.vim
 }
-
-add_ghc_remote() {
-    git remote add $1 https://gitlab.haskell.org/$1/ghc.git
-}
-
-# TODO: Write unload_ghc_dev()
 
 if [ -f ~/.fzf.zsh ]; then
     # export FZF_DEFAULT_COMMAND='ag -g ""'
