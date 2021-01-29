@@ -437,6 +437,7 @@ nmap <leader>ge     :<C-u>CocList diagnostics<CR>
 nmap <leader>gp     <Plug>(coc-diagnostic-prev)
 nmap <leader>gn     <Plug>(coc-diagnostic-next)
 nmap <leader>gd     <Plug>(coc-definition)
+nmap <leader>gt     <Plug>(coc-type-definition)
 xmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
 nmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
 " I don't understand what does the next one do, but it doesn't seem to work with
