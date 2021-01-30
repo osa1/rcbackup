@@ -138,11 +138,11 @@ export EDITOR='nvim'
 
 unset SSH_ASKPASS
 
-export LD_LIBRARY_PATH=$HOME/lib:$HOME/lib64:/usr/local/lib64:$LD_LIBRARY_PATH
-export LIBRARY_PATH=$HOME/lib:$HOME/lib64:$LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$HOME/include:$CPLUS_INCLUDE_PATH
-export C_INCLUDE_PATH=$HOME/include:$C_INCLUDE_PATH
-export PKG_CONFIG_PATH=$HOME/lib/pkgconfig:$HOME/lib64/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=$HOME/lib:$HOME/lib64:/usr/local/lib64
+export LIBRARY_PATH=$HOME/lib:$HOME/lib64
+export CPLUS_INCLUDE_PATH=$HOME/include
+export C_INCLUDE_PATH=$HOME/include
+export PKG_CONFIG_PATH=$HOME/lib/pkgconfig:$HOME/lib64/pkgconfig
 export PYTHONPATH=$HOME/pythonpath
 
 alias open=xdg-open
@@ -161,6 +161,9 @@ alias gam="git commit --amend"
 
 alias gdb="gdb -q"
 alias ls="ls --color"
+alias ll="ls -ltrh"
+
+alias stage1="./x.py build --stage 1 library/std"
 
 # edit-command-line, requires zsh-contrib
 autoload edit-command-line
