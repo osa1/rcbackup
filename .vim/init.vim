@@ -125,6 +125,9 @@ set nojoinspaces
 " Disable comment syntax, ft plugins set this anyway, and it's annoying when vim
 " treats chars as comment when typing plain text.
 set comments=""
+
+" disable netrw
+let loaded_netrwPlugin = 1
 " }}}
 
 " {{{ mappings
@@ -452,3 +455,18 @@ nmap K              :call CocAction('doHover')<CR>
 " Trigger auto-completion with C-space.
 imap <expr>         <c-space> coc#refresh()
 imap <C-p>          <C-o>:call CocActionAsync('showSignatureHelp')<CR>
+
+"""""""""""""""
+" tree-sitter "
+"""""""""""""""
+
+lua <<EOF
+
+require('nvim-treesitter.configs').setup {
+  ensure_installed = "rust",
+  highlight = {
+    enable = true,
+  },
+}
+
+EOF
