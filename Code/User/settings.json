@@ -16,7 +16,9 @@
     "vim.handleKeys": {
         "<C-f>": false,
         "<C-]>": false,
-        "<C-[>": false
+        "<C-[>": false,
+        "<C-b>": false,
+        "<C-k>": false
     },
     "vim.insertModeKeyBindings": [
         { "before": ["j", "k"], "after": ["<Esc>"] },
@@ -33,7 +35,7 @@
     "files.autoSave": "afterDelay",
     "gitlens.blame.ignoreWhitespace": true,
     "editor.minimap.enabled": false,
-    "scm.diffDecorations": "none",
+    "scm.diffDecorations": "gutter",
     "C_Cpp.updateChannel": "Insiders",
     "[rust]": {
         "editor.defaultFormatter": "matklad.rust-analyzer"
@@ -48,5 +50,8 @@
     "editor.fontLigatures": true,
     "debug.console.fontSize": 13,
     "extensions.ignoreRecommendations": true,
-    "editor.fontSize": 13
+    "editor.fontSize": 13,
+    "search.useGlobalIgnoreFiles": true,
+    "editor.renderWhitespace": "none",
+    "editor.find.cursorMoveOnType": false
 }
