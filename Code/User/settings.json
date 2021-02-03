@@ -1,19 +1,23 @@
 {
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "terminal.integrated.fontSize": 16,
-    "editor.fontFamily": "'Iosevka SS10 Medium'",
-    "workbench.colorTheme": "Dracula",
+    "editor.fontFamily": "'Jetbrains Mono Medium'",
+    "workbench.colorTheme": "Solarized Light",
     "files.watcherExclude": {
         "**/target/**": true
     },
     "editor.lineNumbers": "off",
     "window.zoomLevel": 1,
-    "editor.fontSize": 15,
     "editor.cursorBlinking": "solid",
     "editor.cursorStyle": "block",
     "breadcrumbs.enabled": true,
     "vim.leader": ",",
+    "vim.useCtrlKeys": true,
+    "vim.handleKeys": {
+        "<C-f>": false,
+        "<C-]>": false,
+        "<C-[>": false
+    },
     "vim.insertModeKeyBindings": [
         { "before": ["j", "k"], "after": ["<Esc>"] },
         { "before": ["k", "j"], "after": ["<Esc>"] }
@@ -24,19 +28,25 @@
         { "before": ["Space"], "after": ["O", "<Esc>"] },
         { "before": ["Enter"], "after": ["o", "<Esc>"] }
     ],
-    "editor.renderLineHighlight": "none",
+   "editor.renderLineHighlight": "none",
     "editor.renderIndentGuides": false,
-    "rust.clippy_preference": "on",
     "files.autoSave": "afterDelay",
-    "lldb.executable": "/usr/bin/lldb",
-    "gitlens.views.repositories.location": "scm",
-    "gitlens.views.fileHistory.location": "scm",
-    "gitlens.views.lineHistory.location": "scm",
-    "gitlens.views.compare.location": "scm",
-    "gitlens.views.search.location": "scm",
     "gitlens.blame.ignoreWhitespace": true,
-    "lldb.adapterType": "classic",
     "editor.minimap.enabled": false,
-    "rust-analyzer.enableEnhancedTyping": false,
-    "scm.diffDecorations": "none"
+    "scm.diffDecorations": "none",
+    "C_Cpp.updateChannel": "Insiders",
+    "[rust]": {
+        "editor.defaultFormatter": "matklad.rust-analyzer"
+    },
+    "gitlens.advanced.repositorySearchDepth": 2,
+    "editor.wordWrapColumn": 100,
+    "vim.textwidth": 100,
+    "terminal.integrated.fontSize": 13,
+    "editor.semanticHighlighting.enabled": true,
+    "rust-analyzer.cargo.allFeatures": false,
+    "rust-analyzer.checkOnSave.allFeatures": false,
+    "editor.fontLigatures": true,
+    "debug.console.fontSize": 13,
+    "extensions.ignoreRecommendations": true,
+    "editor.fontSize": 13
 }
