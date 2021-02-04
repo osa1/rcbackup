@@ -92,6 +92,8 @@ set foldlevel=99
 
 " set nobackup
 " set noswapfile
+set backup
+set swapfile
 set backupdir=~/vimtmp//,.
 set directory=~/vimtmp//,.
 
@@ -124,7 +126,7 @@ set nojoinspaces
 
 " Disable comment syntax, ft plugins set this anyway, and it's annoying when vim
 " treats chars as comment when typing plain text.
-set comments=""
+" set comments="s1:n:>:-"
 
 " disable netrw
 let loaded_netrwPlugin = 1
@@ -208,7 +210,7 @@ function! Fixc(lang)
 endfunction
 nnoremap <leader>h :exec 'Ag -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
 nnoremap <leader>j :exec 'Ag ' . shellescape(expand('<cword>'))<CR>
-nnoremap <leader>w :Ag -w --<c-r>=Fixc(&filetype) . ' '<cr>
+nnoremap <leader>w :Ag -w --<c-r>=Fixc(&filetype) . ' '<CR>
 nnoremap <leader>e :Ag
 
 " disable shift+k
@@ -272,6 +274,9 @@ nmap <A-Up> g;
 " Jump to next change
 nmap <A-Down> g,
 
+" Toggle wrap mode
+" nmap <C-r> :set wrap!<CR>
+
 " }}}
 
 filetype plugin indent on
@@ -279,8 +284,10 @@ filetype plugin indent on
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 autocmd Colorscheme * highlight clear SignColumn
 set termguicolors
-" let g:molokai_original = 1
-" colorscheme molokai
+
+" set background=light
+" colorscheme NeoSolarized
+
 packadd! dracula-vim
 colorscheme dracula
 hi! link Type DraculaCyan
@@ -314,6 +321,8 @@ au FileType cpp     setlocal formatoptions+=c
 au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell setlocal shiftwidth=2
+au FileType ocaml   setlocal shiftwidth=2
+au FileType ocaml   set formatoptions-=t
 au FileType haskell setlocal textwidth=80
 au FileType rust    nnoremap <leader>f :RustFmt<CR>
 au FileType rust    set foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*'.&commentstring[0] | execute "normal zM"
@@ -357,8 +366,8 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 " airline "
 """""""""""
 
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_extensions = ['branch', 'coc']
 let g:airline_theme='dracula'
 let g:airline_highlighting_cache = 1
@@ -404,6 +413,13 @@ let g:gitgutter_enabled = 0
 autocmd BufWritePost * GitGutter
 " Toggle binding
 map <leader>gg :GitGutterToggle<CR>
+
+let g:gitgutter_sign_added = '│'
+let g:gitgutter_sign_modified = '│'
+let g:gitgutter_sign_removed = '│'
+let g:gitgutter_sign_removed_first_line = '│'
+let g:gitgutter_sign_removed_above_and_below = '│'
+let g:gitgutter_sign_modified_removed = '│'
 
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
