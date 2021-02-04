@@ -457,12 +457,7 @@ nmap <leader>gp     <Plug>(coc-diagnostic-prev)
 nmap <leader>gn     <Plug>(coc-diagnostic-next)
 nmap <leader>gd     <Plug>(coc-definition)
 nmap <leader>gt     <Plug>(coc-type-definition)
-xmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
 nmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
-" I don't understand what does the next one do, but it doesn't seem to work with
-" rust-analyzer. Also, need to find another binding for it as it causes lag in
-" <leader>a bindings above.
-nmap <leader>ac  <Plug>(coc-codeaction)
 
 " List workspace symbols
 nmap <leader>ss     :<C-u>CocList -I symbols<CR>
