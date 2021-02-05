@@ -474,7 +474,7 @@ imap <C-p>          <C-o>:call CocActionAsync('showSignatureHelp')<CR>
 lua <<EOF
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "rust",
+  ensure_installed = {"rust", "c"},
   highlight = {
     enable = true,
   },
