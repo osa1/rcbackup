@@ -132,7 +132,7 @@ setopt auto_cd
 
 unsetopt correct_all
 
-export GHC_BIN=$HOME/ghc_bins/ghc-8.6.5-bin/bin
+export GHC_BIN=$HOME/ghc_bins/ghc-8.10.1-bin/bin
 
 export EDITOR='nvim'
 
@@ -253,3 +253,5 @@ eval "$(direnv hook zsh)"
 # Needed for NIX_BUILD_SHELL=zsh to work
 source $HOME/rcbackup/nix-shell.plugin.zsh
 export ZSH_BUILD_SHELL=zsh
+
+export XDG_CONFIG_HOME=/home/omer/.config
