@@ -1,6 +1,9 @@
 set nocompatible
 let mapleader=','
 
+" Allow Lua highlighting in .vim files
+let g:vimsyn_embed = 'l'
+
 " {{{ settings
 
 set t_Co=256
@@ -368,7 +371,7 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_extensions = ['branch', 'coc']
+let g:airline_extensions=['branch', 'coc', 'breadcrumbs']
 let g:airline_theme='dracula'
 let g:airline_highlighting_cache = 1
 let g:airline_powerline_fonts = 1
@@ -479,5 +482,52 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 }
+
+EOF
+
+lua <<EOF
+
+local parsers = require('nvim-treesitter.parsers')
+local ts_utils = require('nvim-treesitter.ts_utils')
+local indicator_size = 90
+
+function breadcrumbs()
+    if not parsers.has_parser() then
+        return
+    end
+
+    local node = ts_utils.get_node_at_cursor()
+    if not node then
+        return ""
+    end
+
+    local strs = {}
+
+    while node do
+        local node_type = node:type()
+
+        if node_type == "function_item" then
+            local name_field = node:field("name")[1]
+            local start_row, start_col, end_row, end_col = name_field:range()
+
+            local str = vim.api.nvim_buf_get_lines(bufnr, start_row, start_row+1, false)[1]
+            local str = string.sub(str, start_col + 1, end_col)
+
+            table.insert(strs, 1, str)
+        end
+
+        node = node:parent()
+    end
+
+    local text = table.concat(strs, ',')
+
+    local text_len = #text
+
+    if text_len > indicator_size then
+        return '...'..text:sub(text_len - indicator_size, text_len)
+    end
+
+    return text
+end
 
 EOF
