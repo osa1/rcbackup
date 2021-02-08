@@ -195,7 +195,7 @@ nnoremap <Space> O<ESC>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
-nnoremap <leader>t :Tags<CR>
+" nnoremap <leader>t :Tags<CR>
 
 " search word under the cursor ack plugin
 function! Fixc(lang)
@@ -517,13 +517,16 @@ function breadcrumbs()
             local name_field = node:field("name")[1]
             table.insert(strs, 1, get_node_str(name_field))
         elseif node_type == "impl_item" then
-            local trait_field = node:field("trait")[1]
-            local trait_str = get_node_str(trait_field)
-
             local trait_type_field = node:field("type")[1]
             local trait_type_str = get_node_str(trait_type_field)
 
-            table.insert(strs, 1, trait_str .. "<" .. trait_type_str .. ">")
+            local trait_name_field = node:field("trait")[1]
+            if trait_name_field then
+                local trait_name_str = get_node_str(trait_name_field)
+                table.insert(strs, 1, trait_name_str .. "<" .. trait_type_str .. ">")
+            else
+                table.insert(strs, 1, trait_type_str)
+            end
         end
 
         node = node:parent()
@@ -541,3 +544,5 @@ function breadcrumbs()
 end
 
 EOF
+
+nnoremap <leader>t :TSPlaygroundToggle<CR>
