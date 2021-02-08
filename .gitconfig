@@ -6,7 +6,7 @@
 [alias]
     df = diff --color
 [push]
-    default = simple
+    default = current
 [format]
     signoff = false
 [core]
