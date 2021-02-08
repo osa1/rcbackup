@@ -1,48 +1,48 @@
 [submodule ".vim/bundle/gundo"]
-	path = .vim/pack/plugins/start/gundo
+	path = nvim/pack/plugins/start/gundo
 	url = https://github.com/simnalamburt/vim-mundo.git
 [submodule ".vim/bundle/nerdtree"]
-	path = .vim/pack/plugins/start/nerdtree
+	path = nvim/pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/vim-airline"]
-	path = .vim/pack/plugins/start/vim-airline
+	path = nvim/pack/plugins/start/vim-airline
 	url = https://github.com/bling/vim-airline.git
 [submodule ".vim/bundle/vim-surround"]
-	path = .vim/pack/plugins/start/vim-surround
+	path = nvim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/haskell-vim"]
-	path = .vim/pack/plugins/start/haskell-vim
+	path = nvim/pack/plugins/start/haskell-vim
 	url = https://github.com/osa1/haskell-vim.git
 [submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/pack/plugins/start/vim-fugitive
+	path = nvim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/fzf.vim"]
-	path = .vim/pack/plugins/start/fzf.vim
+	path = nvim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/bundle/fzf"]
-	path = .vim/pack/plugins/start/fzf
+	path = nvim/pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.git
 [submodule ".vim/bundle/vim-rhubarb"]
-	path = .vim/pack/plugins/start/vim-rhubarb
+	path = nvim/pack/plugins/start/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
 [submodule ".vim/bundle/rust.vim"]
-	path = .vim/pack/plugins/start/rust.vim
+	path = nvim/pack/plugins/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
 [submodule ".vim/bundle/bufexplorer"]
-	path = .vim/pack/plugins/start/bufexplorer
+	path = nvim/pack/plugins/start/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
 [submodule ".vim/pack/plugins/start/vim-gitgutter"]
-	path = .vim/pack/plugins/start/vim-gitgutter
+	path = nvim/pack/plugins/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 [submodule ".vim/pack/plugins/start/dracula-vim"]
-	path = .vim/pack/plugins/start/dracula-vim
+	path = nvim/pack/plugins/start/dracula-vim
 	url = https://github.com/osa1/dracula-vim.git
 [submodule ".vim/pack/plugins/start/coc.nvim"]
-	path = .vim/pack/plugins/start/coc.nvim
+	path = nvim/pack/plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
 [submodule ".vim/pack/plugins/start/nvim-treesitter"]
-	path = .vim/pack/plugins/start/nvim-treesitter
+	path = nvim/pack/plugins/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule ".vim/pack/plugins/start/vim-toml"]
-	path = .vim/pack/plugins/start/vim-toml
+	path = nvim/pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml.git
