@@ -228,7 +228,7 @@ tinyrc() {
 
 vimrc() {
     # Move to rcbackup first otherwise git/fugitive commands don't work
-    cd $HOME/rcbackup && nvim .vim/init.vim
+    cd $HOME/rcbackup && nvim nvim/init.vim
 }
 
 if [ -f ~/.fzf.zsh ]; then
