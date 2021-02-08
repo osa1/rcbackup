@@ -491,6 +491,13 @@ local parsers = require('nvim-treesitter.parsers')
 local ts_utils = require('nvim-treesitter.ts_utils')
 local indicator_size = 90
 
+local function get_node_str(node)
+    local start_row, start_col, end_row, end_col = node:range()
+
+    local str = vim.api.nvim_buf_get_lines(bufnr, start_row, start_row + 1, false)[1]
+    return string.sub(str, start_col + 1, end_col)
+end
+
 function breadcrumbs()
     if not parsers.has_parser() then
         return
@@ -508,12 +515,15 @@ function breadcrumbs()
 
         if node_type == "function_item" then
             local name_field = node:field("name")[1]
-            local start_row, start_col, end_row, end_col = name_field:range()
+            table.insert(strs, 1, get_node_str(name_field))
+        elseif node_type == "impl_item" then
+            local trait_field = node:field("trait")[1]
+            local trait_str = get_node_str(trait_field)
 
-            local str = vim.api.nvim_buf_get_lines(bufnr, start_row, start_row+1, false)[1]
-            local str = string.sub(str, start_col + 1, end_col)
+            local trait_type_field = node:field("type")[1]
+            local trait_type_str = get_node_str(trait_type_field)
 
-            table.insert(strs, 1, str)
+            table.insert(strs, 1, trait_str .. "<" .. trait_type_str .. ">")
         end
 
         node = node:parent()
