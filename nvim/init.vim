@@ -527,6 +527,9 @@ function breadcrumbs()
             else
                 table.insert(strs, 1, trait_type_str)
             end
+        elseif node_type == "macro_definition" then
+            local name_field = node:field("name")[1]
+            table.insert(strs, 1, get_node_str(name_field) .. "!")
         end
 
         node = node:parent()
