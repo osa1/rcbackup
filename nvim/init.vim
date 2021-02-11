@@ -498,6 +498,15 @@ local function get_node_str(node)
     return string.sub(str, start_col + 1, end_col)
 end
 
+-- Like `get_node_str`, but doesn't show args of generics
+local function drop_generic_type_args(node)
+    if node:type() == "generic_type" then
+        return get_node_str(node:field("type")[1])
+    else
+        return get_node_str(node)
+    end
+end
+
 function breadcrumbs()
     if not parsers.has_parser() then
         return
@@ -518,11 +527,11 @@ function breadcrumbs()
             table.insert(strs, 1, get_node_str(name_field))
         elseif node_type == "impl_item" then
             local trait_type_field = node:field("type")[1]
-            local trait_type_str = get_node_str(trait_type_field)
+            local trait_type_str = drop_generic_type_args(trait_type_field)
 
             local trait_name_field = node:field("trait")[1]
             if trait_name_field then
-                local trait_name_str = get_node_str(trait_name_field)
+                local trait_name_str = drop_generic_type_args(trait_name_field)
                 table.insert(strs, 1, trait_name_str .. "<" .. trait_type_str .. ">")
             else
                 table.insert(strs, 1, trait_type_str)
