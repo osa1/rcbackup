@@ -42,25 +42,6 @@ set wildignore=
     \*.cmi,
     \.cabal-sandbox
     \.stack-work
-let NERDTreeIgnore =
-    \[ '\.swp$',
-    \'\.bak$',
-    \'\.pyc$',
-    \'\.class$',
-    \'\.hi$',
-    \'\.dyn_o$',
-    \'\.dyn_hi$',
-    \'\.cmt$',
-    \'\.cmo$',
-    \'\.cmti$',
-    \'\.cmi$',
-    \'\.cmo$',
-    \'\.dvi$',
-    \'\.cmi$',
-    \'\.cmx$',
-    \'\.o$'
-    \]
-let NERDTreeShowHidden=1
 
 set backspace=indent,eol,start
 
@@ -182,7 +163,7 @@ imap <F1> <Nop>
 
 " plugins
 map <leader>gu :MundoToggle<CR>
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>n :NvimTreeToggle<CR>
 
 " resizing splits
 nnoremap <C-Up> <C-w>+
@@ -377,7 +358,6 @@ let g:airline_highlighting_cache = 1
 let g:airline_powerline_fonts = 1
 
 let g:airline_filetype_overrides = {
-  \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', ''), '' ],
   \ 'list': [ '%y', '%l/%L'],
   \ }
 
@@ -558,3 +538,34 @@ end
 EOF
 
 nnoremap <leader>t :TSPlaygroundToggle<CR>
+
+"""""""""""""""""
+" nvim-tree.lua "
+"""""""""""""""""
+
+let g:nvim_tree_width = 30
+let g:nvim_tree_ignore = [ '.git', 'target' ]
+let g:nvim_tree_follow = 1
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_bindings = {
+    \ 'edit':            ['<CR>', 'o'],
+    \ 'edit_vsplit':     '<C-v>',
+    \ 'edit_split':      '<C-x>',
+    \ 'edit_tab':        '<C-t>',
+    \ 'close_node':      ['<S-CR>', '<BS>'],
+    \ 'toggle_ignored':  'I',
+    \ 'toggle_dotfiles': 'H',
+    \ 'refresh':         'R',
+    \ 'preview':         '<Tab>',
+    \ 'cd':              '<C-]>',
+    \ 'create':          'a',
+    \ 'remove':          'd',
+    \ 'rename':          'r',
+    \ 'cut':             'x',
+    \ 'copy':            'c',
+    \ 'paste':           'p',
+    \ 'prev_git_item':   '[c',
+    \ 'next_git_item':   ']c',
+    \ 'dir_up':          '-',
+    \ 'close':           'q',
+    \ }

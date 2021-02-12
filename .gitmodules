@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/gundo"]
 	path = nvim/pack/plugins/start/gundo
 	url = https://github.com/simnalamburt/vim-mundo.git
-[submodule ".vim/bundle/nerdtree"]
-	path = nvim/pack/plugins/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/vim-airline"]
 	path = nvim/pack/plugins/start/vim-airline
 	url = https://github.com/bling/vim-airline.git
@@ -46,3 +43,6 @@
 [submodule ".vim/pack/plugins/start/vim-toml"]
 	path = nvim/pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml.git
+[submodule "nvim/pack/plugins/start/nvim-tree.lua"]
+	path = nvim/pack/plugins/start/nvim-tree.lua
+	url = https://github.com/kyazdani42/nvim-tree.lua
