@@ -163,7 +163,13 @@ alias gdb="gdb -q"
 alias ls="ls --color"
 alias ll="ls -ltrh"
 
-alias stage1="./x.py build --stage 1 library/std"
+git_root() {
+    git rev-parse --show-toplevel || echo "."
+}
+
+stage1() {
+    (cd `git_root` && ./x.py build --stage 1 library/std)
+}
 
 # edit-command-line, requires zsh-contrib
 autoload edit-command-line
