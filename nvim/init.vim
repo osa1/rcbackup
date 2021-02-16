@@ -547,6 +547,8 @@ let g:nvim_tree_width = 30
 let g:nvim_tree_ignore = [ '.git', 'target' ]
 let g:nvim_tree_follow = 1
 let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_disable_netrw = 0
+let g:nvim_tree_hijack_netrw = 0
 let g:nvim_tree_bindings = {
     \ 'edit':            ['<CR>', 'o'],
     \ 'edit_vsplit':     '<C-v>',
@@ -569,15 +571,3 @@ let g:nvim_tree_bindings = {
     \ 'dir_up':          '-',
     \ 'close':           'q',
     \ }
-
-" Load netrw, otherwise :Gbrowse doesn't work. Normally this would be done
-" automatically or in
-"
-"       https://github.com/tpope/vim-fugitive/blob/d4bcc75ef6449c0e5592513fb1e0a42b017db9ca/autoload/fugitive.vim#L5835-L5837
-"
-" but nvim-tree.lua disables netrw for some reason:
-"
-"       https://github.com/kyazdani42/nvim-tree.lua/blob/c59831a5d11a35594dc4e379a89d276d5ac83cdf/plugin/tree.vim#L6-L7
-if !exists('g:loaded_netrw')
-  runtime! autoload/netrw.vim
-endif
