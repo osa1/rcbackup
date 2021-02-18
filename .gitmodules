@@ -46,3 +46,6 @@
 [submodule "nvim/pack/plugins/start/nvim-tree.lua"]
 	path = nvim/pack/plugins/start/nvim-tree.lua
 	url = https://github.com/kyazdani42/nvim-tree.lua
+[submodule "nvim/pack/plugins/start/nvim-treesitter-playground"]
+	path = nvim/pack/plugins/start/nvim-treesitter-playground
+	url = https://github.com/nvim-treesitter/playground.git
