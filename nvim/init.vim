@@ -445,7 +445,7 @@ nmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
 " List workspace symbols
 nmap <leader>ss     :<C-u>CocList -I symbols<CR>
 nmap <leader>o      :<C-u>CocList outline<CR>
-nmap K              :call CocAction('doHover')<CR>
+nmap K              :call CocActionAsync('doHover')<CR>
 " Trigger auto-completion with C-space.
 imap <expr>         <c-space> coc#refresh()
 imap <C-p>          <C-o>:call CocActionAsync('showSignatureHelp')<CR>
