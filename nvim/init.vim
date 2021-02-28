@@ -549,25 +549,37 @@ let g:nvim_tree_follow = 1
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_disable_netrw = 0
 let g:nvim_tree_hijack_netrw = 0
-let g:nvim_tree_bindings = {
-    \ 'edit':            ['<CR>', 'o'],
-    \ 'edit_vsplit':     '<C-v>',
-    \ 'edit_split':      '<C-x>',
-    \ 'edit_tab':        '<C-t>',
-    \ 'close_node':      ['<S-CR>', '<BS>'],
-    \ 'toggle_ignored':  'I',
-    \ 'toggle_dotfiles': 'H',
-    \ 'refresh':         'R',
-    \ 'preview':         '<Tab>',
-    \ 'cd':              '<C-]>',
-    \ 'create':          'a',
-    \ 'remove':          'd',
-    \ 'rename':          'r',
-    \ 'cut':             'x',
-    \ 'copy':            'c',
-    \ 'paste':           'p',
-    \ 'prev_git_item':   '[c',
-    \ 'next_git_item':   ']c',
-    \ 'dir_up':          '-',
-    \ 'close':           'q',
-    \ }
+
+lua <<EOF
+
+local function get_nvim_tree_cb(cmd)
+    string.format(":lua require('nvim-tree').on_keypress('%s')<CR>", cmd)
+end
+
+vim.g.nvim_tree_bindings = {
+    ["<CR>"]           = get_nvim_tree_cb("edit"),
+    ["o"]              = get_nvim_tree_cb("edit"),
+    ["<C-]>"]          = get_nvim_tree_cb("cd"),
+    ["<C-v>"]          = get_nvim_tree_cb("vsplit"),
+    ["<C-x>"]          = get_nvim_tree_cb("split"),
+    ["<C-t>"]          = get_nvim_tree_cb("tabnew"),
+    ["<BS>"]           = get_nvim_tree_cb("close_node"),
+    ["<S-CR>"]         = get_nvim_tree_cb("close_node"),
+    ["<Tab>"]          = get_nvim_tree_cb("preview"),
+    ["I"]              = get_nvim_tree_cb("toggle_ignored"),
+    ["H"]              = get_nvim_tree_cb("toggle_dotfiles"),
+    ["R"]              = get_nvim_tree_cb("refresh"),
+    ["a"]              = get_nvim_tree_cb("create"),
+    ["d"]              = get_nvim_tree_cb("remove"),
+    ["r"]              = get_nvim_tree_cb("rename"),
+    ["<C-r>"]          = get_nvim_tree_cb("full_rename"),
+    ["x"]              = get_nvim_tree_cb("cut"),
+    ["c"]              = get_nvim_tree_cb("copy"),
+    ["p"]              = get_nvim_tree_cb("paste"),
+    ["[c"]             = get_nvim_tree_cb("prev_git_item"),
+    ["]c"]             = get_nvim_tree_cb("next_git_item"),
+    ["-"]              = get_nvim_tree_cb("dir_up"),
+    ["q"]              = get_nvim_tree_cb("close"),
+}
+
+EOF
