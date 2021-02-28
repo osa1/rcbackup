@@ -549,6 +549,11 @@ let g:nvim_tree_follow = 1
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_disable_netrw = 0
 let g:nvim_tree_hijack_netrw = 0
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 0,
+    \ 'files' : 0,
+    \ }
 
 lua <<EOF
 
