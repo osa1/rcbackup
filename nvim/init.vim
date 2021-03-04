@@ -519,6 +519,14 @@ function breadcrumbs()
         elseif node_type == "macro_definition" then
             local name_field = node:field("name")[1]
             table.insert(strs, 1, get_node_str(name_field) .. "!")
+        elseif node_type == "foreign_mod_item" then
+            local extern = node:child(0)
+            if extern ~= nil then
+                local name = extern:child(1)
+                if name ~= nil then
+                    table.insert(strs, 1, "extern " .. get_node_str(name))
+                end
+            end
         end
 
         node = node:parent()
