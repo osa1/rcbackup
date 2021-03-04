@@ -357,12 +357,44 @@ let g:airline_theme='dracula'
 let g:airline_highlighting_cache = 1
 let g:airline_powerline_fonts = 1
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" Don't need "branch dirty" icon
+let g:airline_symbols.dirty = ''
+
 let g:airline_filetype_overrides = {
   \ 'list': [ '%y', '%l/%L'],
   \ }
 
 " The default with the L/N icon removed: <line number>/<num lines>:<column number>
 let g:airline_section_z = "%p%% %#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%#__restore__#:%v"
+" The encoding section, not needed
+let g:airline_section_y = ""
+" Filetype, not needed
+let g:airline_section_x = ""
+
+let g:airline_mode_map = {
+        \ '__' : '------',
+        \ 'c'  : 'COMMAND',
+        \ 'i'  : 'I',
+        \ 'ic' : 'INSERT COMPL',
+        \ 'ix' : 'INSERT COMPL',
+        \ 'multi' : 'MULTI',
+        \ 'n'  : 'N',
+        \ 'ni' : '(INSERT)',
+        \ 'no' : 'OP PENDING',
+        \ 'R'  : 'R',
+        \ 'Rv' : 'V REPLACE',
+        \ 's'  : 'SELECT',
+        \ 'S'  : 'S-LINE',
+        \ '' : 'S-BLOCK',
+        \ 't'  : 'TERMINAL',
+        \ 'v'  : 'V',
+        \ 'V'  : 'V-LINE',
+        \ '' : 'V-BLOCK',
+        \ }
 
 let g:haskell_enable_quantification = 1
 let g:haskell_enable_typeroles = 1
