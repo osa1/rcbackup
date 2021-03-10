@@ -559,6 +559,9 @@ function breadcrumbs()
                     table.insert(strs, 1, "extern " .. get_node_str(name))
                 end
             end
+        elseif node_type == "enum_item" or node_type == "struct_item" then
+            local name = node:field("name")[1]
+            table.insert(strs, 1, get_node_str(name))
         end
 
         node = node:parent()
