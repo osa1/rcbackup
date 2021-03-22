@@ -534,7 +534,10 @@ function breadcrumbs()
     while node do
         local node_type = node:type()
 
-        if node_type == "function_item" then
+        if node_type == "function_item" or
+                node_type == "trait_item" or
+                node_type == "enum_item" or
+                node_type == "struct_item" then
             local name_field = node:field("name")[1]
             table.insert(strs, 1, get_node_str(name_field))
         elseif node_type == "impl_item" then
@@ -559,9 +562,6 @@ function breadcrumbs()
                     table.insert(strs, 1, "extern " .. get_node_str(name))
                 end
             end
-        elseif node_type == "enum_item" or node_type == "struct_item" then
-            local name = node:field("name")[1]
-            table.insert(strs, 1, get_node_str(name))
         end
 
         node = node:parent()
