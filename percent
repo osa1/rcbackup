@@ -2,16 +2,22 @@
 
 # Example use:
 # ~ $ percent 26,943,452,560 27,089,972,296
-# 0.543804605864
+# +146519736
+# +0.543804605864%
 
 import sys
 
 def remove_commas(str):
     return str.replace(",", "")
 
-before = float(remove_commas(sys.argv[1]))
-after = float(remove_commas(sys.argv[2]))
+before = int(remove_commas(sys.argv[1]))
+after = int(remove_commas(sys.argv[2]))
 diff = after - before
 
-print(diff)
-print((diff / before) * 100.0)
+if diff > 0:
+    sign = "+"
+else:
+    sign = ""
+
+print(sign + str(diff))
+print(sign + str((float(diff) / float(before)) * 100.0) + "%")
