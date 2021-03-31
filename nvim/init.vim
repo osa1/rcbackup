@@ -537,7 +537,8 @@ function breadcrumbs()
         if node_type == "function_item" or
                 node_type == "trait_item" or
                 node_type == "enum_item" or
-                node_type == "struct_item" then
+                node_type == "struct_item" or
+                node_type == "mod_item" then
             local name_field = node:field("name")[1]
             table.insert(strs, 1, get_node_str(name_field))
         elseif node_type == "impl_item" then
