@@ -563,6 +563,9 @@ function breadcrumbs()
                     table.insert(strs, 1, "extern " .. get_node_str(name))
                 end
             end
+        elseif node_type == "macro_invocation" then
+            local id = node:field("macro")[1]
+            table.insert(strs, 1, get_node_str(id) .. "!")
         end
 
         node = node:parent()
