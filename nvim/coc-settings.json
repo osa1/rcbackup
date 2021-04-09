@@ -27,11 +27,5 @@
     "rust-analyzer.assist.importMergeBehaviour": "last",
     "rust-analyzer.diagnostics.enableExperimental": true,
     "rust-analyzer.diagnostics.disabled": ["macro-error"],
-    "languageserver": {
-        "ocaml-lsp": {
-            "command": "opam",
-            "args": ["config", "exec", "--", "ocamllsp"],
-            "filetypes": ["ocaml", "reason"]
-        }
-    }
+    "languageserver": {}
 }
