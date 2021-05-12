@@ -192,7 +192,11 @@ function! Fixc(lang)
     return a:lang
   endif
 endfunction
+
+" NB. The line below needs `let g:gitgutter_map_keys = 0` otherwise gitgutter
+" adds a bunch of bindings starting with `<leader>h`
 nnoremap <leader>h :exec 'Ag -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
+
 nnoremap <leader>j :exec 'Ag ' . shellescape(expand('<cword>'))<CR>
 nnoremap <leader>w :Ag -w --<c-r>=Fixc(&filetype) . ' '<CR>
 nnoremap <leader>e :Ag
@@ -424,6 +428,10 @@ command! -nargs=+ Ag call fzf#vim#ag_raw(<q-args>)
 
 " Disable by default
 let g:gitgutter_enabled = 0
+" Disable default bindings. Default bindings start with <leader>h which
+" conflicts with another binding I have above. Add custom gitgutter bindings
+" below.
+let g:gitgutter_map_keys = 0
 " Disable realtime updates
 autocmd BufWritePost * GitGutter
 " Toggle binding
