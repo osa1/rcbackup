@@ -164,7 +164,11 @@ alias ls="ls --color"
 alias ll="ls -ltrh"
 
 git_root() {
-    git rev-parse --show-toplevel || echo "."
+    (git rev-parse --show-toplevel 2>/dev/null) || echo "."
+}
+
+cdr() {
+    cd `git_root`
 }
 
 stage1() {

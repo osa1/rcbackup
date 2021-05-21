@@ -284,6 +284,7 @@ hi! link VertSplit DraculaComment
 hi! link Function DraculaFg
 hi! link rustModPath DraculaFg
 hi! link rustCommentLineDoc DraculaCommentBold
+hi! CocErrorHighlight cterm=undercurl guisp=#000000
 
 let s:theme = 0
 function! ToggleTheme()
