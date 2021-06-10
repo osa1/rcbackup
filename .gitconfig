@@ -11,24 +11,20 @@
     signoff = false
 [core]
     excludesfile = /home/omer/.gitignore_global
-    pager = less -+F
-    # pager = delta --dark --plus-color="#012800" --minus-color="#340001"
-[url "git://github.com/ghc/packages-"]
-    insteadOf = git://github.com/ghc/packages/
-[url "http://github.com/ghc/packages-"]
-    insteadOf = http://github.com/ghc/packages/
-[url "https://github.com/ghc/packages-"]
-    insteadOf = https://github.com/ghc/packages/
-[url "ssh://git@github.com/ghc/packages-"]
-    insteadOf = ssh://git@github.com/ghc/packages/
-[url "git@github.com:/ghc/packages-"]
-    insteadOf = git@github.com:/ghc/packages/
-[url "ssh://git@git.haskell.org/"]
-    pushInsteadOf = git://git.haskell.org/
+    # pager = less -+F
+    pager = delta --paging=always
+    # pager = env
+[interactive]
+    diffFilter = delta --color-only --paging=always
+    side-by-side = true
+    features = unobstrusive-line-numbers decorations
+[delta]
+    line-numbers = true
 [merge]
     conflictstyle = diff3
 [diff]
     tool = meld
+    colorMoved = default
 [difftool]
     prompt = false
 [difftool "meld"]
