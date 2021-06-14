@@ -11,6 +11,7 @@
     "coc.preferences.hoverTarget": "float",
     "coc.preferences.colorSupport": true,
     "coc.preferences.bracketEnterImprove": true,
+    "coc.preferences.floatActions": false,
     "diagnostic.warningSign": "⚠︎",
     "diagnostic.errorSign": "✗",
     "diagnostic.infoSign": "ℹ︎",
@@ -27,5 +28,11 @@
     "rust-analyzer.assist.importMergeBehaviour": "last",
     "rust-analyzer.diagnostics.enableExperimental": true,
     "rust-analyzer.diagnostics.disabled": ["macro-error"],
-    "languageserver": {}
+    "languageserver": {
+      "ocaml-lsp": {
+        "command": "opam",
+        "args": ["config", "exec", "--", "ocamllsp"],
+        "filetypes": ["ocaml", "reason"]
+      }
+    }
 }
