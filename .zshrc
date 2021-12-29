@@ -122,7 +122,7 @@ prompt_nix_shell() {
 ##########
 
 # C-w deletes these characters
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>│'
 
 # Don't remember what this is
 stty -ixon
