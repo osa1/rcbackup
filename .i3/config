@@ -11,8 +11,7 @@
 
 set $mod Mod4
 
-#exec /usr/bin/setxkbmap -option 'ctrl:nocaps'
-exec --no-startup-id feh --bg-scale /home/omer/Pictures/haskell.png
+exec --no-startup-id redshift -l 39.91987:32.85427
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
