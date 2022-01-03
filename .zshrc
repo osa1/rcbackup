@@ -132,8 +132,6 @@ setopt auto_cd
 
 unsetopt correct_all
 
-export GHC_BIN=$HOME/ghc_bins/ghc-8.10.1-bin/bin
-
 export EDITOR='nvim'
 
 unset SSH_ASKPASS
@@ -242,9 +240,9 @@ vimrc() {
 }
 
 if [ -f ~/.fzf.zsh ]; then
-    # export FZF_DEFAULT_COMMAND='ag -g ""'
+    export FZF_DEFAULT_COMMAND='ag -g ""'
     # export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-    export FZF_DEFAULT_COMMAND="fd --type f"
+    # export FZF_DEFAULT_COMMAND="fd --type f"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     source ~/.fzf.zsh
 fi
@@ -252,7 +250,6 @@ fi
 export ORIG_PATH=\
 $HOME/bin:\
 $HOME/.local/bin:\
-$HOME/.cabal/bin:\
 $HOME/.cargo/bin:\
 $GHC_BIN:\
 $PATH
