@@ -11,9 +11,8 @@
     signoff = false
 [core]
     excludesfile = /home/omer/.gitignore_global
-    # pager = less -+F
-    pager = delta --paging=always
-    # pager = env
+    pager = less -R -+F
+    # pager = delta --paging=always
 [interactive]
     diffFilter = delta --color-only --paging=always
     side-by-side = true
