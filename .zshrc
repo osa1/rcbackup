@@ -78,13 +78,12 @@ autoload -U colors && colors
 setopt promptsubst
 
 local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[red]%}$)"
-PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)$(prompt_nix_shell)${ret_status}%{$reset_color%} '
+PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)${ret_status}%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}\uE0A0 %{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%}%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
-ZSH_THEME_NIX_PROMPT_FG="%{$fg[yellow]%}"
 
 # Outputs current branch info in prompt format
 function git_prompt_info() {
@@ -114,11 +113,6 @@ function parse_git_dirty() {
     fi
 }
 
-prompt_nix_shell() {
-  if [[ -n "$IN_NIX_SHELL" ]]; then
-    echo -n "${ZSH_THEME_NIX_PROMPT_FG}nix "
-  fi
-}
 ##########
 
 # C-w deletes these characters
@@ -255,10 +249,6 @@ $PATH
 export PATH=$ORIG_PATH
 
 eval "$(direnv hook zsh)"
-
-# Needed for NIX_BUILD_SHELL=zsh to work
-source $HOME/rcbackup/nix-shell.plugin.zsh
-export ZSH_BUILD_SHELL=zsh
 
 export XDG_CONFIG_HOME=/home/omer/.config
 
