@@ -156,7 +156,6 @@ bar {
 focus_follows_mouse no
 
 # some program specific settings
-for_window [class="recordMyDesktop"] floating enable
 for_window [title="Application Finder"] floating enable
 for_window [title="Screen Layout Editor"] floating enable
 for_window [title="Volume Control"] floating enable
