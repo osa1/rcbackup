@@ -251,7 +251,6 @@ export ORIG_PATH=\
 $HOME/bin:\
 $HOME/.local/bin:\
 $HOME/.cargo/bin:\
-$GHC_BIN:\
 $PATH
 export PATH=$ORIG_PATH
 
@@ -264,8 +263,6 @@ export ZSH_BUILD_SHELL=zsh
 export XDG_CONFIG_HOME=/home/omer/.config
 
 export RUST_BACKTRACE=1
-# Incremental is badly broken on nightly
-export CARGO_INCREMENTAL=0
 
 # These is needed (in addition to .gitconfig lines) to make delta use pager always
 # See: https://github.com/dandavison/delta/discussions/604#discussioncomment-756079
