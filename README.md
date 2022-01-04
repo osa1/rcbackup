@@ -26,6 +26,7 @@ ranger
 redshift
 transmission
 vlc
+xdotool
 zsh
 ```
 
