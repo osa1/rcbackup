@@ -7,6 +7,7 @@ cheese
 cmake
 curl
 direnv
+feh
 fonts-jetbrains-mono
 git
 gnome-devel
@@ -24,6 +25,7 @@ neovim
 powertop
 ranger
 redshift
+silversearcher-ag
 transmission
 vlc
 xdotool
@@ -76,3 +78,7 @@ bar {
     tray_output eDP-1
 }
 ```
+
+## Change tabs with mouse wheel in Firefox
+
+Search for `switchByScrolling` in `about:config`
