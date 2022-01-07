@@ -20,6 +20,7 @@ sudo apt install \
     libtool-bin \
     locate \
     meld \
+    ncal \
     ncdu \
     neofetch \
     neovim \
