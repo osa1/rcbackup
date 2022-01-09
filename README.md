@@ -10,6 +10,7 @@ sudo apt install \
     direnv \
     feh \
     fonts-jetbrains-mono \
+    gimp \
     git \
     gnome-devel \
     htop \
@@ -24,15 +25,20 @@ sudo apt install \
     ncdu \
     neofetch \
     neovim \
+    nomacs \
     powertop \
     ranger \
     redshift \
     silversearcher-ag \
     transmission \
+    tumbler \
     vlc \
     xdotool \
     zsh
 ```
+
+- tumbler needed for image preview in thunar
+- nomacs is an image viewer
 
 nvim is too old so build from source later:
 
@@ -60,6 +66,7 @@ Install coc.nvim with `yarnpgk install --frozen-lockfile`.
 sudo apt remove \
     tracker-extract \
     tracker-miner-fs
+    imagemagick
 ```
 
 ## i3 tray bar fix
