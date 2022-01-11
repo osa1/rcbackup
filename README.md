@@ -91,6 +91,8 @@ sudo apt remove \
    }
    ```
 
+   Alternatively, set primary output in `arandr`.
+
 2. Remove all plugins from xfce4 panel settings.
 
 3. ```
