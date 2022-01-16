@@ -2,6 +2,7 @@
 
 ```
 sudo apt install \
+    apt-file \
     arandr \
     build-essential \
     cheese \
@@ -39,6 +40,8 @@ sudo apt install \
 
 - tumbler needed for image preview in thunar
 - nomacs is an image viewer
+- apt-file can be used to find packages that provide an executable. E.g. `sudo
+  apt-file update; apt-file search FileCheck`.
 
 nvim is too old so build from source later:
 
