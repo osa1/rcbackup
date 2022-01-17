@@ -1,4 +1,6 @@
 #!/bin/bash
 
+# 260: milliseconds before repeat starts
+# 55: repeats per second
 xset r rate 260 55
 setxkbmap -option ctrl:nocaps
