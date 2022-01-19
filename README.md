@@ -18,6 +18,7 @@ sudo apt install \
     i3 \
     iotop \
     kdiff3 \
+    libgmp-dev \
     libgtk-4-dev \
     libtool-bin \
     locate \
@@ -42,6 +43,7 @@ sudo apt install \
 - nomacs is an image viewer
 - apt-file can be used to find packages that provide an executable. E.g. `sudo
   apt-file update; apt-file search FileCheck`.
+- libgmp-dev is needed for stack/GHC, to build the blog
 
 nvim is too old so build from source later:
 
