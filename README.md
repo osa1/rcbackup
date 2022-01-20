@@ -10,9 +10,11 @@ sudo apt install \
     curl \
     direnv \
     feh \
+    file-roller \
     fonts-jetbrains-mono \
     gimp \
     git \
+    gitg \
     gnome-devel \
     htop \
     i3 \
@@ -32,6 +34,7 @@ sudo apt install \
     ranger \
     redshift \
     silversearcher-ag \
+    tig \
     transmission \
     tumbler \
     vlc \
@@ -44,6 +47,7 @@ sudo apt install \
 - apt-file can be used to find packages that provide an executable. E.g. `sudo
   apt-file update; apt-file search FileCheck`.
 - libgmp-dev is needed for stack/GHC, to build the blog
+- file-roller is GNOME archive manager (GUI for tarballs etc.)
 
 nvim is too old so build from source later:
 
@@ -72,6 +76,21 @@ sudo apt remove \
     tracker-extract \
     tracker-miner-fs
     imagemagick
+```
+
+## cargo installs
+
+Install Rust:
+
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Packages:
+
+```
+cargo install cargo-flamegraph
+cargo install cargo-watch
 ```
 
 ## i3 tray bar fix
