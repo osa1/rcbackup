@@ -10,8 +10,8 @@ import sys
 def remove_commas(str):
     return str.replace(",", "")
 
-before = int(remove_commas(sys.argv[1]))
-after = int(remove_commas(sys.argv[2]))
+before = float(remove_commas(sys.argv[1]))
+after = float(remove_commas(sys.argv[2]))
 diff = after - before
 
 if diff > 0:
