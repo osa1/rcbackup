@@ -91,6 +91,7 @@ Packages:
 ```
 cargo install cargo-flamegraph
 cargo install cargo-watch
+cargo install cargo-bloat
 ```
 
 ## i3 tray bar fix
