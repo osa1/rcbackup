@@ -9,6 +9,7 @@ sudo apt install \
     cmake \
     curl \
     direnv \
+    evince \
     feh \
     file-roller \
     fonts-jetbrains-mono \
