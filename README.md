@@ -90,9 +90,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 Packages:
 
 ```
+cargo install cargo-bloat
+cargo install cargo-expand
 cargo install cargo-flamegraph
 cargo install cargo-watch
-cargo install cargo-bloat
 ```
 
 ## i3 tray bar fix
