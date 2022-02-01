@@ -93,6 +93,7 @@ Packages:
 cargo install cargo-bloat
 cargo install cargo-expand
 cargo install cargo-flamegraph
+cargo install cargo-tarpaulin
 cargo install cargo-watch
 ```
 
