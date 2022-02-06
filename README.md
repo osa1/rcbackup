@@ -17,6 +17,7 @@ sudo apt install \
     git \
     gitg \
     gnome-devel \
+    graphviz \
     htop \
     i3 \
     iotop \
