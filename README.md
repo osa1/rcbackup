@@ -96,6 +96,7 @@ cargo install cargo-expand
 cargo install cargo-flamegraph
 cargo install cargo-tarpaulin
 cargo install cargo-watch
+cargo install sd
 ```
 
 ## i3 tray bar fix
