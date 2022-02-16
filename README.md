@@ -32,6 +32,7 @@ sudo apt install \
     neofetch \
     neovim \
     nomacs \
+    peek \
     powertop \
     ranger \
     redshift \
