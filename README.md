@@ -1,49 +1,4 @@
-## apt installs
-
-```
-sudo apt install \
-    apt-file \
-    arandr \
-    build-essential \
-    cheese \
-    cmake \
-    curl \
-    direnv \
-    evince \
-    feh \
-    file-roller \
-    fonts-jetbrains-mono \
-    gimp \
-    git \
-    gitg \
-    gnome-devel \
-    graphviz \
-    htop \
-    i3 \
-    iotop \
-    kdiff3 \
-    libgmp-dev \
-    libgtk-4-dev \
-    libtool-bin \
-    locate \
-    meld \
-    ncal \
-    ncdu \
-    neofetch \
-    neovim \
-    nomacs \
-    peek \
-    powertop \
-    ranger \
-    redshift \
-    silversearcher-ag \
-    tig \
-    transmission \
-    tumbler \
-    vlc \
-    xdotool \
-    zsh
-```
+Run `./install_ubuntu_packages.sh`.
 
 - tumbler needed for image preview in thunar
 - nomacs is an image viewer
@@ -59,27 +14,9 @@ git clone https://github.com/neovim/neovim
 (cd neovim; make CMAKE_INSTALL_PREFIX=/home/omer CMAKE_BUILD_TYPE=Release install)
 ```
 
-## Garbage required for coc.nvim
-
-```
-sudo apt install \
-    nodejs \
-    yarnpkg \
-    npm
-```
-
 Note: yarn executable is called `yarnpkg`.
 
 Install coc.nvim with `yarnpgk install --frozen-lockfile`.
-
-## apt removes
-
-```
-sudo apt remove \
-    tracker-extract \
-    tracker-miner-fs
-    imagemagick
-```
 
 ## cargo installs
 
