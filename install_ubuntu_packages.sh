@@ -5,6 +5,7 @@ sudo apt install \
     arandr \
     build-essential \
     cheese \
+    cloc \
     cmake \
     curl \
     direnv \
