@@ -250,7 +250,7 @@ export PATH=$ORIG_PATH
 
 eval "$(direnv hook zsh)"
 
-export XDG_CONFIG_HOME=/home/omer/.config
+export XDG_CONFIG_HOME=$HOME/.config
 
 export RUST_BACKTRACE=1
 
