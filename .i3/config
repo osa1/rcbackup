@@ -128,3 +128,4 @@ focus_follows_mouse no
 for_window [title="Application Finder"] floating enable
 for_window [title="Screen Layout Editor"] floating enable
 for_window [title="Volume Control"] floating enable
+for_window [title="Connect IQ Device Simulator"] floating enable

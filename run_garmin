@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+set -x
+
+connectiq &!
+monkeyc -f monkey.jungle -o _compiled.prg -y developer_key -d fr245
+monkeydo _compiled.prg fr245
