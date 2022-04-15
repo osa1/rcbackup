@@ -29,10 +29,17 @@
     "rust-analyzer.diagnostics.enableExperimental": true,
     "rust-analyzer.diagnostics.disabled": ["macro-error"],
     "languageserver": {
-      "ocaml-lsp": {
-        "command": "opam",
-        "args": ["config", "exec", "--", "ocamllsp"],
-        "filetypes": ["ocaml", "reason"]
-      }
+      "dart": {
+        "command": "dart",
+        "args": [
+          "language-server",
+          "--lsp",
+          "--client-id",
+          "vim",
+          "--client-version",
+          "coc.nvim",
+        ],
+        "filetypes": ["dart"],
+      },
     }
 }
