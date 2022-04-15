@@ -311,6 +311,8 @@ au FileType haskell nnoremap <leader>sh :%!stylish-haskell<CR>
 au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell setlocal shiftwidth=2
 au FileType ocaml   setlocal shiftwidth=2
+au FileType proto   setlocal shiftwidth=2
+au FileType dart    setlocal shiftwidth=2
 au FileType ocaml   set formatoptions-=t
 au FileType haskell setlocal textwidth=80
 au FileType rust    nnoremap <leader>f :RustFmt<CR>
