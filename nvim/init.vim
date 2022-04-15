@@ -515,7 +515,7 @@ local indicator_size = 90
 local function get_node_str(node)
     local start_row, start_col, end_row, end_col = node:range()
 
-    local str = vim.api.nvim_buf_get_lines(bufnr, start_row, start_row + 1, false)[1]
+    local str = vim.api.nvim_buf_get_lines(0, start_row, start_row + 1, false)[1]
     return string.sub(str, start_col + 1, end_col)
 end
 
