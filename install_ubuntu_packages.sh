@@ -25,6 +25,7 @@ sudo apt install \
     libgmp-dev \
     libgtk-4-dev \
     libtool-bin \
+    libxft-dev \
     locate \
     meld \
     ncal \
