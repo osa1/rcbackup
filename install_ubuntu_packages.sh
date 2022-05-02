@@ -25,6 +25,9 @@ sudo apt install \
     libgmp-dev \
     libgtk-4-dev \
     libtool-bin \
+    libxcb-render0-dev \
+    libcxb-shape0-dev \
+    libxcb-xfixes0-dev \
     libxft-dev \
     locate \
     meld \
