@@ -33,6 +33,7 @@ sudo apt install \
     neofetch \
     neovim \
     nomacs \
+    pavucontrol \
     peek \
     powertop \
     ranger \
