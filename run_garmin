@@ -4,5 +4,5 @@ set -e
 set -x
 
 connectiq &!
-monkeyc -f monkey.jungle -o _compiled.prg -y developer_key -d fr245
+monkeyc -f monkey.jungle -o _compiled.prg -y $HOME/garmin_developer_key -d fr245 -w
 monkeydo _compiled.prg fr245
