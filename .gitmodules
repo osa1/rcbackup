@@ -49,3 +49,6 @@
 [submodule "nvim/pack/plugins/start/nvim-treesitter-playground"]
 	path = nvim/pack/plugins/start/nvim-treesitter-playground
 	url = https://github.com/nvim-treesitter/playground.git
+[submodule "nvim/pack/plugins/start/vim-commentary"]
+	path = nvim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
