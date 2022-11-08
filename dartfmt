@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for changed in $(git diff --name-only); do
+    (set -x; dart format $changed)
+done
+
+for changed in $(git diff --cached --name-only); do
+    (set -x; dart format $changed)
+done
