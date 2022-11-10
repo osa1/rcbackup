@@ -16,6 +16,8 @@ mouse:
 key_bindings:
   - { key: Up, mods: Shift, action: ScrollLineUp }
   - { key: Down, mods: Shift, action: ScrollLineDown }
+  - { key: H, mods: Shift, mode: Vi, action: FirstOccupied }
+  - { key: L, mods: Shift, mode: Vi, action: Last }
 
 # Dracula theme
 colors:
