@@ -1,3 +1,6 @@
+ " Disable swap file warnings
+set shortmess=A
+
 set nocompatible
 let mapleader=','
 
@@ -88,7 +91,7 @@ set mouse=a
 set ssop-=blank " empty windows
 set ssop-=folds
 
-set showbreak=↪
+set showbreak=↳
 
 set laststatus=2             " always show status line
 
