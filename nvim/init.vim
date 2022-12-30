@@ -604,48 +604,33 @@ nnoremap <leader>t :TSPlaygroundToggle<CR>
 " nvim-tree.lua "
 """""""""""""""""
 
-let g:nvim_tree_width = 30
-let g:nvim_tree_ignore = [ '.git', 'target' ]
-let g:nvim_tree_follow = 1
-let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_disable_netrw = 0
-let g:nvim_tree_hijack_netrw = 0
-let g:nvim_tree_show_icons = {
-    \ 'git': 0,
-    \ 'folders': 0,
-    \ 'files' : 0,
-    \ }
+" let g:nvim_tree_ignore = [ '.git', 'target' ]
 
 lua <<EOF
 
-local function get_nvim_tree_cb(cmd)
-    string.format(":lua require('nvim-tree').on_keypress('%s')<CR>", cmd)
-end
-
-vim.g.nvim_tree_bindings = {
-    ["<CR>"]           = get_nvim_tree_cb("edit"),
-    ["o"]              = get_nvim_tree_cb("edit"),
-    ["<C-]>"]          = get_nvim_tree_cb("cd"),
-    ["<C-v>"]          = get_nvim_tree_cb("vsplit"),
-    ["<C-x>"]          = get_nvim_tree_cb("split"),
-    ["<C-t>"]          = get_nvim_tree_cb("tabnew"),
-    ["<BS>"]           = get_nvim_tree_cb("close_node"),
-    ["<S-CR>"]         = get_nvim_tree_cb("close_node"),
-    ["<Tab>"]          = get_nvim_tree_cb("preview"),
-    ["I"]              = get_nvim_tree_cb("toggle_ignored"),
-    ["H"]              = get_nvim_tree_cb("toggle_dotfiles"),
-    ["R"]              = get_nvim_tree_cb("refresh"),
-    ["a"]              = get_nvim_tree_cb("create"),
-    ["d"]              = get_nvim_tree_cb("remove"),
-    ["r"]              = get_nvim_tree_cb("rename"),
-    ["<C-r>"]          = get_nvim_tree_cb("full_rename"),
-    ["x"]              = get_nvim_tree_cb("cut"),
-    ["c"]              = get_nvim_tree_cb("copy"),
-    ["p"]              = get_nvim_tree_cb("paste"),
-    ["[c"]             = get_nvim_tree_cb("prev_git_item"),
-    ["]c"]             = get_nvim_tree_cb("next_git_item"),
-    ["-"]              = get_nvim_tree_cb("dir_up"),
-    ["q"]              = get_nvim_tree_cb("close"),
-}
+require("nvim-tree").setup({
+    sync_root_with_cwd = true,
+    disable_netrw = true,
+    hijack_netrw = false,
+    view = {
+        width = 30,
+    },
+    renderer = {
+        icons = {
+            show = {
+                file = false,
+                folder = false,
+                folder_arrow = false,
+                git = false,
+            },
+        },
+        indent_markers = {
+            enable = true,
+        },
+    },
+    update_focused_file = {
+        enable = true,
+    },
+})
 
 EOF
