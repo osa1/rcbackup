@@ -3,6 +3,7 @@
 set $mod Mod4
 
 exec --no-startup-id redshift -l 39.91987:32.85427
+exec --no-startup-id feh --bg-scale /home/omer/Downloads/wallpaper.jpg
 
 font pango:Jetbrains Mono Medium 9
 
@@ -132,3 +133,20 @@ for_window [title="Application Finder"] floating enable
 for_window [title="Screen Layout Editor"] floating enable
 for_window [title="Volume Control"] floating enable
 for_window [title="Connect IQ Device Simulator"] floating enable
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+x mode "$mode_system"
