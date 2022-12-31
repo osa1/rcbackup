@@ -28,6 +28,7 @@
     "rust-analyzer.assist.importMergeBehavior": "module",
     "rust-analyzer.diagnostics.enableExperimental": true,
     "rust-analyzer.diagnostics.disabled": ["macro-error"],
+    "inlayHint.enable": false,
     "languageserver": {
       "dart": {
         "command": "dart",
