@@ -117,6 +117,15 @@ set nojoinspaces
 
 " disable netrw
 let loaded_netrwPlugin = 1
+
+" neovide (GUI) settings
+if exists("g:neovide")
+    set guifont=Jetbrains\ Mono:h13
+    let g:neovide_cursor_trail_size = 0.0
+    let g:neovide_cursor_animation_length = 0.0
+    let g:neovide_hide_mouse_when_typing = v:true
+endif
+
 " }}}
 
 " {{{ mappings
