@@ -1,6 +1,6 @@
 #!/bin/bash
 
-changed="$(git diff --name-only | tr '\n' ' ')$(git diff --name-only | tr '\n' ' ')"
+changed="$(git diff --name-only | grep -F ".dart" | tr '\n' ' ')$(git diff --name-only --cached | grep -F ".dart" | tr '\n' ' ')"
 changed_no_ws=$(echo $changed | xargs)
 
 if [ ! -z "$changed_no_ws" ]
