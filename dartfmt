@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for changed in $(git diff --name-only); do
-    (set -x; dart format $changed)
-done
+changed="$(git diff --name-only | tr '\n' ' ')$(git diff --name-only | tr '\n' ' ')"
+changed_no_ws=$(echo $changed | xargs)
 
-for changed in $(git diff --cached --name-only); do
-    (set -x; dart format $changed)
-done
+if [ ! -z "$changed_no_ws" ]
+then
+    set -x; dart format $changed_no_ws
+fi
