@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+
+import sys
+
+FILE=sys.argv[1]
+
+with open(FILE, "rb") as file:
+    bytes = file.read()
+
+print('[', end='')
+
+first = True
+for byte in bytes:
+    if first:
+        first = False
+    else:
+        print(', ', end='')
+    print(byte, end='');
+
+print(']')
