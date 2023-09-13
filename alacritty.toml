@@ -35,6 +35,11 @@ action = "ScrollLineUp"
 key = "Up"
 mods = "Shift"
 
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Control"
+
 [colors.bright]
 black = "#6272a4"
 blue = "#d6acff"

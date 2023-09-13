@@ -172,9 +172,6 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
-# start a new terminal at the same directory
-bindkey -s "^N^N" '/home/omer/bin/st 2>/dev/null 1>/dev/null &!\n'
-
 # Fix ctrl-left/ctrl-right
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
