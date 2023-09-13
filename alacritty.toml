@@ -38,7 +38,7 @@ mods = "Shift"
 [[keyboard.bindings]]
 action = "CreateNewWindow"
 key = "N"
-mods = "Control"
+mods = "Super"
 
 [colors.bright]
 black = "#6272a4"
