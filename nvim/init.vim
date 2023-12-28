@@ -111,6 +111,8 @@ au BufEnter * syntax sync minlines=1000000
 set lazyredraw
 set nojoinspaces
 
+set title
+
 " Disable comment syntax, ft plugins set this anyway, and it's annoying when vim
 " treats chars as comment when typing plain text.
 " set comments="s1:n:>:-"
