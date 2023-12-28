@@ -115,6 +115,14 @@ function parse_git_dirty() {
 
 ##########
 
+function set_terminal_title() {
+  print -Pn "\e]2;%~\a"
+}
+
+precmd_functions+=(set_terminal_title)
+
+##########
+
 # C-w deletes these characters
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>│'
 
@@ -163,10 +171,6 @@ cdr() {
     cd `git_root`
 }
 
-stage1() {
-    (cd `git_root` && ./x.py build --stage 1 library/std)
-}
-
 # edit-command-line, requires zsh-contrib
 autoload edit-command-line
 zle -N edit-command-line
@@ -192,20 +196,8 @@ reset_path() {
     export PATH=$ORIG_PATH
 }
 
-ns() {
-    $* && notify-send "Done: $*"
-}
-
 mc() {
     mkdir $1 && cd $1
-}
-
-x86() {
-    lynx $HOME/Documents/x86/html/index.html -nolog -nomore -nopause -show_cursor -vikeys
-}
-
-cref() {
-    lynx $HOME/Documents/cppref/reference/en/index.html -nolog -nomore -nopause -show_cursor -vikeys
 }
 
 gst() {
@@ -219,10 +211,6 @@ tops() {
 zshrc() {
     # Move to rcbackup first otherwise git/fugitive commands don't work
     cd $HOME/rcbackup && nvim $HOME/rcbackup/.zshrc
-}
-
-tinyrc() {
-    nvim $HOME/.config/tiny/config.yml
 }
 
 vimrc() {
@@ -254,3 +242,5 @@ export RUST_BACKTRACE=1
 # These is needed (in addition to .gitconfig lines) to make delta use pager always
 # See: https://github.com/dandavison/delta/discussions/604#discussioncomment-756079
 export LESS=
+
+alias p3=python3
