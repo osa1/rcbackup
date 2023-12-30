@@ -1,5 +1,5 @@
  " Disable swap file warnings
-set shortmess=A
+set shortmess+=A
 
 set nocompatible
 let mapleader=','
