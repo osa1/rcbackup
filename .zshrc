@@ -5,27 +5,38 @@
 HISTFILE=~/.history-zsh
 HISTSIZE=10000
 SAVEHIST=10000
-# Allow multiple sessions to append to one history
+
+# Allow multiple sessions to append to one history.
 setopt append_history
-# Treat ! special during command expansion
+
+# Treat ! special during command expansion.
 setopt bang_hist
-# Write history in :start:elasped;command format
+
+# Write history in :start:elasped;command format.
 setopt extended_history
-# Expire duplicates first when trimming history
+
+# Expire duplicates first when trimming history.
 setopt hist_expire_dups_first
-# When searching history, don't repeat
+
+# When searching history, don't repeat.
 setopt hist_find_no_dups
-# Ignore duplicate entries of previous events
+
+# Ignore duplicate entries of previous events.
 setopt hist_ignore_dups
-# Prefix command with a space to skip it's recording
+
+# Prefix command with a space to skip it's recording.
 setopt hist_ignore_space
-# Remove extra blanks from each command added to history
+
+# Remove extra blanks from each command added to history.
 setopt hist_reduce_blanks
-# Don't execute immediately upon history expansion
+
+# Don't execute immediately upon history expansion.
 setopt hist_verify
-# Write to history file immediately, not when shell quits
+
+# Write to history file immediately, not when shell quits.
 setopt inc_append_history
-# Share history among all sessions
+
+# Share history among all sessions.
 setopt share_history
 
 # More duplication stuff .. while I don't know what exactly these do, it seems
