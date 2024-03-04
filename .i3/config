@@ -24,10 +24,6 @@ bindsym $mod+Shift+q kill
 # Disable focus wrapping
 focus_wrapping no
 
-# Start dmenu
-# bindsym $mod+d exec dmenu_run
-# bindsym $mod+o exec dmenu_open
-
 # Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
