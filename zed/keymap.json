@@ -1,0 +1,57 @@
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      // Disable ctrl-k *, so plain ctrl-k is fast
+      "ctrl-k u": null,
+      "ctrl-k w": null,
+      "ctrl-k ctrl-d": null,
+      "ctrl-k ctrl-shift-d": null,
+      "ctrl-k ctrl-i": null,
+      "ctrl-k s": null,
+      "ctrl-k ctrl-s": null,
+      "ctrl-k ctrl-t": null,
+      "ctrl-k m": null,
+      "ctrl-k ctrl-left": null,
+      "ctrl-k ctrl-right": null,
+      "ctrl-k ctrl-up": null,
+      "ctrl-k ctrl-down": null,
+      "ctrl-k shift-left": null,
+      "ctrl-k shift-right": null,
+      "ctrl-k shift-up": null,
+      "ctrl-k shift-down": null,
+      "ctrl-k up": null,
+      "ctrl-k down": null,
+      "ctrl-k left": null,
+      "ctrl-k right": null,
+      "ctrl-k enter": null,
+      "ctrl-k ctrl-r": null
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": ["vim::SwitchMode", "Normal"],
+      "k j": ["vim::SwitchMode", "Normal"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "H": "editor::MoveToBeginningOfLine",
+      "L": "editor::MoveToEndOfLine",
+      "ctrl-s": "workspace::Save",
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      ", f r": "editor::FindAllReferences"
+    }
+  },
+  {
+    "context": "Editor && !VimWaiting",
+    "bindings": {
+      "ctrl-x": "editor::ToggleCodeActions"
+    }
+  }
+]
