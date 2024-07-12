@@ -25,7 +25,8 @@
       "ctrl-k left": null,
       "ctrl-k right": null,
       "ctrl-k enter": null,
-      "ctrl-k ctrl-r": null
+      "ctrl-k ctrl-r": null,
+      "ctrl-f": null
     }
   },
   {
@@ -45,7 +46,8 @@
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
       "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
       "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
-      ", f r": "editor::FindAllReferences"
+      ", f r": "editor::FindAllReferences",
+      "ctrl-b": "tab_switcher::Toggle"
     }
   },
   {
