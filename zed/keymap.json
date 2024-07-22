@@ -47,7 +47,8 @@
       "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
       "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
       ", f r": "editor::FindAllReferences",
-      "ctrl-b": "tab_switcher::Toggle"
+      "enter": "editor::NewlineBelow",
+      "space": "editor::NewlineAbove"
     }
   },
   {
