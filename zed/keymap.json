@@ -26,14 +26,17 @@
       "ctrl-k right": null,
       "ctrl-k enter": null,
       "ctrl-k ctrl-r": null,
-      "ctrl-f": null
+      "ctrl-f": null,
+      "ctrl-k r": null,
+      "ctrl-k p": null,
+      "ctrl-k v": null
     }
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
-      "j k": ["vim::SwitchMode", "Normal"],
-      "k j": ["vim::SwitchMode", "Normal"]
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore"
     }
   },
   {
@@ -48,13 +51,28 @@
       "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
       ", f r": "editor::FindAllReferences",
       "enter": "editor::NewlineBelow",
-      "space": "editor::NewlineAbove"
+      "space": "editor::NewlineAbove",
+      ", b": "pane::RevealInProjectPanel"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting",
+    "bindings": {
+      "H": "editor::SelectToBeginningOfLine",
+      "L": "editor::SelectToEndOfLine"
     }
   },
   {
     "context": "Editor && !VimWaiting",
     "bindings": {
       "ctrl-x": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "g t": "editor::GoToTypeDefinition",
+      "ctrl-a": "editor::SelectAll"
     }
   }
 ]
