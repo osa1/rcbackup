@@ -109,6 +109,11 @@
         "warning.border": "#e6e373ff",
         "players": [
           {
+            "cursor": "#F8F8F2",        // white
+            "background": "#ff5555ff",
+            "selection": "#44475A"
+          },
+          {
             "cursor": "#50fa7bff",      // green
             "background": "#50fa7bff",
             "selection": "#50fa7b33"

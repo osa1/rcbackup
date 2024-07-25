@@ -29,7 +29,8 @@
       "ctrl-f": null,
       "ctrl-k r": null,
       "ctrl-k p": null,
-      "ctrl-k v": null
+      "ctrl-k v": null,
+      "ctrl-q": "editor::ShowSignatureHelp"
     }
   },
   {
@@ -40,7 +41,18 @@
     }
   },
   {
-    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": [
+        "vim::PushOperator",
+        {
+          "AddSurrounds": {}
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor && !menu && vim_mode == normal && vim_operator == none && !VimWaiting",
     "bindings": {
       "H": "editor::MoveToBeginningOfLine",
       "L": "editor::MoveToEndOfLine",
@@ -51,8 +63,7 @@
       "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
       ", f r": "editor::FindAllReferences",
       "enter": "editor::NewlineBelow",
-      "space": "editor::NewlineAbove",
-      ", b": "pane::RevealInProjectPanel"
+      "space": "editor::NewlineAbove"
     }
   },
   {
@@ -73,6 +84,14 @@
     "bindings": {
       "g t": "editor::GoToTypeDefinition",
       "ctrl-a": "editor::SelectAll"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      // Disabled: move prev/next position in vim
+      // "ctrl-i": "project_symbols::Toggle" // search project symbols
+      // "ctrl-o": "outline::Toggle" // search buffer symbols
     }
   }
 ]
