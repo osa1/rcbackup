@@ -7,7 +7,7 @@
       "name": "DraculaCustom",
       "appearance": "dark",
       "style": {
-        "border": "#3c324bcc",
+        "border": "#6272a4ff",
         "border.variant": "#C9A8F933",
         "border.focused": "#C9A8F977",
         "border.selected": "#C9A8F9bb",
