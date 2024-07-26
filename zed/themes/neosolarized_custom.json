@@ -63,8 +63,8 @@
         "editor.invisible": "#6c8287ff",
         "editor.wrap_guide": "#657b830d",
         "editor.active_wrap_guide": "#657b831a",
-        "editor.document_highlight.read_background": "#268bd21a",
-        "editor.document_highlight.write_background": "#6c828766",
+        "editor.document_highlight.read_background": "#fdf6e3ff", // "#268bd21a", // same as normal bg until #6843 is fixed
+        "editor.document_highlight.write_background": "#fdf6e3ff", // "#6c828766", // same as normal bg until #6843 is fixed
         "terminal.background": "#fdf6e3ff",
         "terminal.foreground": "#657b83ff",
         "terminal.bright_foreground": "#657b83ff",
