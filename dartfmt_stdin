@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Create a temporary file
+temp_file=$(mktemp)
+
+# Write stdin to the temporary file
+cat - > "$temp_file"
+
+# Format the file using 'dart format'. Drop "Formatted 1 file" line.
+dart format "$temp_file" -o show | head -n -1
+
+# Remove the temporary file
+rm "$temp_file"

@@ -47,6 +47,18 @@
     "show_nav_history_buttons": false
   },
   "inlay_hints": {
-    "enabled": true
+    "enabled": false
+  },
+  "languages": {
+    "Dart": {
+      "formatter": {
+        "external": {
+          "command": "/home/omer/bin/dartfmt_stdin",
+          "arguments": []
+        }
+      },
+      "format_on_save": "off", // dart format can take a long time
+      "wrap_guides": [80]
+    }
   }
 }
