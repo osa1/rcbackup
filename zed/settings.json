@@ -12,6 +12,7 @@
     "metrics": false
   },
   "features": {
+    "inline_completion_provider": "none",
     "copilot": false
   },
   "ui_font_size": 22,
@@ -60,6 +61,12 @@
       "format_on_save": "off", // dart format can take a long time
       "wrap_guides": [80],
       "tab_size": 2
+    }
+  },
+  "format_on_save": "off",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
     }
   }
 }
