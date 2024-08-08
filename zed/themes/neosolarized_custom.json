@@ -197,7 +197,7 @@
           "comment.doc": {
             "color": "#93a1a1ff",
             "font_style": null,
-            "font_weight": null
+            "font_weight": 800
           },
           "constant": {
             "color": "#859900ff",
