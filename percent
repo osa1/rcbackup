@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # Example use:
 # ~ $ percent 26,943,452,560 27,089,972,296
@@ -21,3 +21,4 @@ else:
 
 print(sign + str(diff))
 print(sign + str((float(diff) / float(before)) * 100.0) + "%")
+print("{:.2f}".format(float(after) / float(before)) + "x") 

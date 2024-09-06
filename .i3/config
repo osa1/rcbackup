@@ -144,5 +144,5 @@ bindsym $mod+x mode "$mode_system"
 bindsym $mod+shift+x exec --no-startup-id i3exit suspend, mode "default"
 
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+w exec --no-startup-id rofi -show window
+# bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+o exec --no-startup-id rofi -show filebrowser

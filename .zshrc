@@ -3,8 +3,8 @@
 ####################
 
 HISTFILE=~/.history-zsh
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=10000000
+SAVEHIST=10000000
 
 # Allow multiple sessions to append to one history.
 setopt append_history
@@ -239,6 +239,12 @@ export ORIG_PATH=\
 $HOME/bin:\
 $HOME/.local/bin:\
 $HOME/.cargo/bin:\
+$HOME/Downloads/node-v20.10.0-linux-x64/bin:\
+$HOME/depot_tools:\
+$HOME/dart-sdk-3.3.3/bin:\
+$HOME/dart/flutter/bin:\
+$HOME/.pub-cache/bin:\
+$HOME/binaryen/bin:\
 $PATH
 export PATH=$ORIG_PATH
 
@@ -253,3 +259,5 @@ export RUST_BACKTRACE=1
 export LESS=
 
 alias p3=python3
+alias vim=nvim
+alias vi=nvim

@@ -24,9 +24,9 @@ sudo apt install \
     kdiff3 \
     libgmp-dev \
     libgtk-4-dev \
+    libssl-dev \
     libtool-bin \
     libxcb-render0-dev \
-    libcxb-shape0-dev \
     libxcb-xfixes0-dev \
     libxft-dev \
     locate \
@@ -48,21 +48,3 @@ sudo apt install \
     vlc \
     xdotool \
     zsh
-
-#
-# Install garbage required by coc.nvim
-#
-
-sudo apt install \
-    nodejs \
-    npm \
-    yarnpkg
-
-#
-# Remove garbage
-#
-
-sudo apt remove \
-    tracker-extract \
-    tracker-miner-fs \
-    imagemagick

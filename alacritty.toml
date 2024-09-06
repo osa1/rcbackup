@@ -11,7 +11,7 @@ hide_when_typing = true
 family = "Jetbrains Mono Medium"
 
 [font]
-size = 12
+size = 11
 
 [[keyboard.bindings]]
 action = "Last"
@@ -42,88 +42,88 @@ mods = "Super"
 
 ## Dracula
 
-# [colors.bright]
-# black = "#6272a4"
-# blue = "#d6acff"
-# cyan = "#a4ffff"
-# green = "#69ff94"
-# magenta = "#ff92df"
-# red = "#ff6e6e"
-# white = "#ffffff"
-# yellow = "#ffffa5"
-#
-# [colors.cursor]
-# cursor = "CellForeground"
-# text = "CellBackground"
-#
-# [colors.hints.end]
-# background = "#282a36"
-# foreground = "#f1fa8c"
-#
-# [colors.hints.start]
-# background = "#f1fa8c"
-# foreground = "#282a36"
-#
-# [colors.line_indicator]
-# background = "None"
-# foreground = "None"
-#
-# [colors.normal]
-# black = "#21222c"
-# blue = "#bd93f9"
-# cyan = "#8be9fd"
-# green = "#50fa7b"
-# magenta = "#ff79c6"
-# red = "#ff5555"
-# white = "#f8f8f2"
-# yellow = "#f1fa8c"
-#
-# [colors.primary]
-# background = "#282a36"
-# bright_foreground = "#ffffff"
-# foreground = "#f8f8f2"
-#
-# [colors.search.focused_match]
-# background = "#ffb86c"
-# foreground = "#44475a"
-#
-# [colors.search.matches]
-# background = "#50fa7b"
-# foreground = "#44475a"
-#
-# [colors.selection]
-# background = "#44475a"
-# text = "CellForeground"
-#
-# [colors.vi_mode_cursor]
-# cursor = "CellForeground"
-# text = "CellBackground"
+[colors.bright]
+black = "#6272a4"
+blue = "#d6acff"
+cyan = "#a4ffff"
+green = "#69ff94"
+magenta = "#ff92df"
+red = "#ff6e6e"
+white = "#ffffff"
+yellow = "#ffffa5"
+
+[colors.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[colors.hints.end]
+background = "#282a36"
+foreground = "#f1fa8c"
+
+[colors.hints.start]
+background = "#f1fa8c"
+foreground = "#282a36"
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
+
+[colors.normal]
+black = "#21222c"
+blue = "#bd93f9"
+cyan = "#8be9fd"
+green = "#50fa7b"
+magenta = "#ff79c6"
+red = "#ff5555"
+white = "#f8f8f2"
+yellow = "#f1fa8c"
+
+[colors.primary]
+background = "#282a36"
+bright_foreground = "#ffffff"
+foreground = "#f8f8f2"
+
+[colors.search.focused_match]
+background = "#ffb86c"
+foreground = "#44475a"
+
+[colors.search.matches]
+background = "#50fa7b"
+foreground = "#44475a"
+
+[colors.selection]
+background = "#44475a"
+text = "CellForeground"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
 
 ## Solarized light
 
 # Default colors
-[colors.primary]
-background = '#fdf6e3'
-foreground = '#586e75'
-
-# Normal colors
-[colors.normal]
-black   = '#073642'
-red     = '#dc322f'
-green   = '#859900'
-yellow  = '#b58900'
-blue    = '#268bd2'
-magenta = '#d33682'
-cyan    = '#2aa198'
-white   = '#eee8d5'
-
-# Bright colors
-[colors.bright]
-black   = '#002b36'
-red     = '#cb4b16'
-green   = '#4cad68'
-yellow  = '#657b83'
-blue    = '#839496'
-magenta = '#6c71c4'
-cyan    = '#93a1a1'
-white   = '#fdf6e3'
+# [colors.primary]
+# background = '#fdf6e3'
+# foreground = '#586e75'
+# 
+# # Normal colors
+# [colors.normal]
+# black   = '#073642'
+# red     = '#dc322f'
+# green   = '#859900'
+# yellow  = '#b58900'
+# blue    = '#268bd2'
+# magenta = '#d33682'
+# cyan    = '#2aa198'
+# white   = '#eee8d5'
+# 
+# # Bright colors
+# [colors.bright]
+# black   = '#002b36'
+# red     = '#cb4b16'
+# green   = '#586e75'
+# yellow  = '#657b83'
+# blue    = '#839496'
+# magenta = '#6c71c4'
+# cyan    = '#93a1a1'
+# white   = '#fdf6e3'

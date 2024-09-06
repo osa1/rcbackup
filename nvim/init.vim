@@ -81,8 +81,8 @@ set foldlevel=99
 " set noswapfile
 set backup
 set swapfile
-set backupdir=~/vimtmp//,.
-set directory=~/vimtmp//,.
+set backupdir=$HOME/vimtmp//,.
+set directory=$HOME/vimtmp//,.
 
 " Enable mouse support in console
 set mouse=a
@@ -245,19 +245,11 @@ vmap <C-s> :s/
 vnoremap <C-c> "+y
 inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
 
-nnoremap <leader>d  :Gdiff<CR>
-nnoremap <leader>dc :Git! diff --cached<CR>
-nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gc :Gcommit<CR>
 
 " Experimental - I realized I never use ?, but I use "word search" all the
 " time.
 nnoremap ? /\<\><Left><Left>
-
-" Turkish deasciifier
-nnoremap <leader>da :%!turkish-deasciifier<CR>
-vnoremap <leader>da <esc>:'<,'>:!turkish-deasciifier<CR>
 
 " Show highlighting group used for the thing under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -299,21 +291,21 @@ hi! link Function DraculaFg
 hi! link rustModPath DraculaFg
 hi! link rustCommentLineDoc DraculaCommentBold
 hi! CocErrorHighlight cterm=undercurl guisp=#000000
+" 
+" let s:theme = 0
+" function! ToggleTheme()
+"     if s:theme == 0
+"         set background=light
+"         colorscheme NeoSolarized
+"         let s:theme = 1
+"     else
+"         set background=dark
+"         colorscheme dracula
+"         let s:theme = 0
+"     endif
+" endfunction
 
-let s:theme = 0
-function! ToggleTheme()
-    if s:theme == 0
-        set background=light
-        colorscheme NeoSolarized
-        let s:theme = 1
-    else
-        set background=dark
-        colorscheme dracula
-        let s:theme = 0
-    endif
-endfunction
-
-map <F11> :call ToggleTheme()<CR>
+" map <F11> :call ToggleTheme()<CR>
 
 " {{{ Filetype specific settings
 
@@ -327,6 +319,7 @@ au FileType haskell setlocal shiftwidth=2
 au FileType ocaml   setlocal shiftwidth=2
 au FileType proto   setlocal shiftwidth=2
 au FileType dart    setlocal shiftwidth=2
+au FileType html    setlocal shiftwidth=2
 au FileType ocaml   set formatoptions-=t
 au FileType haskell setlocal textwidth=80
 au FileType rust    nnoremap <leader>f :RustFmt<CR>
@@ -360,6 +353,7 @@ au! BufRead,BufNewFile *.h      set ft=c
 au! BufRead,BufNewFile .envrc   set ft=sh
 au! BufRead,BufNewFile *.mo     set ft=motoko
 au! BufRead,BufNewFile *.gp     set ft=gnuplot
+au! BufRead,BufNewFile *.fir    set ft=fir
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
@@ -374,7 +368,7 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_extensions=['branch', 'coc', 'breadcrumbs']
-let g:airline_theme='dracula'
+" let g:airline_theme='dracula'
 let g:airline_highlighting_cache = 1
 let g:airline_powerline_fonts = 1
 

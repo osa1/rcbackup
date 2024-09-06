@@ -5,6 +5,8 @@
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [alias]
     df = diff --color
+[alias]
+    dft = difftool
 [push]
     default = current
 [format]
@@ -21,14 +23,20 @@
     line-numbers = true
 [merge]
     conflictstyle = diff3
-[diff]
-    tool = meld
-    colorMoved = default
 [difftool]
     prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+[diff]
+    external = difft
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
 [pull]
     rebase = true
 [init]
     defaultBranch = main
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[http]
+    cookiefile = /home/omer/.gitcookies
