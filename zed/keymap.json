@@ -63,7 +63,8 @@
       "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
       ", f r": "editor::FindAllReferences",
       "enter": "editor::NewlineBelow",
-      "space": "editor::NewlineAbove"
+      "space": "editor::NewlineAbove",
+      "Y": ["workspace::SendKeystrokes", "y $"]
     }
   },
   {
@@ -84,6 +85,12 @@
     "bindings": {
       "g t": "editor::GoToTypeDefinition",
       "ctrl-a": "editor::SelectAll"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "*": ["vim::MoveToNext", { "partialWord": true }]
     }
   },
   {
