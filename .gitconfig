@@ -14,15 +14,6 @@
 [core]
     excludesfile = /home/omer/.gitignore_global
     pager = less -R -+F -X
-    # pager = delta --paging=always
-[interactive]
-    diffFilter = delta --color-only --paging=always
-    side-by-side = true
-    features = unobstrusive-line-numbers decorations
-[delta]
-    line-numbers = true
-[merge]
-    conflictstyle = diff3
 [difftool]
     prompt = false
 [diff]
