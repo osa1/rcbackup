@@ -34,6 +34,21 @@
     }
   },
   {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "*": [
+        "vim::MoveToNext",
+        { "regex": false, "caseSensitive": false, "partialWord": true }
+      ],
+      "#": [
+        "vim::MoveToPrev",
+        { "regex": false, "caseSensitive": false, "partialWord": true }
+      ],
+      "/": ["vim::Search", { "regex": false }],
+      "?": ["vim::Search", { "backwards": true, "regex": false }]
+    }
+  },
+  {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       "j k": "vim::NormalBefore",
@@ -85,12 +100,6 @@
     "bindings": {
       "g t": "editor::GoToTypeDefinition",
       "ctrl-a": "editor::SelectAll"
-    }
-  },
-  {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "*": ["vim::MoveToNext", { "partialWord": true }]
     }
   },
   {
