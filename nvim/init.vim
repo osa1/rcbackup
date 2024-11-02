@@ -290,8 +290,7 @@ hi! link VertSplit DraculaComment
 hi! link Function DraculaFg
 hi! link rustModPath DraculaFg
 hi! link rustCommentLineDoc DraculaCommentBold
-hi! CocErrorHighlight cterm=undercurl guisp=#000000
-" 
+
 " let s:theme = 0
 " function! ToggleTheme()
 "     if s:theme == 0
@@ -367,7 +366,7 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_extensions=['branch', 'coc', 'breadcrumbs']
+let g:airline_extensions=['branch', 'breadcrumbs']
 " let g:airline_theme='dracula'
 let g:airline_highlighting_cache = 1
 let g:airline_powerline_fonts = 1
@@ -477,29 +476,6 @@ function! MakeDetails()
 endfunction foo
 
 vnoremap <leader>md :<C-u>call MakeDetails()<CR>
-
-"""""""
-" coc "
-"""""""
-
-" Reminder: run `:CocInstall coc-rust-analyzer`
-
-nmap <leader>fr     <Plug>(coc-references)
-nmap <leader>r      <Plug>(coc-rename)
-nmap <leader>ge     :<C-u>CocList diagnostics<CR>
-nmap <leader>gp     <Plug>(coc-diagnostic-prev)
-nmap <leader>gn     <Plug>(coc-diagnostic-next)
-nmap <leader>gd     <Plug>(coc-definition)
-nmap <leader>gt     <Plug>(coc-type-definition)
-nmap <leader>a      <Plug>(coc-codeaction-selected)<CR>
-
-" List workspace symbols
-nmap <leader>ss     :<C-u>CocList -I symbols<CR>
-nmap <leader>o      :<C-u>CocList outline<CR>
-nmap K              :call CocActionAsync('doHover')<CR>
-" Trigger auto-completion with C-space.
-imap <expr>         <c-space> coc#refresh()
-imap <C-p>          <C-o>:call CocActionAsync('showSignatureHelp')<CR>
 
 """""""""""""""
 " tree-sitter "
