@@ -38,7 +38,7 @@
     "bindings": {
       "*": [
         "vim::MoveToNext",
-        { "regex": false, "caseSensitive": false, "partialWord": true }
+        { "regex": false, "caseSensitive": false, "partialWord": false }
       ],
       "#": [
         "vim::MoveToPrev",
@@ -69,8 +69,8 @@
   {
     "context": "Editor && !menu && vim_mode == normal && vim_operator == none && !VimWaiting",
     "bindings": {
-      "H": "editor::MoveToBeginningOfLine",
-      "L": "editor::MoveToEndOfLine",
+      "shift-h": "editor::MoveToBeginningOfLine",
+      "shift-l": "editor::MoveToEndOfLine",
       "ctrl-s": "workspace::Save",
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
@@ -85,8 +85,8 @@
   {
     "context": "Editor && vim_mode == visual && !VimWaiting",
     "bindings": {
-      "H": "editor::SelectToBeginningOfLine",
-      "L": "editor::SelectToEndOfLine"
+      "shift-h": ["editor::SelectToBeginningOfLine", { "stop_at_soft_wraps": true }],
+      "shift-l": "editor::SelectToEndOfLine"
     }
   },
   {
