@@ -37,7 +37,7 @@
   "auto_signature_help": false,
   "scrollbar": {
     "cursors": false,
-    "diagnostics": false,
+    "diagnostics": "none", // doesn't matter as scrollbar is disabled below
     "selected_symbol": false,
     "git_diff": false, // buggy, diffs are shown always
     "search_results": false,
@@ -73,5 +73,6 @@
   },
   "file_types": {
     "C": ["mc"]
-  }
+  },
+  "lsp_highlight_debounce": 100000000000
 }
