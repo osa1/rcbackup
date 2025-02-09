@@ -247,9 +247,8 @@ inoremap <C-v> <C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>
 
 nnoremap <leader>gw :Gwrite<CR>
 
-" Experimental - I realized I never use ?, but I use "word search" all the
-" time.
-nnoremap ? /\<\><Left><Left>
+" Word search
+nnoremap <leader>/ /\<\><Left><Left>
 
 " Show highlighting group used for the thing under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
