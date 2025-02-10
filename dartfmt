@@ -5,5 +5,5 @@ changed_no_ws=$(echo $changed | xargs)
 
 if [ ! -z "$changed_no_ws" ]
 then
-    set -x; dart format $changed_no_ws
+    set -x; /usr/local/google/home/omersa/dart/sdk_2/sdk/out/ReleaseX64/dart-sdk/bin/dart format $changed_no_ws
 fi

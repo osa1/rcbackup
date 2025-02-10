@@ -3,6 +3,4 @@
 set -e
 set -x
 
-PORT="${1:-8000}"
-
-python3 -m http.server $PORT
+/usr/local/google/home/omersa/.pub-cache/bin/dhttpd '--headers=Cross-Origin-Embedder-Policy=credentialless;Cross-Origin-Opener-Policy=same-origin'

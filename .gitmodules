@@ -55,3 +55,6 @@
 [submodule "nvim/pack/plugins/start/vim-airline-themes"]
 	path = nvim/pack/plugins/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "nvim/pack/plugins/start/indent-blackline.nvim"]
+	path = nvim/pack/plugins/start/indent-blackline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git

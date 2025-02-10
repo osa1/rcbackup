@@ -54,7 +54,7 @@
     "Dart": {
       "formatter": {
         "external": {
-          "command": "/home/omer/bin/dartfmt_stdin",
+          "command": "/usr/local/google/home/omersa/bin/dartfmt_stdin",
           "arguments": []
         }
       },

@@ -278,17 +278,17 @@ autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 autocmd Colorscheme * highlight clear SignColumn
 set termguicolors
 
-" set background=light
-" colorscheme NeoSolarized
+set background=light
+colorscheme NeoSolarized
 
-packadd! dracula-vim
-colorscheme dracula
-hi! link Type DraculaCyan
-hi! link Delimiter DraculaComment
-hi! link VertSplit DraculaComment
-hi! link Function DraculaFg
-hi! link rustModPath DraculaFg
-hi! link rustCommentLineDoc DraculaCommentBold
+" packadd! dracula-vim
+" colorscheme dracula
+" hi! link Type DraculaCyan
+" hi! link Delimiter DraculaComment
+" hi! link VertSplit DraculaComment
+" hi! link Function DraculaFg
+" hi! link rustModPath DraculaFg
+" hi! link rustCommentLineDoc DraculaCommentBold
 
 " let s:theme = 0
 " function! ToggleTheme()
@@ -453,8 +453,8 @@ let g:gitgutter_sign_removed_first_line = '│'
 let g:gitgutter_sign_removed_above_and_below = '│'
 let g:gitgutter_sign_modified_removed = '│'
 
-nmap ]h <Plug>(GitGutterNextHunk)
-nmap [h <Plug>(GitGutterPrevHunk)
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
 
 " }}}
 
@@ -616,5 +616,30 @@ require("nvim-tree").setup({
         git_ignored = false,
     },
 })
+
+-- local highlight = {
+--     "RainbowRed",
+--     "RainbowYellow",
+--     "RainbowBlue",
+--     "RainbowOrange",
+--     "RainbowGreen",
+--     "RainbowViolet",
+--     "RainbowCyan",
+-- }
+-- 
+-- local hooks = require "ibl.hooks"
+-- -- create the highlight groups in the highlight setup hook, so they are reset
+-- -- every time the colorscheme changes
+-- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+--     vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+--     vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+--     vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+--     vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+--     vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+--     vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+--     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+-- end)
+-- 
+-- require("ibl").setup { indent = { highlight = highlight } }
 
 EOF

@@ -2,8 +2,8 @@
 
 set $mod Mod4
 
-exec --no-startup-id redshift -l 56.15674:10.21076
-exec --no-startup-id feh --bg-scale /home/omer/Downloads/wallpaper.jpg
+# exec --no-startup-id redshift -l 39.91987:32.85427
+exec --no-startup-id feh --bg-scale /usr/local/google/home/omersa/Downloads/wallpaper.png
 
 font pango:Jetbrains Mono Medium 9
 
@@ -11,11 +11,11 @@ font pango:Jetbrains Mono Medium 9
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec /home/omer/.cargo/bin/alacritty
+bindsym $mod+Return exec /usr/local/google/home/omersa/.cargo/bin/alacritty
 
 # Sound control
-bindsym $mod+Up exec "amixer -q sset Master,0 5+ unmute"
-bindsym $mod+Down exec "amixer -q sset Master,0 5- unmute"
+bindsym $mod+Up exec "amixer set Master 3%+"
+bindsym $mod+Down exec "amixer set Master 3%-"
 bindsym $mod+p exec pavucontrol
 
 # Kill focused window
@@ -23,6 +23,10 @@ bindsym $mod+Shift+q kill
 
 # Disable focus wrapping
 focus_wrapping no
+
+# Start dmenu
+# bindsym $mod+d exec dmenu_run
+# bindsym $mod+o exec dmenu_open
 
 # Change focus
 bindsym $mod+h focus left
@@ -44,6 +48,9 @@ bindsym $mod+v split v
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
+
+# i3lock
+bindsym $mod+Shift+x exec i3lock --color=000000
 
 # Change container layout (stacked, tabbed, toggle split)
 # Stacking is useless, disabled
@@ -114,8 +121,8 @@ bar {
     status_command i3status
     mode hide
     modifier Mod4
-    font pango:Jetbrains Mono Medium 9
-    tray_output primary
+    font pango:Jetbrains Mono Medium 14
+    # tray_output primary
 }
 
 focus_follows_mouse no
@@ -141,8 +148,10 @@ mode "$mode_system" {
 }
 
 bindsym $mod+x mode "$mode_system"
-bindsym $mod+shift+x exec --no-startup-id i3exit suspend, mode "default"
+# bindsym $mod+shift+x exec --no-startup-id i3exit suspend, mode "default"
 
 bindsym $mod+d exec --no-startup-id rofi -show run
 # bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+o exec --no-startup-id rofi -show filebrowser
+
+for_window [class="^.*"] border pixel 1
