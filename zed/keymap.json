@@ -109,5 +109,12 @@
       // "ctrl-i": "project_symbols::Toggle" // search project symbols
       // "ctrl-o": "outline::Toggle" // search buffer symbols
     }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-f": "project_search::ToggleFilters",
+      "ctrl-alt-r": "search::ToggleReplace"
+    }
   }
 ]
