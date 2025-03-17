@@ -69,7 +69,7 @@
   {
     "context": "Editor && !menu && vim_mode == normal && vim_operator == none && !VimWaiting",
     "bindings": {
-      "shift-h": "editor::MoveToBeginningOfLine",
+      "shift-h": "vim::FirstNonWhitespace",
       "shift-l": "editor::MoveToEndOfLine",
       "ctrl-s": "workspace::Save",
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
@@ -85,7 +85,7 @@
   {
     "context": "Editor && vim_mode == visual && !VimWaiting",
     "bindings": {
-      "shift-h": ["editor::SelectToBeginningOfLine", { "stop_at_soft_wraps": true }],
+      "shift-h": "vim::FirstNonWhitespace",
       "shift-l": "editor::SelectToEndOfLine"
     }
   },
