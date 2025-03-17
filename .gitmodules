@@ -7,9 +7,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = nvim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/haskell-vim"]
-	path = nvim/pack/plugins/start/haskell-vim
-	url = https://github.com/osa1/haskell-vim.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = nvim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -31,9 +28,6 @@
 [submodule ".vim/pack/plugins/start/vim-gitgutter"]
 	path = nvim/pack/plugins/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule ".vim/pack/plugins/start/dracula-vim"]
-	path = nvim/pack/plugins/start/dracula-vim
-	url = https://github.com/osa1/dracula-vim.git
 [submodule ".vim/pack/plugins/start/coc.nvim"]
 	path = nvim/pack/plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
