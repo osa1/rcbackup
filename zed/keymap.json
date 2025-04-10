@@ -38,11 +38,11 @@
     "bindings": {
       "*": [
         "vim::MoveToNext",
-        { "regex": false, "caseSensitive": false, "partialWord": false }
+        { "regex": false, "case_sensitive": false, "partial_word": false }
       ],
       "#": [
-        "vim::MoveToPrev",
-        { "regex": false, "caseSensitive": false, "partialWord": true }
+        "vim::MoveToPrevious",
+        { "regex": false, "case_sensitive": false, "partial_word": true }
       ],
       "/": ["vim::Search", { "regex": false }],
       "?": ["vim::Search", { "backwards": true, "regex": false }]
@@ -58,12 +58,7 @@
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "shift-s": [
-        "vim::PushOperator",
-        {
-          "AddSurrounds": {}
-        }
-      ]
+      "shift-s": "vim::PushAddSurrounds"
     }
   },
   {
@@ -72,10 +67,10 @@
       "shift-h": "vim::FirstNonWhitespace",
       "shift-l": "editor::MoveToEndOfLine",
       "ctrl-s": "workspace::Save",
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
       ", f r": "editor::FindAllReferences",
       "enter": "editor::NewlineBelow",
       "space": "editor::NewlineAbove",
