@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+set -x
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 <path_to_js_file>"
+  exit 1
+fi
+
+JS_FILE="$1"
+
+$HOME/v8/v8/out/x64.release/d8 \
+    $HOME/dart/sdk/sdk/sdk/lib/_internal/js_runtime/lib/preambles/d8.js \
+    $JS_FILE

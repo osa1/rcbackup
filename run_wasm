@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+set -x
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 <path_to_wasm_file>"
+  exit 1
+fi
+
+WASM_FILE="$1"
+
+# Get the directory and base name of the WASM file
+WASM_DIR=$(dirname "$WASM_FILE")
+WASM_BASE=$(basename "$WASM_FILE" .wasm)
+
+# Construct the path to the .mjs file
+MJS_FILE="${WASM_DIR}/${WASM_BASE}.mjs"
+
+$HOME/v8/v8/out/x64.release/d8 \
+    $HOME/dart/sdk/sdk/pkg/dart2wasm/bin/run_wasm.js \
+    -- \
+    "$(readlink -f "$MJS_FILE")" \
+    "$WASM_FILE"
