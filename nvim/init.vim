@@ -278,17 +278,17 @@ autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 autocmd Colorscheme * highlight clear SignColumn
 set termguicolors
 
-set background=light
-colorscheme NeoSolarized
+" set background=light
+" colorscheme NeoSolarized
 
-" packadd! dracula-vim
-" colorscheme dracula
-" hi! link Type DraculaCyan
-" hi! link Delimiter DraculaComment
-" hi! link VertSplit DraculaComment
-" hi! link Function DraculaFg
-" hi! link rustModPath DraculaFg
-" hi! link rustCommentLineDoc DraculaCommentBold
+packadd! dracula-vim
+colorscheme dracula
+hi! link Type DraculaCyan
+hi! link Delimiter DraculaComment
+hi! link VertSplit DraculaComment
+hi! link Function DraculaFg
+hi! link rustModPath DraculaFg
+hi! link SpecialComment DraculaCommentBold
 
 " let s:theme = 0
 " function! ToggleTheme()
