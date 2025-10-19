@@ -588,6 +588,8 @@ nnoremap <leader>t :TSPlaygroundToggle<CR>
 
 lua <<EOF
 
+require("ibl").setup()
+
 require("nvim-tree").setup({
     sync_root_with_cwd = true,
     disable_netrw = true,
