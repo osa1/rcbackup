@@ -1,0 +1,2 @@
+--type-add=fir:*.fir
+--type-add=fir:*.peg

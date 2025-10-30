@@ -192,28 +192,19 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 " nnoremap <leader>t :Tags<CR>
 
-" search word under the cursor ack plugin
-function! Fixc(lang)
-  if a:lang == "c"
-    return "cc"
-  elseif a:lang == "javascript"
-    return "js"
-  elseif a:lang == "cfg"
-    return "toml"
-  elseif a:lang == "d"
-    return "dlang"
-  else
-    return a:lang
-  endif
-endfunction
+" fzf.vim's Rg command treats the function arguments as one command line
+" argument to rg. Override with a version that treats each function argument
+" as a rg cli argument.
+command! -complete=file -bang -nargs=* Rg
+  \ call fzf#vim#grep("rg --with-filename --column --line-number --no-heading --color=always --smart-case ".<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " NB. The line below needs `let g:gitgutter_map_keys = 0` otherwise gitgutter
 " adds a bunch of bindings starting with `<leader>h`
-nnoremap <leader>h :exec 'Ag -w --'.Fixc(&filetype) shellescape(expand('<cword>'))<CR>
+nnoremap <leader>h :exec 'Rg -w -t'.&filetype shellescape(expand('<cword>'))<CR>
 
-nnoremap <leader>j :exec 'Ag ' . shellescape(expand('<cword>'))<CR>
-nnoremap <leader>w :Ag -w --<c-r>=Fixc(&filetype) . ' '<CR>
-nnoremap <leader>e :Ag
+nnoremap <leader>j :exec 'Rg ' . shellescape(expand('<cword>'))<CR>
+nnoremap <leader>w :Rg -w -t<c-r>=&filetype . ' '<CR>
+nnoremap <leader>e :Rg
 
 " disable shift+k
 nnoremap <S-k> <Nop>
@@ -428,8 +419,6 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
-command! -nargs=+ Ag call fzf#vim#ag_raw(<q-args>)
 
 """""""""""""
 " gitgutter "

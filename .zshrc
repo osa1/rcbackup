@@ -251,6 +251,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 export RUST_BACKTRACE=1
 
+export RIPGREP_CONFIG_PATH=$HOME/rcbackup/.ripgreprc
+
 # These is needed (in addition to .gitconfig lines) to make delta use pager always
 # See: https://github.com/dandavison/delta/discussions/604#discussioncomment-756079
 export LESS=
