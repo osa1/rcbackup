@@ -174,6 +174,9 @@ alias gdb="gdb -q"
 alias ls="ls --color"
 alias ll="ls -ltrh"
 
+alias cb="cargo build"
+alias cbr="cargo build --release"
+
 git_root() {
     (git rev-parse --show-toplevel 2>/dev/null) || echo "."
 }
