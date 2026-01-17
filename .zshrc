@@ -161,7 +161,7 @@ alias xclip="xclip -selection c"
 
 alias gd="git diff --color"
 alias gdc="git diff --color --cached"
-alias gc="git clean -xfd && git submodule foreach --recursive git clean -xfd"
+# alias gc="git clean -xfd && git submodule foreach --recursive git clean -xfd"
 alias gb="git checkout"
 alias gcb="git checkout -b"
 alias gpom="git push origin master"
@@ -176,6 +176,8 @@ alias ll="ls -ltrh"
 
 alias cb="cargo build"
 alias cbr="cargo build --release"
+alias cc="cargo check"
+alias cr="cargo run"
 
 git_root() {
     (git rev-parse --show-toplevel 2>/dev/null) || echo "."
