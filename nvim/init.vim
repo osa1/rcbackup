@@ -567,8 +567,6 @@ end
 
 EOF
 
-nnoremap <leader>t :TSPlaygroundToggle<CR>
-
 """""""""""""""""
 " nvim-tree.lua "
 """""""""""""""""

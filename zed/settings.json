@@ -7,8 +7,8 @@
     "diagnostics": false,
     "metrics": false,
   },
-  "features": {
-    "edit_prediction_provider": "none",
+  "edit_predictions": {
+    "provider": "none"
   },
   "buffer_font_family": "IBM Plex Mono",
   // "buffer_font_family": "JetBrains Mono",

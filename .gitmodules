@@ -40,18 +40,16 @@
 [submodule "nvim/pack/plugins/start/nvim-tree.lua"]
 	path = nvim/pack/plugins/start/nvim-tree.lua
 	url = https://github.com/kyazdani42/nvim-tree.lua
-[submodule "nvim/pack/plugins/start/nvim-treesitter-playground"]
-	path = nvim/pack/plugins/start/nvim-treesitter-playground
-	url = https://github.com/nvim-treesitter/playground.git
 [submodule "nvim/pack/plugins/start/vim-commentary"]
 	path = nvim/pack/plugins/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "nvim/pack/plugins/start/vim-airline-themes"]
 	path = nvim/pack/plugins/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "nvim/pack/plugins/start/indent-blackline.nvim"]
-	path = nvim/pack/plugins/start/indent-blackline.nvim
-	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
 [submodule "nvim/pack/plugins/start/indent-blankline.nvim"]
 	path = nvim/pack/plugins/start/indent-blankline.nvim
 	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
+[submodule "nvim/pack/plugins/start/dracula-vim"]
+	path = nvim/pack/plugins/start/dracula-vim
+	url = https://github.com/osa1/dracula-vim.git
+	branch = osa1

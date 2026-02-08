@@ -10,14 +10,13 @@ sudo apt install \
     curl \
     direnv \
     evince \
-    feh \
-    file-roller \
     fonts-jetbrains-mono \
     gimp \
     git \
     gitg \
     gnome-devel \
     graphviz \
+    grimshot \
     htop \
     i3 \
     iotop \
@@ -35,16 +34,22 @@ sudo apt install \
     ncdu \
     neofetch \
     neovim \
-    nomacs \
     pavucontrol \
-    peek \
     powertop \
     ranger \
     redshift \
-    silversearcher-ag \
+    sfwbar \
+    sway \
+    sway-backgrounds \
+    swaybg \
+    swaylock \
     tig \
-    transmission \
-    tumbler \
-    vlc \
+    tofi
+    waybar \
+    wdisplays \
+    wlgreet \
+    wlsunset \
+    wmenu \
+    wofi \
     xdotool \
     zsh

@@ -234,10 +234,12 @@ vimrc() {
     cd $HOME/rcbackup && nvim nvim/init.vim
 }
 
-if [ -f ~/.fzf.zsh ]; then
-    export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    source ~/.fzf.zsh
+if (( $+commands[fzf] )); then
+    if (( $+commands[rg] )); then
+        export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    fi
+    source <(fzf --zsh)
 fi
 
 export ORIG_PATH=\
@@ -266,4 +268,4 @@ alias p3=python3
 alias vim=nvim
 alias vi=nvim
 
-source $HOME/just.zsh
+(( $+commands[just] )) && source <(just --completions zsh)
