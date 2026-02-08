@@ -1,10 +1,20 @@
 # http://i3wm.org/docs/userguide.html
+# https://github.com/swaywm/sway/wiki#configuration
+
+output * scale 1.5
+
+input "type:keyboard" {
+    repeat_delay 260
+    repeat_rate 55
+    xkb_options ctrl:nocaps
+}
 
 set $mod Mod4
 
-exec --no-startup-id redshift -l 56.5:0.1
-exec --no-startup-id feh --bg-scale /home/omer/Pictures/wallpaper.png
-exec --no-startup-id xset s off -dpms
+exec --no-startup-id wlsunset -l 51.5 -L 0.1
+exec --no-startup-id swaybg -i /home/omer/Pictures/wallpaper.png
+
+seat * xcursor_theme Adwaita 36
 
 font pango:Jetbrains Mono Medium 15
 
@@ -25,9 +35,7 @@ bindsym $mod+Shift+q kill
 # Disable focus wrapping
 focus_wrapping no
 
-# Start dmenu
-# bindsym $mod+d exec dmenu_run
-# bindsym $mod+o exec dmenu_open
+focus_follows_mouse no
 
 # Change focus
 bindsym $mod+h focus left
@@ -51,7 +59,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # i3lock
-bindsym $mod+Shift+x exec i3lock --color=000000
+bindsym $mod+Shift+x exec swaylock --color=000000
 
 # Change container layout (stacked, tabbed, toggle split)
 # Stacking is useless, disabled
@@ -97,19 +105,20 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
+
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-        # Back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # Back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -126,8 +135,6 @@ bar {
     tray_output primary
 }
 
-focus_follows_mouse no
-
 for_window [title="Application Finder"] floating enable
 for_window [title="Screen Layout Editor"] floating enable
 for_window [title="Volume Control"] floating enable
@@ -136,12 +143,12 @@ for_window [title="Connect IQ Device Simulator"] floating enable
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id /home/omer/bin/swayexit lock, mode "default"
+    bindsym e exec --no-startup-id /home/omer/bin/swayexit logout, mode "default"
+    bindsym s exec --no-startup-id /home/omer/bin/swayexit suspend, mode "default"
+    bindsym h exec --no-startup-id /home/omer/bin/swayexit hibernate, mode "default"
+    bindsym r exec --no-startup-id /home/omer/bin/swayexit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id /home/omer/bin/swayexit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -149,10 +156,12 @@ mode "$mode_system" {
 }
 
 bindsym $mod+x mode "$mode_system"
-# bindsym $mod+shift+x exec --no-startup-id i3exit suspend, mode "default"
+# bindsym $mod+shift+x exec --no-startup-id /home/omer/bin/swayexit suspend, mode "default"
 
 bindsym $mod+d exec --no-startup-id rofi -show run
 # bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+o exec --no-startup-id rofi -show filebrowser
 
 for_window [class="^.*"] border pixel 1
+
+include /etc/sway/config.d/*

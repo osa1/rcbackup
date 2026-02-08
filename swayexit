@@ -2,16 +2,16 @@
 
 case "$1" in
     lock)
-        i3lock
+        swaylock
         ;;
     logout)
-        i3-msg exit
+        swaymsg exit
         ;;
     suspend)
-        i3lock --color=000000 && systemctl suspend
+        swaylock --color=000000 && systemctl suspend
         ;;
     hibernate)
-        i3lock --color=000000 && systemctl hibernate
+        swaylock --color=000000 && systemctl hibernate
         ;;
     reboot)
         systemctl reboot
