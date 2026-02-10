@@ -201,6 +201,7 @@ bindkey "^[[P" delete-char
 
 # Emacs style C-a, C-e, C-k etc.
 bindkey -e
+
 # Emacs style C-u
 bindkey \^U backward-kill-line
 
@@ -234,14 +235,6 @@ vimrc() {
     cd $HOME/rcbackup && nvim nvim/init.vim
 }
 
-if (( $+commands[fzf] )); then
-    if (( $+commands[rg] )); then
-        export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    fi
-    source <(fzf --zsh)
-fi
-
 export ORIG_PATH=\
 $HOME/bin:\
 $HOME/.local/bin:\
@@ -267,5 +260,13 @@ export LESS=
 alias p3=python3
 alias vim=nvim
 alias vi=nvim
+
+if (( $+commands[fzf] )); then
+    if (( $+commands[rg] )); then
+        export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    fi
+    source <(fzf --zsh)
+fi
 
 (( $+commands[just] )) && source <(just --completions zsh)
