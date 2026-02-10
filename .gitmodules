@@ -31,9 +31,6 @@
 [submodule ".vim/pack/plugins/start/coc.nvim"]
 	path = nvim/pack/plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
-[submodule ".vim/pack/plugins/start/nvim-treesitter"]
-	path = nvim/pack/plugins/start/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule ".vim/pack/plugins/start/vim-toml"]
 	path = nvim/pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml.git

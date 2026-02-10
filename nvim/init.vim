@@ -227,6 +227,7 @@ noremap <F12> <Esc>:syntax sync fromstart<CR>
 " I use this feature more than I use the actual behavior of / in select visual
 " mode, so:
 vnoremap / <Esc>/\%V
+
 " Substutite in selection. C-s in normal mode saves. TODO: Maybe save
 " automatically and do substitution in normal mode too, would be more
 " consistent, less stuff to remember.
@@ -309,10 +310,15 @@ au FileType ocaml   setlocal shiftwidth=2
 au FileType proto   setlocal shiftwidth=2
 au FileType dart    setlocal shiftwidth=2
 au FileType html    setlocal shiftwidth=2
+au FileType cpp     setlocal shiftwidth=2
+au FileType c       setlocal shiftwidth=2
 au FileType ocaml   set formatoptions-=t
 au FileType haskell setlocal textwidth=80
 au FileType rust    nnoremap <leader>f :RustFmt<CR>
 " au FileType rust    set foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*'.&commentstring[0] | execute "normal zM"
+
+" MonkeyC
+au BufRead,BufNewFile *.mc set filetype=c
 
 """"""""""""""""""
 " Quickfix stuff "
@@ -356,7 +362,7 @@ au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_extensions=['branch', 'breadcrumbs']
+let g:airline_extensions=['branch']
 " let g:airline_theme='dracula'
 let g:airline_highlighting_cache = 1
 let g:airline_powerline_fonts = 1
@@ -465,108 +471,6 @@ endfunction foo
 
 vnoremap <leader>md :<C-u>call MakeDetails()<CR>
 
-"""""""""""""""
-" tree-sitter "
-"""""""""""""""
-
-lua <<EOF
-
-require('nvim-treesitter.configs').setup {
-  ensure_installed = {"rust", "c"},
-  highlight = {
-    enable = true,
-  },
-}
-
-EOF
-
-lua <<EOF
-
-local parsers = require('nvim-treesitter.parsers')
-local ts_utils = require('nvim-treesitter.ts_utils')
-local indicator_size = 90
-
-local function get_node_str(node)
-    local start_row, start_col, end_row, end_col = node:range()
-
-    local str = vim.api.nvim_buf_get_lines(0, start_row, start_row + 1, false)[1]
-    return string.sub(str, start_col + 1, end_col)
-end
-
--- Like `get_node_str`, but doesn't show args of generics
-local function drop_generic_type_args(node)
-    if node:type() == "generic_type" then
-        return get_node_str(node:field("type")[1])
-    else
-        return get_node_str(node)
-    end
-end
-
-function breadcrumbs()
-    if not parsers.has_parser() then
-        return
-    end
-
-    local node = ts_utils.get_node_at_cursor()
-    if not node then
-        return ""
-    end
-
-    local strs = {}
-
-    while node do
-        local node_type = node:type()
-
-        if node_type == "function_item" or
-                node_type == "trait_item" or
-                node_type == "enum_item" or
-                node_type == "struct_item" or
-                node_type == "mod_item" then
-            local name_field = node:field("name")[1]
-            table.insert(strs, 1, get_node_str(name_field))
-        elseif node_type == "impl_item" then
-            local trait_type_field = node:field("type")[1]
-            local trait_type_str = drop_generic_type_args(trait_type_field)
-
-            local trait_name_field = node:field("trait")[1]
-            if trait_name_field then
-                local trait_name_str = drop_generic_type_args(trait_name_field)
-                table.insert(strs, 1, trait_name_str .. "<" .. trait_type_str .. ">")
-            else
-                table.insert(strs, 1, trait_type_str)
-            end
-        elseif node_type == "macro_definition" then
-            local name_field = node:field("name")[1]
-            table.insert(strs, 1, get_node_str(name_field) .. "!")
-        elseif node_type == "foreign_mod_item" then
-            local extern = node:child(0)
-            if extern ~= nil then
-                local name = extern:child(1)
-                if name ~= nil then
-                    table.insert(strs, 1, "extern " .. get_node_str(name))
-                end
-            end
-        elseif node_type == "macro_invocation" then
-            local id = node:field("macro")[1]
-            table.insert(strs, 1, get_node_str(id) .. "!")
-        end
-
-        node = node:parent()
-    end
-
-    local text = table.concat(strs, ',')
-
-    local text_len = #text
-
-    if text_len > indicator_size then
-        return '...'..text:sub(text_len - indicator_size, text_len)
-    end
-
-    return text
-end
-
-EOF
-
 """""""""""""""""
 " nvim-tree.lua "
 """""""""""""""""
@@ -605,30 +509,5 @@ require("nvim-tree").setup({
         git_ignored = false,
     },
 })
-
--- local highlight = {
---     "RainbowRed",
---     "RainbowYellow",
---     "RainbowBlue",
---     "RainbowOrange",
---     "RainbowGreen",
---     "RainbowViolet",
---     "RainbowCyan",
--- }
--- 
--- local hooks = require "ibl.hooks"
--- -- create the highlight groups in the highlight setup hook, so they are reset
--- -- every time the colorscheme changes
--- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
---     vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
---     vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
---     vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
---     vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
---     vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
---     vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
---     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
--- end)
--- 
--- require("ibl").setup { indent = { highlight = highlight } }
 
 EOF
