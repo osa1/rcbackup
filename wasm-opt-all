@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-set -x
-
-for f in *.wasm; do
-    LD_LIBRARY_PATH=$HOME/other/binaryen/lib $HOME/other/binaryen/bin/wasm-opt \
-        -all -g --closed-world -tnh -O3 --type-ssa --gufa -O3 --type-merging $f -o "$(basename "$f" .wasm).opt.wasm"
-done
