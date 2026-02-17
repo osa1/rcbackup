@@ -2,7 +2,7 @@
 
 case "$1" in
     lock)
-        swaylock
+        swaylock --color=00000000
         ;;
     logout)
         swaymsg exit
