@@ -1,4 +1,3 @@
 #!/bin/bash
 
-setxkbmap -layout us
-setxkbmap -option ctrl:nocaps
+swaymsg input type:keyboard xkb_layout us

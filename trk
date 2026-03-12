@@ -1,4 +1,3 @@
 #!/bin/bash
 
-setxkbmap -layout tr
-setxkbmap -option ctrl:nocaps
+swaymsg input type:keyboard xkb_layout tr
