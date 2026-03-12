@@ -125,6 +125,7 @@ bindsym $mod+r mode "resize"
 
 default_border pixel 1
 default_floating_border pixel 1
+hide_edge_borders --i3 smart
 
 bar {
     position bottom
@@ -139,6 +140,7 @@ for_window [title="Application Finder"] floating enable
 for_window [title="Screen Layout Editor"] floating enable
 for_window [title="Volume Control"] floating enable
 for_window [title="Connect IQ Device Simulator"] floating enable
+for_window [title="netman"] floating enable
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
