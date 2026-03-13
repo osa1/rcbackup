@@ -239,9 +239,6 @@ export ORIG_PATH=\
 $HOME/bin:\
 $HOME/.local/bin:\
 $HOME/.cargo/bin:\
-$HOME/depot_tools:\
-$HOME/dart-sdk-3.6.1/bin:\
-$HOME/dart/flutter/bin:\
 $PATH
 export PATH=$ORIG_PATH
 

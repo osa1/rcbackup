@@ -308,7 +308,6 @@ au FileType haskell nnoremap <leader>ft :!fast-tags . -R<CR><CR>
 au FileType haskell setlocal shiftwidth=2
 au FileType ocaml   setlocal shiftwidth=2
 au FileType proto   setlocal shiftwidth=2
-au FileType dart    setlocal shiftwidth=2
 au FileType html    setlocal shiftwidth=2
 au FileType cpp     setlocal shiftwidth=2
 au FileType c       setlocal shiftwidth=2

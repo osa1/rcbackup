@@ -1,9 +1,0 @@
-#!/bin/bash
-
-changed="$(git diff --name-only | grep -F ".dart" | tr '\n' ' ')$(git diff --name-only --cached | grep -F ".dart" | tr '\n' ' ')"
-changed_no_ws=$(echo $changed | xargs)
-
-if [ ! -z "$changed_no_ws" ]
-then
-    set -x; $HOME/dart/sdk_2/sdk/out/ReleaseX64/dart-sdk/bin/dart format $changed_no_ws
-fi
