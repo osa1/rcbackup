@@ -21,6 +21,10 @@ font pango:Jetbrains Mono Medium 15
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Brightness control
+# bindsym XF86MonBrightnessUp exec brightnessctl set +1%
+# bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
+
 # Start a terminal
 bindsym $mod+Return exec $HOME/.cargo/bin/alacritty
 
