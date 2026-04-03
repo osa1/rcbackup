@@ -12,7 +12,7 @@ input "type:keyboard" {
 set $mod Mod4
 
 exec --no-startup-id wlsunset -l 51.5 -L 0.1
-exec --no-startup-id swaybg -i /home/omer/Pictures/wallpaper.png
+exec --no-startup-id swaybg -i $HOME/Pictures/wallpaper.png
 
 seat * xcursor_theme Adwaita 36
 
@@ -22,7 +22,7 @@ font pango:Jetbrains Mono Medium 15
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec /home/omer/.cargo/bin/alacritty
+bindsym $mod+Return exec $HOME/.cargo/bin/alacritty
 
 # Sound control
 bindsym $mod+Up exec "amixer -q sset Master,0 500+ unmute"
@@ -145,12 +145,12 @@ for_window [title="netman"] floating enable
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id /home/omer/bin/swayexit lock, mode "default"
-    bindsym e exec --no-startup-id /home/omer/bin/swayexit logout, mode "default"
-    bindsym s exec --no-startup-id /home/omer/bin/swayexit suspend, mode "default"
-    bindsym h exec --no-startup-id /home/omer/bin/swayexit hibernate, mode "default"
-    bindsym r exec --no-startup-id /home/omer/bin/swayexit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id /home/omer/bin/swayexit shutdown, mode "default"
+    bindsym l exec --no-startup-id $HOME/bin/swayexit lock, mode "default"
+    bindsym e exec --no-startup-id $HOME/bin/swayexit logout, mode "default"
+    bindsym s exec --no-startup-id $HOME/bin/swayexit suspend, mode "default"
+    bindsym h exec --no-startup-id $HOME/bin/swayexit hibernate, mode "default"
+    bindsym r exec --no-startup-id $HOME/bin/swayexit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id $HOME/bin/swayexit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -158,7 +158,7 @@ mode "$mode_system" {
 }
 
 bindsym $mod+x mode "$mode_system"
-# bindsym $mod+shift+x exec --no-startup-id /home/omer/bin/swayexit suspend, mode "default"
+# bindsym $mod+shift+x exec --no-startup-id $HOME/bin/swayexit suspend, mode "default"
 
 bindsym $mod+d exec --no-startup-id rofi -show run
 # bindsym $mod+w exec --no-startup-id rofi -show window
