@@ -3,4 +3,4 @@
 set -e
 set -x
 
-/usr/local/google/home/omersa/.pub-cache/bin/dhttpd '--headers=Cross-Origin-Embedder-Policy=credentialless;Cross-Origin-Opener-Policy=same-origin'
+python3 -m http.server 8000
