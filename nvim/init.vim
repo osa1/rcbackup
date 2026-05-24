@@ -348,6 +348,8 @@ au! BufRead,BufNewFile .envrc   set ft=sh
 au! BufRead,BufNewFile *.mo     set ft=motoko
 au! BufRead,BufNewFile *.gp     set ft=gnuplot
 au! BufRead,BufNewFile *.fir    set ft=fir
+au! BufRead,BufNewFile *.ll     set ft=text
+au! BufRead,BufNewFile *.s      set ft=text
 
 au VimEnter * if filereadable('./Session.vim') | so Session.vim | endif
 
@@ -469,6 +471,38 @@ function! MakeDetails()
 endfunction foo
 
 vnoremap <leader>md :<C-u>call MakeDetails()<CR>
+
+" Fold <details>...</details> blocks in markdown, using the <summary> contents
+" as the fold label.
+function! MarkdownDetailsFoldExpr(lnum)
+    let l:line = getline(a:lnum)
+    if l:line =~? '^\s*<details\>'
+        return '>1'
+    elseif l:line =~? '^\s*</details>'
+        return '<1'
+    endif
+    return '='
+endfunction
+
+function! MarkdownDetailsFoldText()
+    let l:summary = ''
+    for l:lnum in range(v:foldstart, v:foldend)
+        let l:m = matchstr(getline(l:lnum), '<summary>\zs.\{-}\ze</summary>')
+        if !empty(l:m)
+            let l:summary = l:m
+            break
+        endif
+    endfor
+    if empty(l:summary)
+        let l:summary = '<details>'
+    endif
+    let l:lines = v:foldend - v:foldstart + 1
+    return '▸ ' . l:summary . ' [' . l:lines . ' lines]'
+endfunction
+
+au FileType markdown setlocal foldmethod=expr
+    \ foldexpr=MarkdownDetailsFoldExpr(v:lnum)
+    \ foldtext=MarkdownDetailsFoldText()
 
 """""""""""""""""
 " nvim-tree.lua "
