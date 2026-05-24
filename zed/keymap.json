@@ -83,6 +83,8 @@
       "space": "editor::NewlineAbove",
       "Y": ["workspace::SendKeystrokes", "y $"],
       "ctrl-t": "project_symbols::Toggle",
+      "ctrl-[": "editor::MoveToStartOfLargerSyntaxNode",
+      "ctrl-]": "editor::MoveToEndOfLargerSyntaxNode",
     },
   },
   {
