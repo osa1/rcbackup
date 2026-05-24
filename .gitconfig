@@ -9,6 +9,8 @@
     dft = difftool
 [alias]
     co = checkout
+[alias]
+    diff-base = !git diff $(git merge-base HEAD origin/HEAD)
 [push]
     default = current
 [format]
