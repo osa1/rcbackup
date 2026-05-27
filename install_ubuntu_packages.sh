@@ -2,54 +2,61 @@
 
 sudo apt install \
     apt-file \
-    arandr \
+    automake \
+    binutils-dev \
+    bison \
+    blueprint-compiler \
     build-essential \
+    ccache \
     cheese \
+    clang \
     cloc \
     cmake \
+    creduce \
     curl \
     direnv \
     evince \
+    firefox \
+    fonts-agave \
+    fonts-firacode \
+    fonts-font-awesome \
+    fonts-hack \
+    fonts-hermit \
+    fonts-inconsolata \
     fonts-jetbrains-mono \
+    fonts-proggy \
+    g++ \
+    gcc \
+    gedit \
+    ghex \
     gimp \
     git \
+    git-lfs \
     gitg \
-    gnome-devel \
     graphviz \
-    grimshot \
+    grim \
+    gzip \
     htop \
-    i3 \
     iotop \
-    kdiff3 \
-    libgmp-dev \
-    libgtk-4-dev \
-    libssl-dev \
-    libtool-bin \
-    libxcb-render0-dev \
-    libxcb-xfixes0-dev \
-    libxft-dev \
     locate \
+    make \
     meld \
+    mold \
     ncal \
     ncdu \
     neofetch \
     neovim \
     pavucontrol \
-    powertop \
     ranger \
-    redshift \
-    sfwbar \
+    rofi \
+    rsync \
+    sccache \
     sway \
-    sway-backgrounds \
-    swaybg \
     swaylock \
     tig \
-    tofi
-    waybar \
-    wdisplays \
-    wlgreet \
+    tree \
+    wget \
+    wl-clipboard \
+    wlr-randr \
     wlsunset \
-    wmenu \
-    wofi \
-    xdotool \
     zsh
