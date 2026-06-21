@@ -50,6 +50,15 @@ setopt extended_glob
 # Per-directory history
 source $HOME/rcbackup/per-directory-history.zsh
 
+function per-directory-history-sync() {
+  [[ $_per_directory_history_is_global == true ]] && return
+  fc -RI $_per_directory_history_directory
+  zle -I
+  echo "Per-directory shell history reloaded"
+}
+
+zle -N per-directory-history-sync
+
 ####################
 # Completion stuff #
 ####################
@@ -204,6 +213,8 @@ bindkey -e
 
 # Emacs style C-u
 bindkey \^U backward-kill-line
+
+bindkey "^O" per-directory-history-sync
 
 add_path() {
     export PATH=$1:$PATH
