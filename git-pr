@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+prog="$(basename "$0")"
+
+die() {
+    echo "$prog: $*" >&2
+    exit 1
+}
+
+usage() {
+    echo "usage: $prog <pr-number>" >&2
+    exit 2
+}
+
+[ $# -eq 1 ] || usage
+
+# Accept "1234", "#1234", or "PR1234".
+num="${1#\#}"
+num="${num#PR}"
+case "$num" in
+    ''|*[!0-9]*) die "invalid PR number: $1" ;;
+esac
+
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 \
+    || die "not a git repository"
+
+is_github() {
+    git remote get-url "$1" 2>/dev/null | grep -qi 'github\.com'
+}
+
+remote=""
+if git remote | grep -qx origin && is_github origin; then
+    remote=origin
+else
+    for r in $(git remote); do
+        if is_github "$r"; then
+            remote="$r"
+            break
+        fi
+    done
+fi
+[ -n "$remote" ] || die "no GitHub remote found"
+
+branch="PR$num"
+
+echo "$prog: fetching pull/$num/head from '$remote'..."
+git fetch --force "$remote" "pull/$num/head" \
+    || die "failed to fetch PR $num from '$remote' (does it exist?)"
+
+# -B creates or resets the branch to the fetched head, even if it already
+# exists or is currently checked out.
+git checkout -B "$branch" FETCH_HEAD
