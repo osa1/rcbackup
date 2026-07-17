@@ -260,7 +260,7 @@ nmap <A-Up> g;
 nmap <A-Down> g,
 
 " Toggle wrap mode
-" nmap <C-r> :set wrap!<CR>
+nmap <C-w><C-w> :set wrap!<CR>
 
 " }}}
 
