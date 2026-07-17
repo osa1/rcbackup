@@ -1,5 +1,5 @@
 [user]
-    email = omeragacan@gmail.com
+    email = omer@osa1.net
     name = Ömer Sinan Ağacan
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
