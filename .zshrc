@@ -47,6 +47,16 @@ HISTCONTROL=erasedups
 
 setopt extended_glob
 
+histignore_cmds=(
+  ls ll cd cdr pwd clear cat fg mv man jobs nvim vim
+  git tig gs gst gd gdc gb gcb gp gpom ga gam gm
+  htop top
+)
+
+HISTORY_IGNORE="(${(j:|:)histignore_cmds})(|[[:space:]]*)"
+
+unset histignore_cmds
+
 # Per-directory history
 source $HOME/rcbackup/per-directory-history.zsh
 
