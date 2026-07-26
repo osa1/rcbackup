@@ -50,7 +50,7 @@ setopt extended_glob
 histignore_cmds=(
   ls ll cd cdr pwd clear cat fg mv man jobs nvim vim
   git tig gs gst gd gdc gb gcb gp gpom ga gam gm
-  htop top
+  htop top zshrc vimrc
 )
 
 HISTORY_IGNORE="(${(j:|:)histignore_cmds})(|[[:space:]]*)"
@@ -59,6 +59,24 @@ unset histignore_cmds
 
 # Per-directory history
 source $HOME/rcbackup/per-directory-history.zsh
+
+functions -c _per-directory-history-addhistory _pdh-addhistory-orig
+
+_per-directory-history-addhistory() {
+  emulate -L zsh
+  local -a words=(${(z)${1%%$'\n'}})
+  local i=1
+  # Skip leading VAR=value assignments and transparent prefixes so that
+  # e.g. `sudo gi tpush` is still rejected on `gi`.
+  while [[ ${words[i]} == *=* || \
+           ${words[i]} == (sudo|env|command|builtin|nohup|nice|time|doas|exec) ]]; do
+    ((i++))
+  done
+  # Expand the word (e.g. $HOME/..., ~/..., $(...)) before checking, so that
+  # commands invoked via a parameter/tilde aren't mistaken for typos.
+  whence -- ${(e)~words[i]} >/dev/null 2>&1 || return 1   # typo -> not saved
+  _pdh-addhistory-orig "$1"                               # real command -> normal path
+}
 
 function per-directory-history-sync() {
   [[ $_per_directory_history_is_global == true ]] && return
