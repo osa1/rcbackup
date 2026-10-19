@@ -50,3 +50,9 @@
 	path = nvim/pack/plugins/start/dracula-vim
 	url = https://github.com/osa1/dracula-vim.git
 	branch = osa1
+[submodule "nvim/pack/plugins/start/vim-ingo-library"]
+	path = nvim/pack/plugins/start/vim-ingo-library
+	url = https://github.com/inkarkat/vim-ingo-library.git
+[submodule "nvim/pack/plugins/start/vim-mark"]
+	path = nvim/pack/plugins/start/vim-mark
+	url = https://github.com/inkarkat/vim-mark.git

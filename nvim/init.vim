@@ -544,3 +544,13 @@ require("nvim-tree").setup({
 })
 
 EOF
+
+""""""""""""
+" vim-mark "
+""""""""""""
+
+let g:mw_no_mappings = 1
+nmap <leader>m <Plug>MarkSet
+nmap <leader>c <Plug>MarkAllClear
+nmap <leader>* <Plug>MarkSearchCurrentNext
+nmap <leader>? <Plug>MarkSearchCurrentPrev
