@@ -126,7 +126,7 @@ autoload -U colors && colors
 setopt promptsubst
 
 local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[red]%}$)"
-PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)${ret_status}%{$reset_color%} '
+PROMPT='${_llvm_cmake_line}%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)${ret_status}%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}\uE0A0 %{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%}%{$reset_color%} "
@@ -163,6 +163,35 @@ function parse_git_dirty() {
 
 ##########
 
+# Show CMake config of LLVM checkouts under ~/llvm above the prompt. Only
+# stats build/CMakeCache.txt on each prompt, re-parses when it changes.
+zmodload -F zsh/stat b:zstat
+
+typeset -g _llvm_cmake_line=''
+typeset -gA _llvm_cmake_mtimes _llvm_cmake_lines
+
+function _llvm_cmake_precmd() {
+  _llvm_cmake_line=''
+  [[ $PWD == $HOME/llvm/* ]] || return
+  local cache=$HOME/llvm/${${PWD#$HOME/llvm/}%%/*}/build/CMakeCache.txt
+  local -a mtime
+  zstat -A mtime +mtime -- $cache 2>/dev/null || return
+
+  # Re-parse only when the cache file changed.
+  if [[ ${_llvm_cmake_mtimes[$cache]} != $mtime[1] ]]; then
+    local -a lines=(${(M)${(f)"$(<$cache)"}:#(LLVM_ENABLE_PROJECTS|LLVM_TARGETS_TO_BUILD|CMAKE_BUILD_TYPE|BUILD_SHARED_LIBS):*})
+    local -A v
+    local l
+    for l in $lines; do v[${l%%:*}]=${l#*=}; done
+    _llvm_cmake_lines[$cache]="${v[CMAKE_BUILD_TYPE]:-?} | shared=${v[BUILD_SHARED_LIBS]:-OFF} | targets=${v[LLVM_TARGETS_TO_BUILD]:-?} | projects=${v[LLVM_ENABLE_PROJECTS]:--}"
+    _llvm_cmake_mtimes[$cache]=$mtime[1]
+  fi
+  _llvm_cmake_line="%{$fg[yellow]%}${_llvm_cmake_lines[$cache]//\%/%%}%{$reset_color%}"$'\n'
+}
+
+precmd_functions+=(_llvm_cmake_precmd)
+
+##########
 function set_terminal_title() {
   print -Pn "\e]2;%~\a"
 }
