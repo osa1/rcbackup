@@ -2,10 +2,12 @@
 """Fetch a GitHub pull request and check it out as branch PR<number>.
 
 With -u, the PR's changes are additionally left as unstaged changes on top of
-its merge base with main, so editors show them as local modifications.
+its merge base with the PR's target branch (main, or another PR's branch for
+stacked PRs), so editors show them as local modifications.
 """
 
 import argparse
+import json
 import os
 import re
 import subprocess
@@ -55,7 +57,8 @@ def parse_args():
         "-u",
         "--unstaged",
         action="store_true",
-        help="leave the PR's changes unstaged on top of its merge base with main",
+        help="leave the PR's changes unstaged on top of its merge base with "
+        "the PR's target branch",
     )
     parser.add_argument("pr", help='PR number: "1234", "#1234", or "PR1234"')
     return parser.parse_args()
@@ -81,6 +84,35 @@ def find_github_remote():
         if is_github(remote):
             return remote
     die("no GitHub remote found")
+
+
+def github_repo(remote):
+    """Return "owner/repo" for a GitHub remote, or None if the URL isn't recognized."""
+    url = git_output("remote", "get-url", remote).strip()
+    match = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?/?$", url, re.IGNORECASE)
+    return f"{match[1]}/{match[2]}" if match else None
+
+
+def pr_base_branch(repo, num):
+    """Return the PR's target branch, or None on failure.
+
+    Uses GitHub's REST API, which works without authentication (rate limited
+    to 60 requests per hour per IP address).
+    """
+    print(f"{PROG}: looking up the target branch of PR {num} on GitHub...", flush=True)
+    url = f"https://api.github.com/repos/{repo}/pulls/{num}"
+    result = subprocess.run(
+        ["curl", "--silent", "--show-error", "--fail", "--location",
+         "--header", "Accept: application/vnd.github+json", url],
+        stdout=subprocess.PIPE,
+        text=True,
+    )
+    if result.returncode != 0:
+        return None
+    try:
+        return json.loads(result.stdout)["base"]["ref"]
+    except (ValueError, KeyError, TypeError):
+        return None
 
 
 def has_local_changes():
@@ -118,8 +150,13 @@ def main():
     # Do all fetching before touching the working tree.
     merge_base = None
     if args.unstaged:
-        base_branch = "main"
-        base = fetch(remote, base_branch)
+        repo = github_repo(remote)
+        if repo is None:
+            die(f"can't tell the GitHub repository from the URL of '{remote}'")
+        base_branch = pr_base_branch(repo, num)
+        if base_branch is None:
+            die(f"failed to look up the target branch of PR {num} on GitHub")
+        base = fetch(remote, f"refs/heads/{base_branch}")
         if base is None:
             die(f"failed to fetch {base_branch} from '{remote}'")
         merge_base = git_output("merge-base", head, base).strip()
