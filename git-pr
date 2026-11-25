@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
-"""Fetch a GitHub pull request and check it out as branch PR<number>."""
+"""Fetch a GitHub pull request and check it out as branch PR<number>.
 
+With -u, the PR's changes are additionally left as unstaged changes on top of
+its merge base with main, so editors show them as local modifications.
+"""
+
+import argparse
 import os
 import re
 import subprocess
@@ -14,14 +19,16 @@ def die(msg):
     sys.exit(1)
 
 
-def usage():
-    print(f"usage: {PROG} <pr-number>", file=sys.stderr)
-    sys.exit(2)
-
-
 def git(*args):
     """Run git with output going to the terminal; return the exit code."""
     return subprocess.run(["git", *args]).returncode
+
+
+def git_or_exit(*args):
+    """Run git with output going to the terminal; exit with its code on failure."""
+    returncode = git(*args)
+    if returncode != 0:
+        sys.exit(returncode)
 
 
 def git_ok(*args):
@@ -38,6 +45,20 @@ def git_output(*args):
         ["git", *args], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True
     )
     return result.stdout
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Fetch a GitHub pull request and check it out as branch PR<number>."
+    )
+    parser.add_argument(
+        "-u",
+        "--unstaged",
+        action="store_true",
+        help="leave the PR's changes unstaged on top of its merge base with main",
+    )
+    parser.add_argument("pr", help='PR number: "1234", "#1234", or "PR1234"')
+    return parser.parse_args()
 
 
 def parse_pr_number(arg):
@@ -62,24 +83,64 @@ def find_github_remote():
     die("no GitHub remote found")
 
 
+def has_local_changes():
+    """Whether the index or tracked files differ from HEAD (ignores untracked files)."""
+    return git_output("status", "--porcelain", "--untracked-files=no") != ""
+
+
+def fetch(remote, ref):
+    """Fetch ref from remote; return the fetched commit, or None on failure."""
+    print(f"{PROG}: fetching {ref} from '{remote}'...", flush=True)
+    if git("fetch", "--force", remote, ref) != 0:
+        return None
+    return git_output("rev-parse", "FETCH_HEAD").strip()
+
+
 def main():
-    if len(sys.argv) != 2:
-        usage()
-    num = parse_pr_number(sys.argv[1])
+    args = parse_args()
+    num = parse_pr_number(args.pr)
 
     if not git_ok("rev-parse", "--is-inside-work-tree"):
         die("not a git repository")
 
+    # Local changes would be carried over by the checkout and become
+    # indistinguishable from the PR's changes after the reset.
+    if args.unstaged and has_local_changes():
+        die("-u needs a clean working tree; commit, stash, or discard your changes first")
+
     remote = find_github_remote()
     branch = f"PR{num}"
 
-    print(f"{PROG}: fetching pull/{num}/head from '{remote}'...", flush=True)
-    if git("fetch", "--force", remote, f"pull/{num}/head") != 0:
+    head = fetch(remote, f"pull/{num}/head")
+    if head is None:
         die(f"failed to fetch PR {num} from '{remote}' (does it exist?)")
+
+    # Do all fetching before touching the working tree.
+    merge_base = None
+    if args.unstaged:
+        base_branch = "main"
+        base = fetch(remote, base_branch)
+        if base is None:
+            die(f"failed to fetch {base_branch} from '{remote}'")
+        merge_base = git_output("merge-base", head, base).strip()
+        if not merge_base:
+            die(f"PR {num} has no common history with {base_branch}")
 
     # -B creates or resets the branch to the fetched head, even if it already
     # exists or is currently checked out.
-    sys.exit(git("checkout", "-B", branch, "FETCH_HEAD"))
+    git_or_exit("checkout", "-B", branch, head)
+
+    if args.unstaged:
+        # Detach first so that the branch keeps pointing at the PR head. Then
+        # move HEAD and the index to the merge base, keeping the working tree.
+        # -N marks the files the PR adds as intent-to-add, so they show up in
+        # `git diff` instead of as untracked files.
+        git_or_exit("checkout", "--quiet", "--detach")
+        git_or_exit("reset", "--quiet", "-N", merge_base)
+        print(
+            f"{PROG}: PR changes are unstaged on top of the merge base with "
+            f"{base_branch}; '{branch}' still points to the PR head"
+        )
 
 
 if __name__ == "__main__":
