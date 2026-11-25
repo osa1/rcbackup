@@ -1,54 +1,89 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
+"""Fetch a GitHub pull request and check it out as branch PR<number>."""
 
-set -euo pipefail
+import os
+import re
+import subprocess
+import sys
 
-prog="$(basename "$0")"
+PROG = os.path.basename(sys.argv[0])
 
-die() {
-    echo "$prog: $*" >&2
-    exit 1
-}
 
-usage() {
-    echo "usage: $prog <pr-number>" >&2
-    exit 2
-}
+def die(msg):
+    print(f"{PROG}: {msg}", file=sys.stderr)
+    sys.exit(1)
 
-[ $# -eq 1 ] || usage
 
-# Accept "1234", "#1234", or "PR1234".
-num="${1#\#}"
-num="${num#PR}"
-case "$num" in
-    ''|*[!0-9]*) die "invalid PR number: $1" ;;
-esac
+def usage():
+    print(f"usage: {PROG} <pr-number>", file=sys.stderr)
+    sys.exit(2)
 
-git rev-parse --is-inside-work-tree >/dev/null 2>&1 \
-    || die "not a git repository"
 
-is_github() {
-    git remote get-url "$1" 2>/dev/null | grep -qi 'github\.com'
-}
+def git(*args):
+    """Run git with output going to the terminal; return the exit code."""
+    return subprocess.run(["git", *args]).returncode
 
-remote=""
-if git remote | grep -qx origin && is_github origin; then
-    remote=origin
-else
-    for r in $(git remote); do
-        if is_github "$r"; then
-            remote="$r"
-            break
-        fi
-    done
-fi
-[ -n "$remote" ] || die "no GitHub remote found"
 
-branch="PR$num"
+def git_ok(*args):
+    """Run git silently; return whether it succeeded."""
+    result = subprocess.run(
+        ["git", *args], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
+    return result.returncode == 0
 
-echo "$prog: fetching pull/$num/head from '$remote'..."
-git fetch --force "$remote" "pull/$num/head" \
-    || die "failed to fetch PR $num from '$remote' (does it exist?)"
 
-# -B creates or resets the branch to the fetched head, even if it already
-# exists or is currently checked out.
-git checkout -B "$branch" FETCH_HEAD
+def git_output(*args):
+    """Run git and return its stdout (empty if it fails); stderr is discarded."""
+    result = subprocess.run(
+        ["git", *args], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True
+    )
+    return result.stdout
+
+
+def parse_pr_number(arg):
+    """Accept "1234", "#1234", or "PR1234"."""
+    num = arg.removeprefix("#").removeprefix("PR")
+    if not re.fullmatch(r"[0-9]+", num):
+        die(f"invalid PR number: {arg}")
+    return num
+
+
+def is_github(remote):
+    return "github.com" in git_output("remote", "get-url", remote).lower()
+
+
+def find_github_remote():
+    remotes = git_output("remote").split()
+    # Prefer origin, then the other remotes in git's order.
+    remotes.sort(key=lambda r: r != "origin")
+    for remote in remotes:
+        if is_github(remote):
+            return remote
+    die("no GitHub remote found")
+
+
+def main():
+    if len(sys.argv) != 2:
+        usage()
+    num = parse_pr_number(sys.argv[1])
+
+    if not git_ok("rev-parse", "--is-inside-work-tree"):
+        die("not a git repository")
+
+    remote = find_github_remote()
+    branch = f"PR{num}"
+
+    print(f"{PROG}: fetching pull/{num}/head from '{remote}'...", flush=True)
+    if git("fetch", "--force", remote, f"pull/{num}/head") != 0:
+        die(f"failed to fetch PR {num} from '{remote}' (does it exist?)")
+
+    # -B creates or resets the branch to the fetched head, even if it already
+    # exists or is currently checked out.
+    sys.exit(git("checkout", "-B", branch, "FETCH_HEAD"))
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        sys.exit(130)
