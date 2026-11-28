@@ -454,23 +454,29 @@ nmap [c <Plug>(GitGutterPrevHunk)
 
 " }}}
 
-function! MakeDetails()
-    let l:startline = line("'<")
-    let l:endline = line("'>")
+" Normal mode: insert an empty <details> block below the cursor, with the cursor
+" left inside <summary></summary>.
+" Visual mode: wrap the selected lines in <details>, using them as the
+" <summary> (trimmed and joined into a single line), with the cursor left in
+" the (empty) details body.
+function! MakeDetails(visual) abort
+    if a:visual
+        let l:startline = line("'<")
+        let l:endline = line("'>")
+        let l:lines = map(getline(l:startline, l:endline), 'trim(v:val)')
+        let l:summary = join(filter(l:lines, 'v:val !=# ""'), ' ')
+        call deletebufline('%', l:startline, l:endline)
+        call append(l:startline - 1, ['<details>', '', '<summary>' . l:summary . '</summary>', '', '', '', '</details>'])
+        call cursor(l:startline + 4, 1)
+    else
+        let l:lnum = line('.')
+        call append(l:lnum, ['<details>', '', '<summary></summary>', '', '', '', '</details>'])
+        call cursor(l:lnum + 3, len('<summary>') + 1)
+    endif
+endfunction
 
-    call inputsave()
-    let l:summary = input('Summary: ')
-    call inputrestore()
-
-    call append(l:endline, "")
-    call append(l:endline+1, "</details>")
-    call append(l:startline - 1, "<details>")
-    call append(l:startline, "")
-    call append(l:startline + 1, "<summary>" . l:summary . "</summary>")
-    call append(l:startline + 2, "")
-endfunction foo
-
-vnoremap <leader>md :<C-u>call MakeDetails()<CR>
+nnoremap <leader>md :<C-u>call MakeDetails(0)<CR>
+vnoremap <leader>md :<C-u>call MakeDetails(1)<CR>
 
 " Fold <details>...</details> blocks in markdown, using the <summary> contents
 " as the fold label.
